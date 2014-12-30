@@ -5,6 +5,9 @@ host: 0.0.0.0
 safe: false
 baseurl: /documentation
 
+sass:
+    style: :compressed
+
 
 ### site serving configuration ###
 exclude: [CNAME, README.md, .gitignore]
