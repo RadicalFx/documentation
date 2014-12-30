@@ -52,6 +52,10 @@ body {
   border-color: #fab125;
 }
 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+  background-color: #fab125;
+}
+
 .logo {
   text-align: center;
   font-size:40px;

@@ -35,13 +35,13 @@
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="{{ site.baseurl }}/">Home</a></li>
-                    <li class=""><a href="{{ site.baseurl }}/desktop/">Desktop</a></li>
-                    <li class=""><a href="{{ site.baseurl }}/universal/">Universal Apps</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav pull-right">
+                  <li class="{% if page.url contains '/desktop/' %}active{% endif %}"><a href="{{ site.baseurl }}/desktop/">Desktop</a></li>
+                  <li class="{% if page.url contains '/universal/' %}active{% endif %}"><a href="{{ site.baseurl }}/universal/">Universal Apps</a></li>
                   {% if site.github != '' %}
-                  <li class=""><a href="https://github.com/{{ site.github }}">Github</a></li>
+                  <li class=""><a href="https://github.com/{{ site.github }}">View on Github</a></li>
                   {% endif %}
                 </ul>
               </div>
