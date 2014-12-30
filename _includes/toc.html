@@ -1,7 +1,17 @@
-<h1>Table of Contents</h1>
-<ul>
-  <li><a href="#">One</a></li>
-  <li><a href="#">Two</a></li>
-  <li><a href="#">Three</a></li>
-  <li><a href="#">Four</a></li>
+<h1 class="toc-header">Table of Contents</h1>
+{% assign pages = site.pages | sort:"weight"  %}
+<ul class="toc">
+  {% for p in pages %}
+  {% assign weight_parts = p.weight | split: '-' %}
+  {% assign weight_parts_size = weight_parts | size %}
+  <li class="toc-item toc-item-indent-{{ weight_parts_size }}">
+    {% if p.url == page.url %}
+      <span>{{ p.title }}</span>
+    {% else %}
+      <a href="{{ p.url }}">
+        {{ p.title }}
+      </a>
+    {% endif %}
+  </li>
+  {% endfor %}
 </ul>

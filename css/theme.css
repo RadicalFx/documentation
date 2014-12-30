@@ -75,3 +75,32 @@ body {
 .text-orange{
   color: #fab125;
 }
+
+.toc-header{
+  color: #000 !important;
+}
+
+.toc {
+  list-style-type: none;
+  padding:0; margin:0;
+}
+
+.toc .toc-item{
+  padding-left: 10px;
+}
+
+.toc .toc-item.toc-item-indent-1{
+  margin-left: 10px;
+}
+
+.toc .toc-item.toc-item-indent-2{
+  margin-left: 20px;
+}
+
+.toc .toc-item.toc-item-indent-3{
+  margin-left: 30px;
+}
+
+.toc .toc-item.toc-item-indent-4{
+  margin-left: 40px;
+}
