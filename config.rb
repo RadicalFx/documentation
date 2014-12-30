@@ -1,4 +1,4 @@
-http_path = "/"
+http_path = "/documentation"
 css_dir = "assets/stylesheets"
 sass_dir = "assets/scss"
 images_dir = "assets/images"
