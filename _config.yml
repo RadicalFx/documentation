@@ -9,6 +9,9 @@ sass:
     style: :compressed
     sass_dir: assets/scss
 
+gems:
+- jekyll-compass
+
 
 ### site serving configuration ###
 exclude: [CNAME, README.md, .gitignore]
