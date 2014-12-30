@@ -4,15 +4,12 @@ body {
 }
 
 .copyright {
-    color: #ffffff;
+
 }
 
 .footer {
-    text-align: center;
-}
-
-.footer a {
-    color: #ee4444;
+  text-align: center;
+  border-top: 1px solid #fab125;
 }
 
 .sidebar h1 {
@@ -48,4 +45,33 @@ body {
 
 .author a {
     color: #ee4444;
+}
+
+.navbar-default {
+  background-color: rgba(255,166,0,0.1);
+  border-color: #fab125;
+}
+
+.logo {
+  text-align: center;
+  font-size:40px;
+  z-index: 3;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  box-shadow: 0px 1px 15px rgba(0,0,0,0.05);
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAF0lEQVQIHWP8//+/MQMaYELjg7kUCgIASm8DOqGzfp8AAAAASUVORK5CYII=);
+  background:rgba(255,166,0,0.1)
+}
+
+.logo .fa-rupee{
+  font-size:50px;
+}
+
+.text-white{
+  color: #fff;
+}
+
+.text-orange{
+  color: #fab125;
 }
