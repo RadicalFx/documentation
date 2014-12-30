@@ -2,16 +2,18 @@
 {% assign pages = site.pages | sort:"weight"  %}
 <ul class="toc">
   {% for p in pages %}
-  {% assign weight_parts = p.weight | split: '-' %}
-  {% assign weight_parts_size = weight_parts | size %}
-  <li class="toc-item toc-item-indent-{{ weight_parts_size }}">
-    {% if p.url == page.url %}
-      <span>{{ p.title }}</span>
-    {% else %}
-      <a href="{{ site.baseurl }}{{ p.url }}">
-        {{ p.title }}
-      </a>
+    {% if p.weight %}
+      {% assign weight_parts = p.weight | split: '-' %}
+      {% assign weight_parts_size = weight_parts | size %}
+      <li class="toc-item toc-item-indent-{{ weight_parts_size }}">
+        {% if p.url == page.url %}
+          <span>{{ p.title }}</span>
+        {% else %}
+          <a href="{{ site.baseurl }}{{ p.url }}">
+            {{ p.title }}
+          </a>
+        {% endif %}
+      </li>
     {% endif %}
-  </li>
   {% endfor %}
 </ul>
