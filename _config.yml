@@ -7,6 +7,7 @@ baseurl: /documentation
 
 sass:
     style: :compressed
+    sass_dir: assets/scss
 
 
 ### site serving configuration ###
