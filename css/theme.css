@@ -57,8 +57,10 @@ body {
 }
 
 .logo {
+  margin-top: -10px;
+  margin-left: -5px;
   text-align: center;
-  font-size:40px;
+  font-size:35px;
   z-index: 3;
   border-radius: 50%;
   -moz-border-radius: 50%;
@@ -69,7 +71,7 @@ body {
 }
 
 .logo .fa-rupee{
-  font-size:50px;
+  font-size:45px;
 }
 
 .text-white{
