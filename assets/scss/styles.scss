@@ -27,7 +27,7 @@ body {
   color: $color-medGrey;
   margin: 0px;
   padding:0px 0 20px 0px;
-  background: url(../images/body-background.png) $color-background;
+  background: url({{site.baseurl}}/assets/images/body-background.png) $color-background;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -163,7 +163,7 @@ hr {
   border: 0;
   outline: none;
   height: 11px;
-  background: transparent url('../images/hr.gif') center center repeat-x;
+  background: transparent url('{{site.baseurl}}/assets/images/hr.gif') center center repeat-x;
   margin: 0 0 20px;
 }
 
