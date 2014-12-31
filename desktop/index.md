@@ -2,7 +2,7 @@
 layout: article
 title: Desktop
 permalink: /desktop/
-section: "desktop/1"
+section: "desktop"
 ---
 
 # Welcome to Desktop
