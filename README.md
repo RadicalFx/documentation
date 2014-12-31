@@ -25,3 +25,7 @@ categories: [desktop, presentation]
 a `permalink` property can be added to customize the route generation overriding the default behavior based on `categories`.
 
 The ToC will be auto-generated base on `posts` grouped by `category`.
+
+### Run locally
+
+`jekyll serve --baseurl ''`

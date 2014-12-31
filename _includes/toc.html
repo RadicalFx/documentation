@@ -6,13 +6,24 @@
   {% for p in pages %}
       {% assign last_category = p.categories | last  %}
       {% assign category_size = p.categories | size  %}
+      {% assign item_type = "item" %}
+      {% if p.tocheader %}
+      {% assign item_type = "header" %}
+      {% endif %}
       {% if current_category != last_category %}
         {% assign current_category = last_category %}
+        <!-- 
         <li class="toc-item-category toc-item-category-indent-{{category_size}}">
           [{{current_category}}]
         </li>
+        -->
       {% endif %}
-      <li class="toc-item toc-item-indent-{{category_size}}">
+      <li class="toc-{{item_type}} toc-{{item_type}}-indent-{{category_size}}">
+      {% if p.tocheader %}
+      <i class="fa fa-share-alt"></i>
+      {% else %}
+      <i class="fa fa-file-text-o"></i>
+      {% endif %}
         {% if p.url == page.url %}
           <span>{{ p.title }}</span>
         {% else %}
