@@ -1,11 +1,11 @@
 <h1 class="toc-header">Table of Contents</h1>
-{% assign pages = site.pages | sort:"weight"  %}
+{% assign pages = site.pages | sort:"section"  %}
 <ul class="toc">
   {% for p in pages %}
-    {% if p.weight %}
-      {% assign weight_parts = p.weight | split: '-' %}
-      {% assign weight_parts_size = weight_parts | size %}
-      <li class="toc-item toc-item-indent-{{ weight_parts_size }}">
+    {% if p.section %}
+      {% assign section_parts = p.section | split: '/' %}
+      {% assign section_parts_size = section_parts | size %}
+      <li class="toc-item toc-item-indent-{{ section_parts_size }}">
         {% if p.url == page.url %}
           <span>{{ p.title }}</span>
         {% else %}

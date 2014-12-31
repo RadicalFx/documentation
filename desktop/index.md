@@ -1,7 +1,8 @@
 ---
 layout: article
 title: Desktop
-weight: "1"
+permalink: /desktop/
+section: "desktop/1"
 ---
 
 # Welcome to Desktop

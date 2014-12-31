@@ -47,6 +47,11 @@ body {
     color: #ee4444;
 }
 
+
+
+
+
+
 .navbar-default {
   background-color: #FFF6E6;
   border-color: #fab125;
@@ -55,6 +60,15 @@ body {
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
   background-color: #fab125;
 }
+
+.container-fluid{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+
+
 
 .logo {
   margin-top: -10px;

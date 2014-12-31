@@ -1,7 +1,6 @@
 ---
-layout: default
+layout: home
 title: Home
-weight: "0"
 ---
 
 # Welcome
@@ -22,3 +21,14 @@ public class Foo
 ```xml
 <public attribute="value" />
 ```
+
+{% highlight csharp %}
+public class Foo
+{
+    public string Sample{ get; set; }
+}
+{% endhighlight %}
+
+{% highlight xml %}
+<public attribute="value" />
+{% endhighlight %}

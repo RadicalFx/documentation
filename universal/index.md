@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Universal Apps
-weight: "2"
+section: "universal"
 ---
 
 # Welcome to Universal
