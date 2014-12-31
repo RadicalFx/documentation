@@ -9,6 +9,7 @@ based on [Jekyll](http://jekyllrb.com) templates.
     * a post saved in `_posts/sample/2010-01-01-my-article-title.md`;
     * will be linked as `{% post_url sample/2010-01-01-my-article-title %}`, without the extension;
     * Jekyll will take care of generating the correct URL;
+    * since we live in `vdir` post urls must be prefixed with the `baseurl`: `{{site.baseurl}}`, so the full syntax for internal links is: `[link text]({{site.baseurl}}{% post_url sample/2010-01-01-my-article-title %})`
  * use Jekyll `categories` to create paths, a post categorized as `[desktop, presentation]` will be available as `/desktop/presentation/slug-post-file-name` (without the date, Jekyll will remove it);
 
 ### Sample Front Matter header
