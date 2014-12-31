@@ -1,7 +1,6 @@
 ---
 layout: article
 title: "Quick Start"
-permalink: /desktop/quick-start/
 categories: [desktop]
 ---
 
