@@ -49,4 +49,4 @@ The application boots, all the default and required services (for MVVM and UI Co
 
 ## What’s next
 
-The best topic to read now is basic [concepts about the ViewModel]({{site.baseurl}}/desktop/presentation/abstract-view-model/).
+The best topic to read now is basic [concepts about the ViewModel]({% post_url desktop/2000-01-03-abstract-view-model %}).
