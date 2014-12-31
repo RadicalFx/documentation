@@ -19,7 +19,7 @@ gaaccount: ''
 disqus: ''
 comments: false
 
-permalink: /:year/:month/:title
+permalink: /:categories/:title
 # paginate: 3
 
 highlighter: pygments

@@ -38,8 +38,8 @@
                   <p class="navbar-text">Radical Framework Documentation</p>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-                  <li class="{% if page.url contains '/desktop/' %}active{% endif %}"><a href="{{ site.baseurl }}/desktop/">Desktop</a></li>
-                  <li class="{% if page.url contains '/universal/' %}active{% endif %}"><a href="{{ site.baseurl }}/universal/">Universal Apps</a></li>
+                  <li class="{% if page.url contains '/desktop/' %}active{% endif %}"><a href="{{ site.baseurl }}{% post_url desktop/2000-01-01-intro %}">Desktop</a></li>
+                  <li class="{% if page.url contains '/universal-apps/' %}active{% endif %}"><a href="{{ site.baseurl }}{% post_url universal/2000-01-01-intro %}">Universal Apps</a></li>
                   {% if site.github != '' %}
                   <li class=""><a href="https://github.com/{{ site.github }}">View on Github</a></li>
                   {% endif %}
