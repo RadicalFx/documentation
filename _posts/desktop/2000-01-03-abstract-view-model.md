@@ -1,8 +1,7 @@
 ---
 layout: article
 title: "AbstractViewModel"
-permalink: /desktop/presentation/abstract-view-model/
-section: "desktop/presentation/1"
+categories: [desktop, presentation]
 ---
 
 When dealing with MVVM and ViewModel(s) there are a lot of things that a base class, such as the AbstractViewModel, can do for us in order to reduce the friction of the daily work.

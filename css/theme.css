@@ -121,17 +121,37 @@ body {
 }
 
 .toc .toc-item.toc-item-indent-1{
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .toc .toc-item.toc-item-indent-2{
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 .toc .toc-item.toc-item-indent-3{
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
 .toc .toc-item.toc-item-indent-4{
+  margin-left: 44px;
+}
+
+.toc .toc-item-category{
+  padding-left: 0px;
+}
+
+.toc-item-category-indent-1{
+  margin-left: 10px;
+}
+
+.toc-item-category-indent-2{
+  margin-left: 20px;
+}
+
+.toc-item-category-indent-3{
+  margin-left: 30px;
+}
+
+.toc-item-category-indent-4{
   margin-left: 40px;
 }

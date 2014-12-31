@@ -2,7 +2,7 @@
 layout: article
 title: "Quick Start"
 permalink: /desktop/quick-start/
-section: "desktop/2"
+categories: [desktop]
 ---
 
 ### Important note:
@@ -49,4 +49,4 @@ The application boots, all the default and required services (for MVVM and UI Co
 
 ## What’s next
 
-The best topic to read now is basic [concepts about the ViewModel]({{site.baseurl}}/desktop/presentation/abstract-view-model/).
+The best topic to read now is basic [concepts about the ViewModel]({{site.baseurl}}/desktop/presentation/abstract-view-model/).

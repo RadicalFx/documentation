@@ -1,12 +1,18 @@
 <h1 class="toc-header">Table of Contents</h1>
 <hr />
-{% assign pages = site.pages | sort:"section"  %}
+{% assign pages = site.posts | sort:"categories"  %}
+{% assign current_category = ""  %}
 <ul class="toc">
   {% for p in pages %}
-    {% if p.section %}
-      {% assign section_parts = p.section | split: '/' %}
-      {% assign section_parts_size = section_parts | size %}
-      <li class="toc-item toc-item-indent-{{ section_parts_size }}">
+      {% assign last_category = p.categories | last  %}
+      {% assign category_size = p.categories | size  %}
+      {% if current_category != last_category %}
+        {% assign current_category = last_category %}
+        <li class="toc-item-category toc-item-category-indent-{{category_size}}">
+          [{{current_category}}]
+        </li>
+      {% endif %}
+      <li class="toc-item toc-item-indent-{{category_size}}">
         {% if p.url == page.url %}
           <span>{{ p.title }}</span>
         {% else %}
@@ -15,6 +21,5 @@
           </a>
         {% endif %}
       </li>
-    {% endif %}
   {% endfor %}
 </ul>
