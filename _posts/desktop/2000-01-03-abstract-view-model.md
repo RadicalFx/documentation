@@ -2,6 +2,7 @@
 layout: article
 title: "AbstractViewModel"
 categories: [desktop, presentation]
+tocfilter: desktop
 ---
 
 When dealing with MVVM and ViewModel(s) there are a lot of things that a base class, such as the AbstractViewModel, can do for us in order to reduce the friction of the daily work.

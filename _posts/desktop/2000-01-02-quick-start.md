@@ -2,6 +2,7 @@
 layout: article
 title: "Quick Start"
 categories: [desktop]
+tocfilter: desktop
 ---
 
 ### Important note:

@@ -2,10 +2,18 @@
 <hr />
 {% assign pages = site.posts | sort:"categories"  %}
 {% assign current_category = ""  %}
+{% assign toc_filter = page.tocfilter %}
 <ul class="toc">
   {% for p in pages %}
-      {% assign last_category = p.categories | last  %}
-      {% assign category_size = p.categories | size  %}
+    {% assign first_category = p.categories | first %}
+    {% assign last_category = p.categories | last %}
+    {% assign category_size = p.categories | size %}
+    <!--
+    <li>
+          [{{first_category}}, {{toc_filter}}]
+    </li>
+    -->
+    {% if toc_filter == first_category or toc_filter == nil  %}
       {% assign item_type = "item" %}
       {% if p.tocheader %}
       {% assign item_type = "header" %}
@@ -32,5 +40,6 @@
           </a>
         {% endif %}
       </li>
+    {% endif %}
   {% endfor %}
 </ul>

@@ -19,10 +19,16 @@ based on [Jekyll](http://jekyllrb.com) templates.
 layout: article
 title: "Quick Start"
 categories: [desktop, presentation]
+tocheader: true/false
+tocfilter: desktop
 ---
 ```
 
-a `permalink` property can be added to customize the route generation overriding the default behavior based on `categories`.
+The `tocheader` optional attribute determines the layout of the element in the ToC itself, when set to true the element in the ToC will be displayed with a different icon. The default value is `false`.
+
+The `tocfilter` optional attribute asks to the ToC to be filtered by the given category, meaning that only elements whose **first** category matches the `tocfilter` value will be displayed.
+
+A `permalink` property can be added to customize the route generation overriding the default behavior based on `categories`.
 
 The ToC will be auto-generated base on `posts` grouped by `category`.
 
