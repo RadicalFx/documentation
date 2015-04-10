@@ -1,10 +1,11 @@
 <h1 class="toc-header">Table of Contents</h1>
 <hr />
-{% assign pages = site.posts | sort:"categories"  %}
+{% assign posts = site.posts | sort:"categories"  %}
+{% assign posts = posts | sort:"date","first"  %}
 {% assign current_category = ""  %}
 {% assign toc_filter = page.tocfilter %}
 <ul class="toc">
-  {% for p in pages %}
+  {% for p in posts %}
     {% assign first_category = p.categories | first %}
     {% assign last_category = p.categories | last %}
     {% assign category_size = p.categories | size %}
