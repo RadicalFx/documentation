@@ -22,10 +22,11 @@ comments: false
 permalink: /:categories/:title
 # paginate: 3
 
-highlighter: rouge
+
 
 # pygments requires pyton
-# highlighter: pygments
+highlighter: pygments
+# highlighter: rouge
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
