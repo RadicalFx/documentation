@@ -22,11 +22,9 @@ comments: false
 permalink: /:categories/:title
 # paginate: 3
 
-
-
-# pygments requires pyton
+# pygments requires pyton, gh pages seems to only like pygments, so on Windows pyton is required.
 highlighter: pygments
-# highlighter: rouge
+
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
