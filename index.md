@@ -32,3 +32,5 @@ public class Foo
 {% highlight xml %}
 <public attribute="value" />
 {% endhighlight %}
+
+[About]({{site.base_url}}about)
