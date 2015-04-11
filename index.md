@@ -43,4 +43,4 @@ public class Foo
 <public attribute="value" />
 {% endhighlight %}
 
-A static page: [About]({{site.baseurl}}about)
+A static page: [About]({{site.baseurl}}/about)
