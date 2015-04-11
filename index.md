@@ -7,13 +7,13 @@ title: Home
 
 ### Introduction
 
-* [Building the source code]({{site.base_url}}{% post_url intro/2000-01-01-building-source %})
-* [Included sample applications]({{site.base_url}}{% post_url intro/2000-02-01-included-sample-applications %})
+* [Building the source code]({{site.baseurl}}{% post_url intro/2000-01-01-building-source %})
+* [Included sample applications]({{site.baseurl}}{% post_url intro/2000-02-01-included-sample-applications %})
 
 ### How to
 
-* [How to: get the view of a given view model]({{site.base_url}}{% post_url /how-to/2000-01-01-get-view-of-viewmodel %});
-* [How to: bi-directional communication between different windows/views]({{site.base_url}}{% post_url /how-to/2000-02-01-bi-directional-communication-views %});
+* [How to: get the view of a given view model]({{site.baseurl}}{% post_url how-to/2000-01-01-get-view-of-viewmodel %});
+* [How to: bi-directional communication between different windows/views]({{site.baseurl}}{% post_url how-to/2000-02-01-bi-directional-communication-views %});
 
 this is some `code that should` be correctly formatted inline.
 
@@ -43,4 +43,4 @@ public class Foo
 <public attribute="value" />
 {% endhighlight %}
 
-A static page: [About]({{site.base_url}}about)
+A static page: [About]({{site.baseurl}}about)
