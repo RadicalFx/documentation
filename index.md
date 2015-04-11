@@ -12,8 +12,8 @@ title: Home
 
 ### How to
 
-* [How to: get the view of a given view model]({{site.base_url}}{% post_url how-to/2000-01-01-get-view-of-viewmodel %});
-* [How to: bi-directional communication between different windows/views]({{site.base_url}}{% post_url how-to/2000-02-01-bi-directional-communication-views %});
+* [How to: get the view of a given view model]({{site.base_url}}{% post_url /how-to/2000-01-01-get-view-of-viewmodel %});
+* [How to: bi-directional communication between different windows/views]({{site.base_url}}{% post_url /how-to/2000-02-01-bi-directional-communication-views %});
 
 this is some `code that should` be correctly formatted inline.
 
