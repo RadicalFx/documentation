@@ -2,6 +2,8 @@
 
 For full documentation visit [mkdocs.org](http://mkdocs.org).
 
+[Sample](foo/sample.md)
+
 ## Commands
 
 * `mkdocs new [dir-name]` - Create a new project.
