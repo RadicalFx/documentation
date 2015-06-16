@@ -1,25 +1,17 @@
-# Welcome
+# Welcome to MkDocs
 
-### Introduction
+For full documentation visit [mkdocs.org](http://mkdocs.org).
 
-* [Building the source code]({{site.baseurl}}{% post_url intro/2000-01-01-building-source %})
-* [Included sample applications]({{site.baseurl}}{% post_url intro/2000-02-01-included-sample-applications %})
+## Commands
 
-### How to
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs help` - Print this help message.
 
-this is some `code that should` be correctly formatted inline.
+## Project layout
 
-What happens with multi-lines?
-
-	code indented with a tab
-
-```csharp
-public class Foo
-{
-    public string Sample{ get; set; }
-}
-```
-
-```xml
-<public attribute="value" />
-```
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.
