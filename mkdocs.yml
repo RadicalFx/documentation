@@ -1,1 +1,5 @@
 site_name: Radical Framework
+repo_url: https://github.com/RadicalFx/documentation/
+site_author: The Radical team
+remote_branch: master
+theme: readthedocs
