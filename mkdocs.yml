@@ -22,7 +22,7 @@ pages:
 - 'Concepts: Inversion of Control':
     - 'Inversion-of-Control/Index.md'
     - 'Inversion-of-Control/Castle-Windsor.md'
-    - 'Inversion-of-Control/Puzzle-Conatiner.md'
+    - 'Inversion-of-Control/Puzzle-Container.md'
     - 'Inversion-of-Control/Autofac.md'
     - 'Inversion-of-Control/Unity.md'
 - 'Infrastructure':
