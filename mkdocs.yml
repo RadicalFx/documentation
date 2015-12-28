@@ -3,3 +3,15 @@ repo_url: https://github.com/RadicalFx/documentation/
 site_author: The Radical team
 remote_branch: master
 theme: bootstrap
+
+pages:
+- Home: 'index.md'
+- Introdcution:
+    - 'Introduction/A-note-on-versioning.md'
+    - 'Introduction/Building-the-source-code.md'
+    - 'Introduction/Contribution-guideline.md'
+    - 'Introduction/Included-sample-applications.md'
+    - 'Introduction/Release-management-process.md'
+- 'Quick starts':
+    - 'Quick-starts/WPF.md'
+    - 'Quick-starts/UWP.md'
