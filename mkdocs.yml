@@ -26,4 +26,4 @@ pages:
     - 'Inversion-of-Control/Autofac.md'
     - 'Inversion-of-Control/Unity.md'
 - 'Infrastructure':
-    - 'Continuous Integration': 'Infrastrucure/ci-build.md'
+    - 'Continuous Integration': 'Infrastructure/ci-build.md'
