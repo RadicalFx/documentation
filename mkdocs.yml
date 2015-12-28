@@ -15,3 +15,14 @@ pages:
 - 'Quick starts':
     - 'Quick-starts/WPF.md'
     - 'Quick-starts/UWP.md'
+- 'How to':
+    - 'how-to/bi-directional-communication-between-different-windows-views.md'
+    - 'how-to/get-the-view-of-a-given-view-model.md'
+    - 'how-to/handle-the-busy-status-during-async-long-running-operations.md'
+- 'Concepts: Inversion of Control': 'Inversion-of-Control/index.md'
+    - 'Inversion-of-Control/Castle-Windsor.md'
+    - 'Inversion-of-Control/Puzzle-Conatiner.md'
+    - 'Inversion-of-Control/Autofac.md'
+    - 'Inversion-of-Control/Unity.md'
+- 'Infrastructure':
+    - 'Continuous Integration': 'Infrastrucure/ci-build.md'
