@@ -20,7 +20,7 @@ pages:
     - 'how-to/get-the-view-of-a-given-view-model.md'
     - 'how-to/handle-the-busy-status-during-async-long-running-operations.md'
 - 'Concepts: Inversion of Control':
-    - 'Inversion-of-Control/Index.md'
+    - 'Introduction': 'Inversion-of-Control/Index.md'
     - 'Inversion-of-Control/Castle-Windsor.md'
     - 'Inversion-of-Control/Puzzle-Container.md'
     - 'Inversion-of-Control/Autofac.md'
