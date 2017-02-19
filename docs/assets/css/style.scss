@@ -35,13 +35,22 @@
 
 ul.toc{
 
-    border: 0px;
-    background: transparent;
-    border-radius: 0px;
-    list-style-type: disc;
+    border:initial; // 0px;
+    background: initial; //transparent;
+    border-radius: initial; //0px;
+    list-style-type: initial; //disc;
 
     li.toc-item{
 
+        float: initial; //none;
+        width: initial; //100%;
+        border: initial; //0px;
+        height: initial;
+
+        a{
+            display: initial; //inline;
+            font-size: initial; //14px
+        }
     }
 
 }
