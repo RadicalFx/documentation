@@ -1,6 +1,4 @@
 # Summary
 
-* [Home](index.md)
-
 
 
