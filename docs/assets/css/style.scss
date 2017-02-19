@@ -47,13 +47,19 @@ ul.toc{
         width: initial;
         border: initial;
         height: initial;
+        display: initial;
+        color: #727272;
+        font-size: 14px;
 
         a{
             display: initial;
-            font-size: initial;
             color: #727272;
             font-size: 14px;
         }
+    }
+
+    ul{
+        display: none;
     }
 
 }
