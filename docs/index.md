@@ -16,15 +16,15 @@
 	* A class Main**ViewModel** (<*ViewName*>ViewModel is important for the default conventions);
 * In the app.xaml.cs add a single line of code:
 	
-	```csharp
-	public partial class App : Application
-	{
-    	public App()
-        {
-    		var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>();
-    	}
-	}
-	```
+```csharp
+public partial class App : Application
+{
+   public App()
+   {
+      var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>();
+   }
+}
+```
 
 **Press F5 and you are up & running**: the MainView window will be shown.
 
