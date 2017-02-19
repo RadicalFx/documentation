@@ -4,7 +4,7 @@ toc: mvvm-toc.html
 ---
 ## Conventions override
 
-Radical is conventions based, we have [runtime conventions](/../runtime-conventions) and [bootstrap conventions](../bootstrap-conventions) in order to facilitate the conventions override, to replace or integrate a default behavior we now support the concept of default conventions.
+Radical is conventions based, we have [runtime conventions]({{ '/mvvm/runtime-conventions' | prepend:site.baseurl }}) and [bootstrap conventions]({{ '/mvvm/bootstrap-conventions' | prepend:site.baseurl }}) in order to facilitate the conventions override, to replace or integrate a default behavior we now support the concept of default conventions.
 
 Originally the code to write, still supported, to override a convention was something like the the following:
 
@@ -20,7 +20,7 @@ conventions.IsViewModel = type =>
 };
 ```
 
-We now support for both [[runtime conventions]] and [[bootstrap conventions]] the following syntax:
+We now support for both [runtime conventions]({{ '/mvvm/runtime-conventions' | prepend:site.baseurl }}) and [bootstrap conventions]({{ '/mvvm/bootstrap-conventions' | prepend:site.baseurl }}) the following syntax:
 
 ```csharp
 conventions.IsViewModel = type => 

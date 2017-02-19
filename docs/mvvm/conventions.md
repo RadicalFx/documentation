@@ -25,5 +25,5 @@ A lot of things:
   1. The Inversion of Control container is created;
   2. The MEF composition container is created;
   3. The composition container is composed against the bootstrapper itself;
-  4. The Inversion of Control container is configured using the **[[bootstrap conventions]]**;
+  4. The Inversion of Control container is configured using the [bootstrap conventions]({{ '/mvvm/bootstrap-conventions' | prepend:site.baseurl }});
   5. The main window (the one identified by the TShellView generic parameter) is resolved and shown;
