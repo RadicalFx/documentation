@@ -4,11 +4,21 @@
 @import "{{ site.theme }}";
 
 @media screen and (min-width: 960px) and (max-width: 1200px) {
-    section {
-        width:500px;
+    .wrapper {
+        width:1060px;
     }
 
+    section {
+        width:700px;
+    }
+}
+
+@media screen and (min-width: 1201px) {
     .wrapper {
-        width:860px;
+        width:1160px;
+    }
+
+    section {
+        width:800px;
     }
 }
