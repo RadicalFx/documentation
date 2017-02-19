@@ -12,7 +12,7 @@
     * [Runtime Conventions](/mvvm/runtime-conventions.md)
     * [Conventions override](/mvvm/conventions-override.md)
 
-### Inversion Of Control
+### Infrastructure
 
 * [Inversion of Control](/ioc/index.md)
   * [Castle Windsor](/ioc/windsor.md)
