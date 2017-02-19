@@ -35,21 +35,24 @@
 
 ul.toc{
 
-    border:initial; // 0px;
-    background: initial; //transparent;
-    border-radius: initial; //0px;
-    list-style-type: initial; //disc;
+    border: initial;
+    background: initial;
+    border-radius: initial;
+    list-style-type: initial;
+    padding-left: 15px;
 
     li{
 
-        float: initial; //none;
-        width: initial; //100%;
-        border: initial; //0px;
+        float: initial;
+        width: initial;
+        border: initial;
         height: initial;
 
         a{
-            display: initial; //inline;
-            font-size: initial; //14px
+            display: initial;
+            font-size: initial;
+            color: #727272;
+            font-size: 14px;
         }
     }
 
