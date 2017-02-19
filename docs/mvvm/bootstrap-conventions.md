@@ -43,19 +43,19 @@ In the above sample we are integrating the conventions used to determine if a ty
 
 The following is the list of the used conventions with a brief description of their meaning and usage:
 
-* _IsService_: determines if a type should be considered a service or not;
-* _SelectServiceContracts_: given the service type returns the list of contracts that should be used to register the given service;
-* _IsMessageHandler_: determines if a type should be considered a message handler or not;
-* _SelectMessageHandlerContracts_: given the message handler type returns the list of contracts that should be used to register the given message handler;
-* _IsView_: determines if a type should be considered a view or not;
-* _IsViewModel_: determines if a type should be considered a view model or not;
-* _IsShellView_: determines if a type should be considered a shell/main view or not;
-* _IsShellViewModel_: determines if a type should be considered a shell/main view model or not;
-* _SelectViewContracts_: given the view type returns the list of contracts that should be used to register the given view;
-* _SelectViewModelContracts_: given the view model type returns the list of contracts that should be used to register the given view model;
-* _IsExcluded_: determines if a type should be excluded \(ignored\) by the registration process;
-* _GetInterestedRegionNameIfAny_: this convention requires a deep knowledge of the UI Composition feature and is used to determine if a view is asking to be injected into a region, the conventions is used to retrieve the region name the view would like to be injected into;
-* _AssemblyFileScanPatterns_: given the entry assembly returns a list of patterns that should be used by MEF directory catalogs to scan for assemblies at boot time;
+* `IsService`: determines if a type should be considered a service or not;
+* `SelectServiceContracts`: given the service type returns the list of contracts that should be used to register the given service;
+* `IsMessageHandler`: determines if a type should be considered a message handler or not;
+* `SelectMessageHandlerContracts`: given the message handler type returns the list of contracts that should be used to register the given message handler;
+* `IsView`: determines if a type should be considered a view or not;
+* `IsViewModel`: determines if a type should be considered a view model or not;
+* `IsShellView`: determines if a type should be considered a shell/main view or not;
+* `IsShellViewModel`: determines if a type should be considered a shell/main view model or not;
+* `SelectViewContracts`: given the view type returns the list of contracts that should be used to register the given view;
+* `SelectViewModelContracts`: given the view model type returns the list of contracts that should be used to register the given view model;
+* `IsExcluded`: determines if a type should be excluded \(ignored\) by the registration process;
+* `GetInterestedRegionNameIfAny`: this convention requires a deep knowledge of the UI Composition feature and is used to determine if a view is asking to be injected into a region, the conventions is used to retrieve the region name the view would like to be injected into;
+* `AssemblyFileScanPatterns`: given the entry assembly returns a list of patterns that should be used by MEF directory catalogs to scan for assemblies at boot time;
 
 
 
