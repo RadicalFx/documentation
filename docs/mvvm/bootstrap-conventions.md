@@ -16,7 +16,7 @@ As we have already said the whole bootstrap process is completely based on conve
 
 These are the main conventions used at boot time, there are a few more but less important. Obviously all these behaviors can be replaced or extended to accomplish the end user needs:
 
-```c#
+```csharp
 public partial class App : Application
 {
     public App()
