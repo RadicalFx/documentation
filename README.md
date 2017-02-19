@@ -1,3 +1,3 @@
 # Radical Documentation
 
-Built using https://readthedocs.org/
+http://www.radicalframework.com/documentation/
