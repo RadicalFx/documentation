@@ -40,7 +40,7 @@ ul.toc{
     border-radius: initial; //0px;
     list-style-type: initial; //disc;
 
-    li.toc-item{
+    li{
 
         float: initial; //none;
         width: initial; //100%;
@@ -50,6 +50,7 @@ ul.toc{
         a{
             display: initial; //inline;
             font-size: initial; //14px
+            color: #393939;
         }
     }
 
