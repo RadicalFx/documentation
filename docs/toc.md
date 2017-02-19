@@ -1,21 +1,4 @@
-### Introduction
 
-  * [[Building the source code]];
-  * [[Included sample applications]];
-  * [[Release management process]];
-  * [[A note on versioning]];
-  * [[Contribution guideline]];
-
-### How to
-
-  * [[How to: get the view of a given view model|How to get the view of a given view model]];
-  * [[How to: bi-directional communication between different windows/views|How to bi-directional communication between different windows views]];
-  * [[How to: handle the busy status during async/long running operations|How to handle the busy status during async long running operations]];
-
-### MVVM and UI Composition
-
-  * [[Quick Start (WPF)]];
-  * [[Quick Start (Universal App)]];
 
 ### Radical Presentation: MVVM and UI Composition toolkit
 
