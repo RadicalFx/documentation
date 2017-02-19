@@ -9,7 +9,7 @@ Our first aim is to remove friction, it is not always easy and cannot be done ev
 
 What happens when these lines of code are executed:
 
-```c#
+```csharp
 public partial class App : Application
 {
     public App()
