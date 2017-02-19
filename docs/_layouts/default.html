@@ -30,7 +30,11 @@
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
         <p class="view">
+          {% if page.toc %}
+          {% include page.toc %}
+          {% else %}
           {% include toc.html %}
+          {% endif %}
         </p>
 
       </header>
