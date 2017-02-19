@@ -85,9 +85,3 @@ We use the following [semantic versioning policy](http://semver.org/):
     version         - pre-release version
 
 Check the [Release pages](https://github.com/RadicalFx/radical/releases) for the version history of all the Radical's packages.
-
---- old ---
-
-  * [[Building the source code]];
-  * [[Included sample applications]];
-  * [[A note on versioning]];
