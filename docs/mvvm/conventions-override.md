@@ -1,3 +1,7 @@
+---
+layout: default
+toc: mvvm-toc.html
+---
 ## Conventions override
 
 Radical is conventions based, we have [runtime conventions](/../runtime-conventions) and [bootstrap conventions](../bootstrap-conventions) in order to facilitate the conventions override, to replace or integrate a default behavior we now support the concept of default conventions.

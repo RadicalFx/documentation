@@ -1,3 +1,7 @@
+---
+layout: default
+toc: mvvm-toc.html
+---
 ## Bootstrap Conventions
 
 As we have already said the whole bootstrap process is completely based on conventions, especially the IoC container setup. Bootstrap conventions are mainly related to the way components are registered into the container:

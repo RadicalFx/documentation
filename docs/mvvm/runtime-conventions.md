@@ -1,3 +1,7 @@
+---
+layout: default
+toc: mvvm-toc.html
+---
 ## Runtime conventions
 
 `Radical.Windows.Presentation` has a lot of runtime conventions mainly related to two different areas:

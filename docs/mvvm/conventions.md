@@ -1,3 +1,7 @@
+---
+layout: default
+toc: mvvm-toc.html
+---
 ### Friction less: Conventions based
 
 Our first aim is to remove friction, it is not always easy and cannot be done every single time, but one thing that can give a lot of benefits in this area is to move from a configuration based toolkit to a convention based toolkit, we suppose that this concept is widely accepted and is nothing new.
