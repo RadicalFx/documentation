@@ -1,4 +1,5 @@
 ---
+layout: default
 toc: mvvm-toc.html
 ---
 
