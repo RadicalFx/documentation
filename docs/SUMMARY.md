@@ -16,6 +16,13 @@
   * [Application shutdown](/mvvm/application-shutdown.md)
   * [Singleton applications](/wiki/singleton-applications.md)
 
+## UI Composition
+
+* [UI Composition](/ui-composition/index.md)
+  * [Region content lifecycle](/ui-composition/region-content-lifecycle.md)
+  * [TabControl region](/ui-composition/tabcontrol-region.md)
+  * [Create a custom region](/ui-composition/create-a-custom-region.md)
+
 ## Concepts
 
 * [Inversion of Control](/ioc/index.md)
