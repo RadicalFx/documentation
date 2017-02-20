@@ -11,6 +11,7 @@
     * [Bootstrap Conventions](/mvvm/bootstrap-conventions.md)
     * [Runtime Conventions](/mvvm/runtime-conventions.md)
     * [Conventions override](/mvvm/conventions-override.md)
+* [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
 
 ## Concepts
 
@@ -21,6 +22,9 @@
   * [Puzzle Container](/ioc/puzzle.md)
 * Entities
   * [Property System](/entities/property-system.md)
+* [Messaging and Message Broker](/messaging/message-broker.md)
+  * [POCO messages](/messaging/poco-messages.md)
+  * [Standalone message handlers](/messaging/abstract-message-handler.md)
 
 ## Memento
 
