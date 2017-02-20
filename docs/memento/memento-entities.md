@@ -25,7 +25,7 @@ var canUndo = memento.CanUndo; //true
 
 Calling `memento.Undo()` will trigger the undo of the last operation, we can call undo until `CanUndo` is `true` rolling back change by change, that in the above sample will revert back the `LastName` property value to its default value.
 
-The requirement to achieve the above is that the `Person` class is a Radical *memento* entity:
+The requirement to achieve the above is that the `Person` class is a Radical _memento_ entity:
 
 ```csharp
 class Person : MementoEntity
@@ -44,7 +44,7 @@ class Person : MementoEntity
 }
 ```
 
-As we can see from the above snippet all we need to do is to create a class the inherits from the `MementoEntity` base class and declare all the properties we want to track as Radical properties.
+As we can see from the above snippet all we need to do is to create a class the inherits from the `MementoEntity` base class and declare all the properties we want to track as [Radical properties](//entities/property-system.md).
 
 A similar approach can be used to keep track of items in a collection:
 
@@ -68,3 +68,6 @@ We can do more:
 * [Handling change tracking in a simple model](simple-model.md);
 * [Handling change tracking in collections](collections.md);
 * [Handling change tracking in complex objects graph](complex-graph.md);
+
+
+
