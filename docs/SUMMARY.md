@@ -11,6 +11,7 @@
     * [Bootstrap Conventions](/mvvm/bootstrap-conventions.md)
     * [Runtime Conventions](/mvvm/runtime-conventions.md)
     * [Conventions override](/mvvm/conventions-override.md)
+  * [Commands and DelegateCommand](/mvvm/delegate-command.md)
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
 
 ## Concepts
@@ -25,6 +26,10 @@
 * [Messaging and Message Broker](/messaging/message-broker.md)
   * [POCO messages](/messaging/poco-messages.md)
   * [Standalone message handlers](/messaging/abstract-message-handler.md)
+* [Observers](/observers/index.md)
+  * [PropertyObserver](observers/property-observer.md)
+  * [MementoObserver](/observers/memento-observer.md)
+  * [BrokerObserver](/observers/broker-observer.md)
 
 ## Memento
 
