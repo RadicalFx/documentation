@@ -5,13 +5,12 @@
 
 ## Presentation
 
-* [MVVM and UI Composition](/mvvm/index.md)
-  * [AbstractViewModel](/mvvm/abstract-view-model.md)
-  * [Conventions](/mvvm/conventions.md)
-    * [Bootstrap Conventions](/mvvm/bootstrap-conventions.md)
-    * [Runtime Conventions](/mvvm/runtime-conventions.md)
-    * [Conventions override](/mvvm/conventions-override.md)
-  * [Commands and DelegateCommand](/mvvm/delegate-command.md)
+* [AbstractViewModel](/mvvm/abstract-view-model.md)
+* [Conventions](/mvvm/conventions.md)
+  * [Bootstrap Conventions](/mvvm/bootstrap-conventions.md)
+  * [Runtime Conventions](/mvvm/runtime-conventions.md)
+  * [Conventions override](/mvvm/conventions-override.md)
+* [Commands and DelegateCommand](/mvvm/delegate-command.md)
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
 * [Application boot process demystified](/mvvm/boot-process-demystified.md)
   * [Application shutdown](/mvvm/application-shutdown.md)
@@ -46,3 +45,6 @@
   * [Change Tracking Service API](/memento/change-tracking-service-api.md)
   * [Property Metadata for the Change Tracking Service](/memento/memento-metadata.md)
   * [Handling collection sync](/memento/handling-collection-sync.md)
+
+
+
