@@ -3,9 +3,9 @@
 * [Home](README.md)
 * [How To](/how-tos/index.md)
 
-### Presentation Toolkit
+### Presentation
 
-* [MVVM and UI Composition toolkit](/mvvm/index.md)
+* [MVVM and UI Composition](/mvvm/index.md)
   * [AbstractViewModel](/mvvm/abstract-view-model.md)
   * [Conventions](/mvvm/conventions.md)
     * [Bootstrap Conventions](/mvvm/bootstrap-conventions.md)
