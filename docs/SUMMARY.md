@@ -13,6 +13,9 @@
     * [Conventions override](/mvvm/conventions-override.md)
   * [Commands and DelegateCommand](/mvvm/delegate-command.md)
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
+* [Application boot process demystified](/mvvm/boot-process-demystified.md)
+  * [Application shutdown](/mvvm/application-shutdown.md)
+  * [Singleton applications](/wiki/singleton-applications.md)
 
 ## Concepts
 
