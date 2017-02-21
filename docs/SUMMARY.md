@@ -58,6 +58,16 @@
   * [Handling collection sync](/memento/handling-collection-sync.md)
 
 
+## Behaviors
+
+* [DataGrid Behaviors](/behaviors/datagrid-behaviors.md)
+* [Password](/behaviors/password.md)
+* [Generic routed event handler to command behavior](/behaviors/routed-event-to-command.md)
+
+## Markup Extensions
+
+- [Editor binding](/markup/editor-binding.md)
+
 ## How to
 
 - [Get the view of a given view model](/how-tos/get-view-of-view-model.md)
