@@ -61,3 +61,4 @@
 - [Implement a customer improvement program](/how-tos/customer-improvement-program.md)
 - [Manage focus](/how-tos/manage-focus.md)
 - [Create a splash screen](/how-tos/splash-screen.md)
+- [Access view model after view is closed](/how-tos/access-view-model-after-view-closed.md)
