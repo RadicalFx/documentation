@@ -14,7 +14,7 @@
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
 * [Application boot process demystified](/mvvm/boot-process-demystified.md)
   * [Application shutdown](/mvvm/application-shutdown.md)
-  * [Singleton applications](/docs/mvvm/singleton-applications.md)
+  * [Singleton applications](/mvvm/singleton-applications.md)
 
 ## UI Composition
 
