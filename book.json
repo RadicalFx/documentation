@@ -1,4 +1,10 @@
 {
     "root": "./docs",
-    "plugins" : [ "anchors" ]
+    "plugins" : [ "anchors", "github-edit" ],
+    "pluginsConfig": {
+        "github-edit": {
+            "repo": "RadicalFx/documentation",
+            "branch": "master"
+        }
+    }
 }
