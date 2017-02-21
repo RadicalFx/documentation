@@ -1,7 +1,6 @@
 # Summary
 
 * [Home](README.md)
-* [How To](/how-tos/index.md)
 
 ## Presentation
 
@@ -54,4 +53,11 @@
   * [Handling collection sync](/memento/handling-collection-sync.md)
 
 
+## How to
 
+- [Get the view of a given view model](/how-tos/get-view-of-view-model.md)
+- [Bi-directional communication between different windows/views](/how-tos/windows-bi-directional-communication.md)
+- [Handle the busy status during async/long running operations](/how-tos/async-long-running-busy-status.md)
+- [Implement a customer improvement program](/how-tos/customer-improvement-program.md)
+- [Manage focus](/how-tos/manage-focus.md)
+- [Create a splash screen](/how-tos/splash-screen.md)
