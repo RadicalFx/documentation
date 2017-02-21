@@ -63,6 +63,8 @@
 * [DataGrid Behaviors](/behaviors/datagrid-behaviors.md)
 * [Password](/behaviors/password.md)
 * [Generic routed event handler to command behavior](/behaviors/routed-event-to-command.md)
+* [Overlay adorner](/behaviors/overlay-adorner.md)
+  * [Busy status manager](/behaviors/busy-status-manager.md)
 
 ## Markup Extensions
 
