@@ -32,7 +32,7 @@ The application boots, all the default and required services \(for MVVM and UI C
 
 #### What’s next
 
-The best topic to read now is basic \[\[concepts about the ViewModel\|AbstractViewModel\]\].
+The best topic to read now is basic [concepts about the ViewModel](//mvvm/abstract-view-model.md).
 
 ## Release management process
 
@@ -81,4 +81,12 @@ version         - pre-release version
 ```
 
 Check the [Release pages](https://github.com/RadicalFx/radical/releases) for the version history of all the Radical's packages.
+
+## Samples
+
+The Radical source code includes several samples that are divided per scope and technology, samples are available in their own repository: [https://github.com/RadicalFx/radical-samples](https://github.com/RadicalFx/radical-samples)
+
+All samples are constantly under heavy development and are also used to test Radical features.
+
+
 
