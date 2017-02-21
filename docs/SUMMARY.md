@@ -10,6 +10,11 @@
   * [Runtime Conventions](/mvvm/runtime-conventions.md)
   * [Conventions override](/mvvm/conventions-override.md)
 * [Commands and DelegateCommand](/mvvm/delegate-command.md)
+* [IViewResolver](/mvvm/iview-resolver.md)
+  * [Default view behaviors](/mvvm/default-view-behaviors.md)
+  * Intercepting [view life cycle events](/mvvm/view-life-cycle-events.md):
+    * In the view model: [Callback expectations](/mvvm/callback-expectations.md)
+    * Using broker messages: [notify messages](/mvvm/notify-messages.md)
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
 * [Application boot process demystified](/mvvm/boot-process-demystified.md)
   * [Application shutdown](/mvvm/application-shutdown.md)
@@ -62,3 +67,4 @@
 - [Manage focus](/how-tos/manage-focus.md)
 - [Create a splash screen](/how-tos/splash-screen.md)
 - [Access view model after view is closed](/how-tos/access-view-model-after-view-closed.md)
+- [Intercept ViewModels before usage](/how-tos/intercept-viewmodels-before-usage.md)
