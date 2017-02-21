@@ -29,7 +29,7 @@ pages:
         - 'Introduction': 'ioc/index.md'    
         - 'Castle Windsor': 'ioc/windsor.md'
         - 'Autofac': 'ioc/autofac.md'
-        - 'Unity \(v2 & v3\'': 'ioc/unity.md'
+        - 'Unity': 'ioc/unity.md'
         - 'Puzzle Container': 'ioc/puzzle.md'
     - 'Entities':
         - 'Property System': 'entities/property-system.md'
