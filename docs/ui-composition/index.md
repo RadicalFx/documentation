@@ -118,7 +118,7 @@ In the `Handle` method we utilize:
 Resources:
 
 * [Radical built-in messages](/mvvm/built-in-messages.md)
-* [Runtime conventions](mvvm/runtime-conventions.md)
+* [Runtime conventions](/mvvm/runtime-conventions.md)
 
 #### Automatic (aka Partial regions)
 

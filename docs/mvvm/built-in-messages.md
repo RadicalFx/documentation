@@ -1,6 +1,6 @@
 ## Built in messages
 
-Radical Presentation relies on the [`MessageBroker`](/messagin/message-broker.md) to broadcast messages that can be used by the application to easily manage a lot of stuff that otherwise can be a bit cumbersome.
+Radical Presentation relies on the [`MessageBroker`](/messaging/message-broker.md) to broadcast messages that can be used by the application to easily manage a lot of stuff that otherwise can be a bit cumbersome.
 
 The following is the list of the Radical Presentation built-in messages and their meaning/usage.
 
