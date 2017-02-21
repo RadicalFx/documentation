@@ -39,7 +39,7 @@ pages:
         - 'Standalone message handlers': 'messaging/abstract-message-handler.md'
     - 'Observers':
         - 'Introduction': 'observers/index.md'
-        - 'PropertyObserver](observers/property-observer.md'
+        - 'PropertyObserver': 'observers/property-observer.md'
         - 'MementoObserver': 'observers/memento-observer.md'
         - 'BrokerObserver': 'observers/broker-observer.md'
 - 'Memento':
