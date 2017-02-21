@@ -65,6 +65,10 @@
 * [Generic routed event handler to command behavior](/behaviors/routed-event-to-command.md)
 * [Overlay adorner](/behaviors/overlay-adorner.md)
   * [Busy status manager](/behaviors/busy-status-manager.md)
+* TextBox behaviors:
+  * [Command](/behaviors/textbox-command.md)
+  * [Auto select](/behaviors/textbox-auto-select.md)
+  * [DisableUndoManager](/behaviors/textbox-disable-undo-manager.md) (.Net 3.5 only)
 
 ## Markup Extensions
 
