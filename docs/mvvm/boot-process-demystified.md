@@ -12,7 +12,7 @@ public partial class App : Application
 }
 ```
 
-As we have already seen in the [quick start](/readme.md#steps-to-bootstrap-your-project-in-3-minutes) we are doing 2 main choices:
+As we have already seen in the [quick start](/README.md#steps-to-bootstrap-your-project-in-3-minutes) we are doing 2 main choices:
 
 * We boot using Castle Windsor as IoC container;
 * We declare that the `MainView` window in the `Presentation` namespace is the main window of our application;
