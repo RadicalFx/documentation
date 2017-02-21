@@ -3,7 +3,7 @@
     "plugins" : [ "anchors", "github-edit" ],
     "pluginsConfig": {
         "github-edit": {
-            "repo": "RadicalFx/documentation",
+            "repo": "RadicalFx/documentation/docs",
             "branch": "master"
         }
     }
