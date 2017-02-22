@@ -13,15 +13,15 @@
 * [IViewResolver](/mvvm/iview-resolver.md)
   * [Default view behaviors](/mvvm/default-view-behaviors.md)
   * Intercepting [view life cycle events](/mvvm/view-life-cycle-events.md):
-    * In the view model: [Callback expectations](/mvvm/callback-expectations.md)
+    * In ViewModels: [Callback expectations](/mvvm/callback-expectations.md)
     * Using broker messages: [notify messages](/mvvm/notify-messages.md)
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
 * [Application boot process demystified](/mvvm/boot-process-demystified.md)
   * [Application shutdown](/mvvm/application-shutdown.md)
   * [Singleton applications](/mvvm/singleton-applications.md)
-* [AbstractMementoViewModel and ChangeTrackingService](/mvvm/abstract-memento-view-model.md)
-  * [Handling change tracking in a simple ViewModel](/mvvm/memento-change-tracking-simple-view-model.md)
-  * [Handling change tracking in collections and complex ViewModels graph](/mvvm/memento-change-tracking-collection-and-complex-view-model.md.md)
+* [AbstractMementoViewModel](/mvvm/abstract-memento-view-model.md)
+  * [Simple ViewModel graphs](/mvvm/memento-change-tracking-simple-view-model.md)
+  * [Collections and complex ViewModel graphs](/mvvm/memento-change-tracking-collection-and-complex-view-model.md.md)
 * [Validation and Validation Services](/mvvm/validation-validationservice.md)
 
 ## UI Composition
@@ -58,7 +58,7 @@
     * [Complex objects graph](/memento/complex-graph.md)
   * [Atomic operations](/memento/atomic-operations.md)
   * [Change Tracking Service API](/memento/change-tracking-service-api.md)
-  * [Property Metadata for the Change Tracking Service](/memento/memento-metadata.md)
+  * [Property Metadata for the ChangeTrackingService](/memento/memento-metadata.md)
   * [Handling collection sync](/memento/handling-collection-sync.md)
 
 
