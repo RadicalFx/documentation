@@ -22,6 +22,7 @@
 * [AbstractMementoViewModel and ChangeTrackingService](/mvvm/abstract-memento-view-model.md)
   * [Handling change tracking in a simple ViewModel](/mvvm/memento-change-tracking-simple-view-model.md)
   * [Handling change tracking in collections and complex ViewModels graph](/mvvm/memento-change-tracking-collection-and-complex-view-model.md.md)
+* [Validation and Validation Services](/mvvm/validation-validationservice.md)
 
 ## UI Composition
 
