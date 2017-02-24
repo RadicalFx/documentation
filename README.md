@@ -1,3 +1,4 @@
-# Radical Documentation
+# Radical Documentation & Samples
 
-Available at http://docs.radicalframework.com/, built using https://www.gitbook.com
+* Documentation is available at http://docs.radicalframework.com/, built using https://www.gitbook.com
+* Samples are available in this repo in the `samples` folder.
