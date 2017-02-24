@@ -84,9 +84,6 @@ Check the [Release pages](https://github.com/RadicalFx/radical/releases) for the
 
 ## Samples
 
-The Radical source code includes several samples that are divided per scope and technology, samples are available in the documentation repository: [https://github.com/RadicalFx/documentation/samples](https://github.com/RadicalFx/documentation/samples)
+The Radical source code includes several samples that are divided per scope and technology, samples are available in the documentation repository: [https://github.com/RadicalFx/documentation/tree/master/samples](https://github.com/RadicalFx/documentation/tree/master/samples)
 
 All samples are constantly under heavy development and are also used to test Radical features.
-
-
-
