@@ -1,0 +1,38 @@
+﻿<Window x:Class="MyApp.Presentation.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
+        xmlns:crg="clr-namespace:MyApp.CustomRegions;assembly=MyApp.CustomRegions"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d" 
+        Title="MainView" Height="400" Width="600">
+    <DockPanel LastChildFill="True">
+
+        <Menu DockPanel.Dock="Top" rg:RegionService.Region="{crg:MenuRegion Name=MainMenuRegion}">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit">
+
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <Grid DockPanel.Dock="Right" Width="150">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Commands" Grid.Row="0" />
+            <StackPanel Orientation="Vertical"
+                        rg:RegionService.Region="{rg:PanelRegion Name=CommandsRegion}"
+                        Grid.Row="1">
+
+            </StackPanel>
+        </Grid>
+
+        <ContentPresenter rg:RegionService.Region="{rg:ContentPresenterRegion Name=MainContent}" />
+    </DockPanel>
+    
+</Window>
