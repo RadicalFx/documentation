@@ -7,12 +7,11 @@ All the memento entities implement the `IMemento` interface.
 ### Basic operations
 
 * `Attach( IMemento item )` / `Detach( IMemento entity )`: attach and detach are the 2 methods to manually control when an instance is attached or detached to and from the memento instance. As soon as an instance is attached it will be tracked for changes and the memento will stop tracking it at detach time.
-
 * `Undo()` /  `Redo()`: Undo and Redo controls the state of the tracked entities, calling `Undo` will revert the last tracked operation, if any, calling `Redo` will apply the last operation that has been undone, if any;
 * `CanRedo` and `CanUndo` allows the user code to determine if calling Undo and Redo operations something will be done; 
 * `RegisterTransient( Object entity )` and `RegisterTransient( Object entity, Boolean autoRemove )` allows the user to register an entity as a transient, versus persistent, entity.  
-    Registering transient entities is not really required for the memento to work properly, it is on the other hand very handy for the user if the code needs at a certain point to deal with a storage trying to understand which operations should be done to align the storage with the current in memory state. if `autoRemove` is set to `true` (*the default value*) and `RejectChanges()`, or an `Undo()` that removes the last `IChange` of the object, is called the object then is automatically removed from the list of the new objects.  
-    When it is the case to set `autoRemove` to `false`? The question should be: a transient untouched entity should be considered as changed? Or from the user perspective: a transient untouched entity should trigger a question to the user such as "Do you want to save your changes?", if the answer is yes then set `autoRemove` to `false`;
+      Registering transient entities is not really required for the memento to work properly, it is on the other hand very handy for the user if the code needs at a certain point to deal with a storage trying to understand which operations should be done to align the storage with the current in memory state. if `autoRemove` is set to `true` (*the default value*) and `RejectChanges()`, or an `Undo()` that removes the last `IChange` of the object, is called the object then is automatically removed from the list of the new objects.  
+      When it is the case to set `autoRemove` to `false`? The question should be: a transient untouched entity should be considered as changed? Or from the user perspective: a transient untouched entity should trigger a question to the user such as "Do you want to save your changes?", if the answer is yes then set `autoRemove` to `false`;
 * `UnregisterTransient( Object entity )` manually remove the given transient entity from the list of transient entities;
 * `HasTransientEntities` determines if the the memento is currently tracking transient entities;
 * `GetEntityState( Object entity )` return, given a tracked entity, the current entity state as seen by the memento, the returned value is a `EntityTrackingStates` enumeration that can assume one, or more, of the following values:
@@ -21,6 +20,11 @@ All the memento entities implement the `IMemento` interface.
     *  `AutoRemove`: if an entity is marked as `AutoRemove` (the default behavior) and `RejectChanges`, or an `Undo` that removes the last `IChange` of the entity, is called then the entity is  automatically removed from the list of the transient entities;
     *  `HasBackwardChanges`: The entity is changed and has changes that can be undone, meaning that `Undo` can n be called;
     *  `HasForwardChanges`: The entity has changes that can be reapplied, meaning that `Redo` can be called;
+* `GetPropertyState( entity, property )`: Given a tracked entity and a property name, defined on the entity, returns the current state of the property as seen by the tracking service. Property state is handy in scenarios in which we need to understand if a property value is changed over time and is changed when compared to the original property value. The state can be:
+    * `None `:  The property has no tracked states, thus is not changed either;
+    * `Changed`:  The property has tracked states, thus has changes;
+    * `ValueChanged`:  The property has tracked states and the actual value is different from the original one;
+* *`IMemento` Extension*: `IsPropertyValueChanged( property )`: Is an extension method to `IMemento` entities that acts like a shortcut to if a property value changed over time or not;
 * `BeginAtomicOperation()`: begins an [atomic operation](atomic-operations.md) returned as a `IAtomicOperation` instance on which the caller is expected to call `Complete()` to store it in the changes stack;
 
 ### Searches
