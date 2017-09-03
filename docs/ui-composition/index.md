@@ -2,7 +2,7 @@
 
 Radical offers a fully flagged UI Composition engine based on the concept of regions.
 
-> A `UI Composition` sample is available in the [Radical-Samples repository](https://github.com/RadicalFx/radical-samples/tree/master/Modules).
+> A `UI Composition` sample is available in the [Radical-Samples repository](https://github.com/RadicalFx/documentation/tree/master/samples).
 
 ## Concepts
 
