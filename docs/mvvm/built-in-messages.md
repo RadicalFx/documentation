@@ -14,15 +14,15 @@ These messages are broadcasted or dispatched by the application to notify applic
 
 * `ApplicationShutdownRequest`:
 
-  * can be dispatched or broadcasted by anyone to request programmatically the application to shutdown. it is highly recommended that the message is broadcasted asynchronously_._
+  * can be dispatched or broadcasted by anyone to request programmatically the application to shutdown. it is highly recommended that the message is broadcasted asynchronously_._ When the application shutdown is requested via the `ApplicationShutdownRequest` message, the following events might be dispatched:
 
-* `ApplicationShutdownRequested`:
+     * `ApplicationShutdownRequested`:
 
-  * **dispatched synchronously** by application bootstrapper to notify that the application has started the shutdown process, this event is dispatched synchronously to allow subscribers to easily cancel the shutdown process using a well known approach similar to the one exposed by the .net `CancelEventArgs`.
+        * **dispatched synchronously** by application bootstrapper to notify that the application has started the shutdown process, this event is dispatched synchronously to allow subscribers to easily cancel the shutdown process using a well known approach similar to the one exposed by the .net `CancelEventArgs`.
 
-* `ApplicationShutdownCanceled`:
+      * `ApplicationShutdownCanceled`:
 
-  * **broadcasted** *asynchronously* by application bootstrapper to notify that the shutdown process has been canceled.
+        * **broadcasted** *asynchronously* by application bootstrapper to notify that the shutdown process has been canceled.
 
 * `ApplicationShutdown`:
 
