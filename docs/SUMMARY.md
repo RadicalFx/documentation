@@ -77,6 +77,7 @@
 ## Markup Extensions
 
 - [Editor binding](/markup/editor-binding.md)
+- [Auto Command binding](/markup/auto-command-binding.md)
 
 ## How to
 
