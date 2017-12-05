@@ -47,10 +47,10 @@ The following is the list of the used conventions with a brief description of th
 * `SelectServiceContracts`: given the service type returns the list of contracts that should be used to register the given service;
 * `IsMessageHandler`: determines if a type should be considered a message handler or not;
 * `SelectMessageHandlerContracts`: given the message handler type returns the list of contracts that should be used to register the given message handler;
-* `IsView`: determines if a type should be considered a view or not;
-* `IsViewModel`: determines if a type should be considered a view model or not;
-* `IsShellView`: determines if a type should be considered a shell/main view or not;
-* `IsShellViewModel`: determines if a type should be considered a shell/main view model or not;
+* `IsView`: determines if a type should be considered a view or not. The View is registered as transient in the IoC container;
+* `IsViewModel`: determines if a type should be considered a view model or not. The ViewModel is registered as transient in the IoC container;
+* `IsShellView`: determines if a type should be considered a shell/main view or not. The View is registered as singleton in the IoC container;
+* `IsShellViewModel`: determines if a type should be considered a shell/main view model or not. The ViewModel is registered as singleton in the IoC container;
 * `SelectViewContracts`: given the view type returns the list of contracts that should be used to register the given view;
 * `SelectViewModelContracts`: given the view model type returns the list of contracts that should be used to register the given view model;
 * `IsExcluded`: determines if a type should be excluded \(ignored\) by the registration process;
