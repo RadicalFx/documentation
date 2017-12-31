@@ -27,6 +27,9 @@ As you can imagine the value of the `NewValue` property of the event arguments i
 * `$source`: the source of the routed event;
 * `$originalSource`: the original source of the routed event;
 
-Obviously the event we need to handle must be a `RoutedEvent`.
+#### Notes:
+
+* the event identified by the `RoutedEvent` property must be a valid WPF `RoutedEvent`.
+* the bound command identified by the `WithCommand` property must be a valid `ICommand`, `AutoCommandBinding` is not supported.
 
 The behavior is defined in the `http://schemas.topics.it/wpf/radical/windows/behaviors` xml namespace.
