@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePlugin", "SamplePlugi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsInfrastructure", "PluginsInfrastructure\PluginsInfrastructure.csproj", "{9D2BA31C-2010-43FE-BF54-BB7071542F23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnaotherSamplePlugin", "AnaotherSamplePlugin\AnaotherSamplePlugin.csproj", "{C75BEDC9-72E8-4BB5-915D-92FBAA8E06F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherSamplePlugin", "AnotherSamplePlugin\AnotherSamplePlugin.csproj", "{C75BEDC9-72E8-4BB5-915D-92FBAA8E06F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

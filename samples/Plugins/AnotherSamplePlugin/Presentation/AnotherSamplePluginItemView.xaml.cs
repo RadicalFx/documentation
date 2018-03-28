@@ -1,13 +1,13 @@
 ﻿using System.Windows.Controls;
 
-namespace AnaotherSamplePlugin.Presentation
+namespace AnotherSamplePlugin.Presentation
 {
     /// <summary>
     /// Interaction logic for SamplePluginItemView.xaml
     /// </summary>
-    public partial class AnaotherSamplePluginItemView : UserControl
+    public partial class AnotherSamplePluginItemView : UserControl
     {
-        public AnaotherSamplePluginItemView()
+        public AnotherSamplePluginItemView()
         {
             InitializeComponent();
         }

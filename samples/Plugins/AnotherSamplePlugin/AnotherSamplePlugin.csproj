@@ -47,8 +47,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\AnaotherSamplePluginItemView.xaml.cs">
-      <DependentUpon>AnaotherSamplePluginItemView.xaml</DependentUpon>
+    <Compile Include="Presentation\AnotherSamplePluginItemView.xaml.cs">
+      <DependentUpon>AnotherSamplePluginItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -74,7 +74,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Presentation\AnaotherSamplePluginItemView.xaml">
+    <Page Include="Presentation\AnotherSamplePluginItemView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
