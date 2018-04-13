@@ -32,7 +32,7 @@ The application boots, all the default and required services \(for MVVM and UI C
 
 #### What’s next
 
-The best topic to read now is basic [concepts about the ViewModel](//mvvm/abstract-view-model.md).
+The best topic to read now is basic [concepts about the ViewModel](mvvm/abstract-view-model.md).
 
 ## Release management process
 
