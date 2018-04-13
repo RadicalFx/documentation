@@ -30,7 +30,7 @@ The Focus behavior defines which property of the ViewModel controls the focused 
 
 ## The ViewModel
 
-On the ViewModel side, if we inherit from the base [AbstractViewModel](/mvvm/abstract-view-model.md), we just need to decide which should be the “focused” key:
+On the ViewModel side, if we inherit from the base [AbstractViewModel](../mvvm/abstract-view-model.md), we just need to decide which should be the “focused” key:
 
 ```csharp
 class MainViewModel : AbstractViewModel
