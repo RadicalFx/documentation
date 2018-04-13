@@ -1,6 +1,6 @@
 ## Callback expectations
 
-A view model that needs to intercept state changes can implement a interface that declares which are the required callback(s), the supported interfaces are:
+A view model that needs to intercept state view changes can implement an interface that declares which are the required callback(s), the supported interfaces are:
 
 * IExpectViewLoadedCallback;
 * IExpectViewActivatedCallback;
@@ -33,4 +33,4 @@ class ChildViewModel : AbstractViewModel, IExpectViewClosingCallback
 }
 ```
 
-Those interfaces are designed to let the `ViewModel` intercept the state changes of **its own** `View` not of other view, the default way to intercept state changes of other view is to use the `MessageBroker`.
+Those interfaces are designed to let the `ViewModel` intercept the state changes of **its own** `View` not of other views, the default way to intercept state changes of other views is to use the `MessageBroker`.
