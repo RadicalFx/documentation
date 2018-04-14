@@ -9,35 +9,7 @@ toc: mvvm-toc.html
 * View – ViewModel relation;
 * UI Composition;
 
-Here they are:
-
-```csharp
-public interface IConventionsHandler
-{	
-   Func<Type, Type> ResolveViewModelType { get; set; }
-   Func<Type, Type> ResolveViewType { get; set; }
-   Action<DependencyObject, ViewReleaseBehavior> ViewReleaseHandler { get; set; }
-   Func<DependencyObject, Boolean> ShouldUnregisterRegionManagerOfView { get; set; }
-   Func<DependencyObject, Boolean> ShouldReleaseView { get; set; }
-   Func<DependencyObject, Boolean> ShouldUnsubscribeViewModelOnRelease { get; set; }
-   Func<Object, Window> FindHostingWindowOf { get; set; }
-   Func<DependencyObject, Window> FindWindowOf { get; set; }
-   Func<DependencyObject, ViewDataContextSearchBehavior, Boolean> ViewHasDataContext { get; set; }
-   Func<DependencyObject, Object, Boolean> ShouldNotifyViewModelLoaded { get; set; }
-   Func<DependencyObject, Boolean> ShouldNotifyViewLoaded { get; set; }
-   Action<DependencyObject, Object> SetViewDataContext { get; set; }
-   Func<DependencyObject, Object, bool> ShouldExposeViewModelAsStaticResource { get; set; }
-   Action<DependencyObject, Object> ExposeViewModelAsStaticResource { get; set; }
-   Func<DependencyObject, ViewDataContextSearchBehavior, Object> GetViewDataContext { get; set; }
-   Action<DependencyObject, Object> AttachViewToViewModel { get; set; }
-   Func<Object, DependencyObject> GetViewOfViewModel { get; set; }
-   Func<DependencyObject, Action<DependencyObject>, DependencyObject> TryHookClosedEventOfHostOf { get; set; }
-   Func<FrameworkElement, Boolean> IsHostingView { get; set; }
-   Action<DependencyObject> AttachViewBehaviors { get; set; }
-   Action<DependencyObject> DetachViewBehaviors { get; set; }
-   ViewDataContextSearchBehavior DefaultViewDataContextSearchBehavior { get; set; }
-}
-```
+Runtime conventions are managed by the `IConventionsHandler` interface, and allows to take full control of the following Radical behaviors:
 
 * **ResolveViewModelType**: The first convention is used internally by the ViewResolver and given the view type returns the ViewModel type for the given view, the default behavior is that the view model is in the same namespace of the view and has the same type name suffixed with “Model” (e.g.: MainView and MainViewModel).
 
