@@ -1,6 +1,6 @@
 ## Splash screen
 
-`Radical` utilizes its own internal [[UI Composition]] engine to add support to splash screen at application startup:
+`Radical` utilizes its own internal [UI Composition](../ui-composition/index.md) engine to add support to splash screens at application startup:
 
 ```csharp
 var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>()
@@ -11,7 +11,7 @@ Enabling splash screen support is as easy as calling the `EnableSplashScreen` me
 
 #### Splash screen content
 
-Since the splash screen content is managed using the `UI Composition` engine in order to add a content to the splash screen is enough to define a [partial view](/ui-composition/index.md#automatic-aka-partial-regions) named `SplashScreenContent`:
+Since the splash screen content is managed using the `UI Composition` engine in order to add a content to the splash screen is enough to define a [partial view](../ui-composition/index.md#automatic-aka-partial-regions) named `SplashScreenContent`:
 
 ```
 Presentation
