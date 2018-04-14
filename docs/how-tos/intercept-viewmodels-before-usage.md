@@ -1,4 +1,4 @@
-## Intercept ViewModels before usage
+## Intercept ViewModels before it's used
 
 One of the typical scenario in a desktop application is the requirement to “open” a new view passing to newly created view/view model some data, the ideal solution is also to be able to pass data to the constructor of the new view model in order to be sure that at the end of the construction process everything is correctly setup.
 
@@ -19,11 +19,11 @@ var viewModel = conventions.GetViewDataContext( view ) as MyViewModel;
 viewModel.Initialize( someData );
 ```
 
-it works, using the built-in [conventions](/mvvm/runtime-conventions.md) we retrieve an instance of the attached view model and set it up, but the problem is that the setup occurs after that the view model has been wired to the view, and in some cases this is not ideal.
+it works, using the built-in [conventions](../mvvm/runtime-conventions.md) we retrieve an instance of the attached view model and set it up, but the problem is that the setup occurs after that the view model has been wired to the view, and in some cases this is not ideal.
 
 ## Interceptors
 
-We have so decided to add a new feature to the [view resolver](/mvvm/iview-resolver.md) to let the user intercept the view model before it is wired up to the view:
+We have so decided to add a new feature to the [view resolver](../mvvm/iview-resolver.md) to let the user intercept the view model before it is wired up to the view:
 
 ```csharp
 var view = viewResolver.GetView<MyView>( vm => 
