@@ -8,10 +8,10 @@ Using a IoC framework is, on the other hand, highly suggested since that the ben
 
 We currently provide out-of-the-box 2 different implementation for 2 different IoC containers:
 
-* [Castle Windsor](//ioc/windsor.md): the [Nuget](http://nuget.org/) package [Radical.Windows.Presentation.CastleWindsor](http://nuget.org/packages/Radical.Windows.Presentation.CastleWindsor) gives you, without any effort, all the infrastructure required to build MVVM applications based on Windsor as IoC container;
-* [Puzzle Container](//ioc/puzzle.md): at the time of this writing there are no IoC containers that supports WinRT \(for Windows 8 store apps\) so we decided to provide our own IoC container to get, in store apps, the same support that “desktop” IoC containers gives to desktop apps;
-* [Unity v2 and Unity v3](//ioc/unity.md): the Nuget packages [Radical.Windows.Presentation.Unity2](http://nuget.org/packages/Radical.Windows.Presentation.Unity2) and [Radical.Windows.Presentation.Unity3](http://nuget.org/packages/Radical.Windows.Presentation.Unity3) gives you, without any effort, all the infrastructure required to build MVVM applications based on Unity as IoC container;
-* [Autofac](//ioc/autofac.md): the Nuget package [Radical.Windows.Presentation.Autofac](http://nuget.org/packages/Radical.Windows.Presentation.Autofac) gives you, without any effort, all the infrastructure required to build MVVM applications based on Autofac as IoC container;
+* [Castle Windsor](https://radical-documentation.readthedocs.io/en/read-the-docs/ioc/windsor/): the [Nuget](http://nuget.org/) package [Radical.Windows.Presentation.CastleWindsor](http://nuget.org/packages/Radical.Windows.Presentation.CastleWindsor) gives you, without any effort, all the infrastructure required to build MVVM applications based on Windsor as IoC container;
+* [Puzzle Container](https://radical-documentation.readthedocs.io/en/read-the-docs/ioc/puzzle/): at the time of this writing there are no IoC containers that supports WinRT \(for Windows 8 store apps\) so we decided to provide our own IoC container to get, in store apps, the same support that “desktop” IoC containers gives to desktop apps;
+* [Unity v2 and Unity v3](https://radical-documentation.readthedocs.io/en/read-the-docs/ioc/unity/): the Nuget packages [Radical.Windows.Presentation.Unity2](http://nuget.org/packages/Radical.Windows.Presentation.Unity2) and [Radical.Windows.Presentation.Unity3](http://nuget.org/packages/Radical.Windows.Presentation.Unity3) gives you, without any effort, all the infrastructure required to build MVVM applications based on Unity as IoC container;
+* [Autofac](https://radical-documentation.readthedocs.io/en/read-the-docs/ioc/autofac/): the Nuget package [Radical.Windows.Presentation.Autofac](http://nuget.org/packages/Radical.Windows.Presentation.Autofac) gives you, without any effort, all the infrastructure required to build MVVM applications based on Autofac as IoC container;
 
 
 
