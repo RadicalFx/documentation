@@ -1,4 +1,4 @@
-﻿using Topics.Radical.Windows.Presentation;
+﻿using Radical.Windows.Presentation;
 
 namespace MyApplication.Presentation
 {

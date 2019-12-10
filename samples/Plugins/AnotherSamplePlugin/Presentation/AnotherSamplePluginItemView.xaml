@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
-             xmlns:behavior="http://schemas.topics.it/wpf/radical/windows/behaviors"
-             xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
+             xmlns:markup="http://schemas.it/wpf/radical/windows/markup"
+             xmlns:behavior="http://schemas.it/wpf/radical/windows/behaviors"
+             xmlns:rg="http://schemas.it/wpf/radical/windows/presentation/regions"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>

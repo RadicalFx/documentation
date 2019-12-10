@@ -1,13 +1,17 @@
 ﻿using PluginsInfrastructure;
 using System;
-using Topics.Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.Presentation.ComponentModel;
 
 namespace SamplePlugin.Services
 {
     class PluginDefinition : IPluginDefinition
     {
-        public IViewResolver ViewResolver { get; set; }
-        public IRegionService RegionService { get; set; }
+        readonly IViewResolver viewResolver;
+
+        public PluginDefinition(IViewResolver viewResolver)
+        {
+            this.viewResolver = viewResolver;
+        }
 
         public string Name => "SamplePlugin";
 
@@ -15,7 +19,7 @@ namespace SamplePlugin.Services
 
         public Action<IRegionManager> OnMainViewLoaded => mainViewRegionManager =>
         {
-            var view = ViewResolver.GetView<Presentation.SamplePluginItemView>();
+            var view = viewResolver.GetView<Presentation.SamplePluginItemView>();
             var region = mainViewRegionManager.GetRegion("MainViewRegion") as IElementsRegion;
 
             region?.Add(view);
