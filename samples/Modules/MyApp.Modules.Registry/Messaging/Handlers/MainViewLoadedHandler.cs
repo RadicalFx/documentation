@@ -1,48 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Radical.ComponentModel.Messaging;
+using Radical.Messaging;
+using Radical.Windows.Input;
+using Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.Presentation.Messaging;
 using System.Windows.Controls;
-using Topics.Radical.ComponentModel.Messaging;
-using Topics.Radical.Messaging;
-using Topics.Radical.Windows.Input;
-using Topics.Radical.Windows.Presentation.ComponentModel;
-using Topics.Radical.Windows.Presentation.Messaging;
 
 namespace MyApp.Modules.Registry.Messaging.Handlers
 {
     class MainViewLoadedHandler : AbstractMessageHandler<ViewLoaded>, INeedSafeSubscription
     {
-        public IConventionsHandler Conventions { get; set; }
+        readonly IConventionsHandler conventions;
+        readonly IMessageBroker broker;
+        readonly IRegionService regionService;
 
-        public IViewResolver ViewResolver { get; set; }
-
-        public IRegionService RegionService { get; set; }
-
-        public IMessageBroker Broker { get; set; }
+        public MainViewLoadedHandler(IConventionsHandler conventions, IRegionService regionService, IMessageBroker broker)
+        {
+            this.conventions = conventions;
+            this.regionService = regionService;
+            this.broker = broker;
+        }
 
         protected override bool OnShouldHandle( object sender, ViewLoaded message )
         {
-            var viewModel = this.Conventions.GetViewDataContext( message.View, ViewDataContextSearchBehavior.LocalOnly );
+            var viewModel = conventions.GetViewDataContext( message.View, ViewDataContextSearchBehavior.LocalOnly );
             return viewModel is Contracts.IMainViewModel;
         }
 
         public override void Handle( object sender, ViewLoaded message )
         {
-            if ( this.RegionService.HoldsRegionManager( message.View ) )
+            if ( regionService.HoldsRegionManager( message.View ) )
             {
-                var manager = this.RegionService.GetRegionManager( message.View );
+                var manager = regionService.GetRegionManager( message.View );
 
-                var registryMenu = new MenuItem();
-                registryMenu.Header = "Registry";
+                var registryMenu = new MenuItem
+                {
+                    Header = "Registry"
+                };
                 registryMenu.Items.Add( new MenuItem()
                 {
                     Header = "Create...",
                     Command = DelegateCommand.Create()
                                 .OnExecute( o =>
                                 {
-                                    this.Broker.Broadcast( this, new Messaging.CreateNewCompany() );
+                                    broker.Broadcast( this, new CreateNewCompany() );
                                 } )
                 } );
 

@@ -1,11 +1,6 @@
 ﻿using MyApp.Contracts.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Topics.Radical.ComponentModel.Messaging;
-using Topics.Radical.Windows.Presentation;
+using Radical.ComponentModel.Messaging;
+using Radical.Windows.Presentation;
 
 namespace MyApp.Modules.Registry.Presentation.Partial.CommandsRegion
 {

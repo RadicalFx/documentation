@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MyApp.Presentation;
+using Radical.Windows.Presentation.Boot;
 using System.Windows;
-using MyApp.Presentation;
-using Topics.Radical.Windows.Presentation.Boot;
 
 namespace MyApp
 {
@@ -17,7 +11,8 @@ namespace MyApp
     {
         public App()
         {
-            var bootstrapper = new WindsorApplicationBootstrapper<MainView>();
+            var bootstrapper = new ApplicationBootstrapper()
+                .UsingAsShell<MainView>();
         }
     }
 }
