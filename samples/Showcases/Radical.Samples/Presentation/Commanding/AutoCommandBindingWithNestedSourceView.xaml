@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="Topics.Radical.Presentation.Commanding.AutoCommandBindingWithNestedSourceView"
+﻿<UserControl x:Class="Radical.Samples.Presentation.Commanding.AutoCommandBindingWithNestedSourceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:command="http://schemas.topics.it/wpf/radical/windows/markup"
 	  mc:Ignorable="d" 
-             xmlns:local="clr-namespace:Topics.Radical.Presentation.Commanding"
+             xmlns:local="clr-namespace:Radical.Samples.Commanding"
 	  d:DesignHeight="401" d:DesignWidth="603">
     <UserControl.Resources>
         <local:NestedSource x:Key="nested" />

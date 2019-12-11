@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.BusyBehavior
+namespace Radical.Samples.Presentation.BusyBehavior
 {
 	/// <summary>
 	/// Interaction logic for BusyBehaviorSampleView.xaml

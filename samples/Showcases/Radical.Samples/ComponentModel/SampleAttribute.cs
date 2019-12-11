@@ -1,21 +1,21 @@
 ﻿using System;
 
-namespace Topics.Radical.ComponentModel
+namespace Radical.Samples.ComponentModel
 {
 	[AttributeUsage( AttributeTargets.Class, Inherited = false, AllowMultiple = false )]
 	public sealed class SampleAttribute : Attribute
 	{
 		public SampleAttribute()
 		{
-			this.Category = Categories.Default;
-			this.Description = "<-- not set -->";
+			Category = Categories.Default;
+			Description = "<-- not set -->";
 		}
 
-		public String PageUri { get; set; }
-		public String Title { get; set; }
-		public String Category { get; set; }
-		public String Description { get; set; }
-		public Int32 Order { get; set; }
+		public string PageUri { get; set; }
+		public string Title { get; set; }
+		public string Category { get; set; }
+		public string Description { get; set; }
+		public int Order { get; set; }
 		//public IEnumerable<String> Tags { get; set; }
 	}
 }

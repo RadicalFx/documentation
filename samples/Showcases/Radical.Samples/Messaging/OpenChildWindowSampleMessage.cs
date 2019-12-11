@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Topics.Radical.Messaging
+namespace Radical.Samples.Messaging
 {
     public class OpenChildWindowSampleMessage
     {
-        public Boolean AsDialog { get; set; }
+        public bool AsDialog { get; set; }
     }
 }

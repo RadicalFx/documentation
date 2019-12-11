@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.EntityCollectionView
+namespace Radical.Samples.Presentation.EntityCollectionView
 {
 	/// <summary>
 	/// Interaction logic for EntityCollectionViewView.xaml

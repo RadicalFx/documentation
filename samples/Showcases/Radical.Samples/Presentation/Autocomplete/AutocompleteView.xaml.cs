@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.Autocomplete
+namespace Radical.Samples.Presentation.Autocomplete
 {
 	/// <summary>
 	/// Interaction logic for AutocompleteView.xaml

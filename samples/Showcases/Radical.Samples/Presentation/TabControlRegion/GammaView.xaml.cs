@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.TabControlRegion
+namespace Radical.Samples.Presentation.TabControlRegion
 {
     /// <summary>
     /// Interaction logic for GammaView.xaml

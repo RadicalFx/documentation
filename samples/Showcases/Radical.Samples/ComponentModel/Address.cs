@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Topics.Radical.ComponentModel
+namespace Radical.Samples.ComponentModel
 {
 	public class Address
 	{
@@ -12,7 +12,7 @@ namespace Topics.Radical.ComponentModel
 			
 		}
 
-		public String Street { get; set; }
-		public String ZipCode { get; set; }
+		public string Street { get; set; }
+		public string ZipCode { get; set; }
 	}
 }

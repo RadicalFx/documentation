@@ -1,12 +1,13 @@
 ﻿using System.Windows.Input;
 using System.Linq;
-using Topics.Radical.ChangeTracking;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.ChangeTracking;
-using Topics.Radical.Observers;
-using Topics.Radical.Windows.Input;
+using Radical.ChangeTracking;
+using Radical.ComponentModel;
+using Radical.ComponentModel.ChangeTracking;
+using Radical.Observers;
+using Radical.Windows.Input;
+using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.Memento.ComplexGraph
+namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {
 	[Sample( Title = "Complex Graph", Category = Categories.Memento )]
 	public sealed class ComplexGraphViewModel : SampleViewModel
@@ -15,31 +16,31 @@ namespace Topics.Radical.Presentation.Memento.ComplexGraph
 
 		public ComplexGraphViewModel()
 		{
-			var observer = MementoObserver.Monitor( this.service );
+			var observer = MementoObserver.Monitor( service );
 
-			this.UndoCommand = DelegateCommand.Create()
-				.OnCanExecute( o => this.service.CanUndo )
-				.OnExecute( o => this.service.Undo() )
+			UndoCommand = DelegateCommand.Create()
+				.OnCanExecute( o => service.CanUndo )
+				.OnExecute( o => service.Undo() )
 				.AddMonitor( observer );
 
-			this.RedoCommand = DelegateCommand.Create()
-				.OnCanExecute( o => this.service.CanRedo )
-				.OnExecute( o => this.service.Redo() )
+			RedoCommand = DelegateCommand.Create()
+				.OnCanExecute( o => service.CanRedo )
+				.OnExecute( o => service.Redo() )
 				.AddMonitor( observer );
 
-			this.CreateNewAddressCommand = DelegateCommand.Create()
+			CreateNewAddressCommand = DelegateCommand.Create()
 				.OnExecute( o =>
 				{
-					var address = this.Entity.Addresses.AddNew();
-					this.SelectedAddress = address;
+					var address = Entity.Addresses.AddNew();
+					SelectedAddress = address;
 				} );
 
-			this.DeleteAddressCommand = DelegateCommand.Create()
-				.OnCanExecute( o => this.SelectedAddress != null )
+			DeleteAddressCommand = DelegateCommand.Create()
+				.OnCanExecute( o => SelectedAddress != null )
 				.OnExecute( o =>
 				{
-					this.SelectedAddress.Delete();
-					this.SelectedAddress = this.Entity.Addresses.FirstOrDefault();
+					SelectedAddress.Delete();
+					SelectedAddress = Entity.Addresses.FirstOrDefault();
 				} )
 				.AddMonitor
 				(
@@ -72,9 +73,9 @@ namespace Topics.Radical.Presentation.Memento.ComplexGraph
 			var entity = new PersonViewModel();
 			entity.Initialize( person, false );
 
-			this.service.Attach( entity );
+			service.Attach( entity );
 
-			this.Entity = entity;
+			Entity = entity;
 		}
 
 		public ICommand UndoCommand { get; private set; }
@@ -87,14 +88,14 @@ namespace Topics.Radical.Presentation.Memento.ComplexGraph
 
 		public PersonViewModel Entity
 		{
-			get { return this.GetPropertyValue( () => this.Entity ); }
-			private set { this.SetPropertyValue( () => this.Entity, value ); }
+			get { return GetPropertyValue( () => Entity ); }
+			private set { SetPropertyValue( () => Entity, value ); }
 		}
 
 		public IEntityItemView<AddressViewModel> SelectedAddress
 		{
-			get { return this.GetPropertyValue( () => this.SelectedAddress ); }
-			private set { this.SetPropertyValue( () => this.SelectedAddress, value ); }
+			get { return GetPropertyValue( () => SelectedAddress ); }
+			private set { SetPropertyValue( () => SelectedAddress, value ); }
 		}
 	}
 }

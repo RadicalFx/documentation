@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Topics.Radical.ComponentModel;
+using Radical.ComponentModel;
 
-namespace Topics.Radical.Presentation.Effects
+namespace Radical.Presentation.Effects
 {
 	[Sample( Title = "Grayscale Shader", Category = Categories.Presentation )]
 	public class EffectViewModel : SampleViewModel

@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Topics.Radical.Presentation.DragAndDrop
+namespace Radical.Samples.Presentation.DragAndDrop
 {
 	class Person
 	{
-		public String FirstName { get; set; }
-		public String LastName { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 
 		public override string ToString()
 		{
-			return this.FirstName + " " + this.LastName;
+			return FirstName + " " + LastName;
 		}
 	}
 }

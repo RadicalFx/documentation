@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Topics.Radical.ComponentModel;
+﻿using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.CueBanner
+namespace Radical.Samples.Presentation.CueBanner
 {
 	[Sample( Title = "CueBanner behavior", Category = Categories.Behaviors )]
 	class CueBannerSampleViewModel : SampleViewModel
 	{
-		public Boolean IsPasswordBoxVisible
+		public bool IsPasswordBoxVisible
 		{
-			get { return this.GetPropertyValue( () => this.IsPasswordBoxVisible ); }
-			set { this.SetPropertyValue( () => this.IsPasswordBoxVisible, value ); }
+			get { return this.GetPropertyValue( () => IsPasswordBoxVisible ); }
+			set { this.SetPropertyValue( () => IsPasswordBoxVisible, value ); }
 		}
 
-		public Boolean IsTextBoxVisible
+		public bool IsTextBoxVisible
 		{
-			get { return this.GetPropertyValue( () => this.IsTextBoxVisible ); }
-			set { this.SetPropertyValue( () => this.IsTextBoxVisible, value ); }
+			get { return this.GetPropertyValue( () => IsTextBoxVisible ); }
+			set { this.SetPropertyValue( () => IsTextBoxVisible, value ); }
 		}
 	}
 }

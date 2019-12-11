@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Samples.EntityView
+namespace Radical.Samples.Presentation.EntityView
 {
 	/// <summary>
 	/// Interaction logic for HelloWorldPage.xaml

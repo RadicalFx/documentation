@@ -4,26 +4,26 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace Topics.Radical.ComponentModel
+namespace Radical.Samples.ComponentModel
 {
 	public class Person
 	{
 		public Person()
-			: this( String.Empty )
+			: this(string.Empty )
 		{
 
 		}
 
-		public Person( String username )
+		public Person(string username )
 		{
-			this.Username = username;
-			this.Addresses = new List<Address>();
+			Username = username;
+			Addresses = new List<Address>();
 		}
 
-		public String Username { get; private set; }
+		public string Username { get; private set; }
 
-		public String FirstName { get; set; }
-		public String LastName { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 
 		[Bindable( BindableSupport.No )]
 		public IList<Address> Addresses { get; private set; }

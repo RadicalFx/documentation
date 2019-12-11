@@ -1,21 +1,21 @@
 ﻿using System;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.ChangeTracking;
-using Topics.Radical.Model;
+using Radical.ComponentModel;
+using Radical.ComponentModel.ChangeTracking;
+using Radical.Model;
 
-namespace Topics.Radical.Presentation.Memento.SimpleGraph
+namespace Radical.Samples.Presentation.Memento.SimpleGraph
 {
 	public class PersonViewModel : MementoEntity
 	{
-		public void Initialize( Person person, Boolean registerAsTransient )
+		public void Initialize( Person person, bool registerAsTransient )
 		{
 			if( registerAsTransient )
 			{
-				this.RegisterTransient();
+				RegisterTransient();
 			}
 
-			this.SetInitialPropertyValue( () => this.FirstName, person.FirstName );
-			this.SetInitialPropertyValue( () => this.LastName, person.LastName );
+			SetInitialPropertyValue( () => FirstName, person.FirstName );
+			SetInitialPropertyValue( () => LastName, person.LastName );
 
 
 
@@ -83,16 +83,16 @@ namespace Topics.Radical.Presentation.Memento.SimpleGraph
 
 		}
 
-		public String FirstName
+		public string FirstName
 		{
-			get { return this.GetPropertyValue( () => this.FirstName ); }
-			set { this.SetPropertyValue( () => this.FirstName, value ); }
+			get { return GetPropertyValue( () => FirstName ); }
+			set { SetPropertyValue( () => FirstName, value ); }
 		}
 
-		public String LastName
+		public string LastName
 		{
-			get { return this.GetPropertyValue( () => this.LastName ); }
-			set { this.SetPropertyValue( () => this.LastName, value ); }
+			get { return GetPropertyValue( () => LastName ); }
+			set { SetPropertyValue( () => LastName, value ); }
 		}
 
 		//public IEntityView<AddressViewModel> Addresses

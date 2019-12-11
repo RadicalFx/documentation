@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.Memento.ComplexGraph
+namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {
 	/// <summary>
 	/// Interaction logic for ComplexGraphView.xaml

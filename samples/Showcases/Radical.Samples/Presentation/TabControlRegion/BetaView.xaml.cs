@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Topics.Radical.Windows.Presentation.ComponentModel.Regions;
+using Radical.Windows.Presentation.ComponentModel.Regions;
 
-namespace Topics.Radical.Presentation.TabControlRegion
+namespace Radical.Samples.Presentation.TabControlRegion
 {
     /// <summary>
     /// Interaction logic for BetaView.xaml

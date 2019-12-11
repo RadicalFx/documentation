@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.Partial.SplashScreenContent
+namespace Radical.Samples.Presentation.Partial.SplashScreenContent
 {
 	/// <summary>
 	/// Interaction logic for SplashView.xaml

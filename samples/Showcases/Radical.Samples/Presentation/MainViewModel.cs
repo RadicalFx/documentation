@@ -1,39 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Topics.Radical.Services;
-using Topics.Radical.Windows.Presentation;
-using Topics.Radical.Linq;
-using Topics.Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.Presentation;
+using Radical.Linq;
+using Radical.Windows.Presentation.ComponentModel;
+using Radical.Samples;
+using Radical.Samples.Services;
 
-namespace Topics.Radical.Presentation
+namespace Radical.Presentation.Presentation
 {
 	class MainViewModel : AbstractViewModel
 	{
-		readonly Services.SamplesManager samplesManager;
+		readonly SamplesManager samplesManager;
 		readonly IViewResolver viewResolver;
 		readonly IRegionService regionService;
 
-		public MainViewModel( Services.SamplesManager samplesManager, IViewResolver viewResolver, IRegionService regionService )
+		public MainViewModel( SamplesManager samplesManager, IViewResolver viewResolver, IRegionService regionService )
 		{
 			this.samplesManager = samplesManager;
 			this.viewResolver = viewResolver;
 			this.regionService = regionService;
 
-			this.Categories = samplesManager.Categories;
+			Categories = samplesManager.Categories;
 
-			this.Categories
+			Categories
 				.SelectMany( c => c.Samples )
 				.ForEach( s =>
 				{
 					s.ViewSampleHandler = sample =>
 					{
-						this.SelectedSample = sample;
+						SelectedSample = sample;
 						this.regionService.GetKnownRegionManager<MainView>()
 							.GetRegion<IContentRegion>( "SampleContentRegion" )
-							.Content = this.viewResolver.GetView( this.SelectedSample.ViewType );
+							.Content = this.viewResolver.GetView( SelectedSample.ViewType );
 					};
 				} );
 		}
@@ -46,8 +44,8 @@ namespace Topics.Radical.Presentation
 
 		public SamplesManager.SampleItem SelectedSample
 		{
-			get { return this.GetPropertyValue( () => this.SelectedSample ); }
-			private set { this.SetPropertyValue( () => this.SelectedSample, value ); }
+			get { return GetPropertyValue( () => SelectedSample ); }
+			private set { SetPropertyValue( () => SelectedSample, value ); }
 		}
 	}
 }

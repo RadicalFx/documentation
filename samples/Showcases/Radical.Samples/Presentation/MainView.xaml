@@ -1,4 +1,4 @@
-﻿<Window x:Class="Topics.Radical.Presentation.MainView"
+﻿<Window x:Class="Radical.Samples.Presentation.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
@@ -51,9 +51,9 @@
             <aero:SystemDropShadowChrome>
                 <Border BorderThickness="1" Background="White" BorderBrush="LightGray">
                     <ContentPresenter
-						  HorizontalAlignment="Stretch" 
-						  VerticalAlignment="Stretch" 
-						  rg:RegionService.Region="{rg:ContentPresenterRegion Name=SampleContentRegion}" />
+                          HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch" 
+                          rg:RegionService.Region="{rg:ContentPresenterRegion Name=SampleContentRegion}" />
                 </Border>
             </aero:SystemDropShadowChrome>
         </Border>

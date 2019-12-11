@@ -1,16 +1,16 @@
 ﻿using System;
 
-namespace Topics.Radical.ComponentModel
+namespace Radical.Samples.ComponentModel
 {
 	public static class Categories
 	{
-		public const String Default = "Default Category";
-		public const String Memento = "Memento";
-		public const String Commanding = "Commanding";
-		public const String IEntityView = "IEntityView<T>";
-		public const String Presentation = "Presentation";
-		public const String Validation = "Validation";
-		public const String Behaviors = "Behaviors";
-		public const String UIComposition = "UI Composition";
+		public const string Default = "Default Category";
+		public const string Memento = "Memento";
+		public const string Commanding = "Commanding";
+		public const string IEntityView = "IEntityView<T>";
+		public const string Presentation = "Presentation";
+		public const string Validation = "Validation";
+		public const string Behaviors = "Behaviors";
+		public const string UIComposition = "UI Composition";
 	}
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.Commanding
+namespace Radical.Samples.Presentation.Commanding
 {
 	/// <summary>
 	/// Interaction logic for AutoCommandBindingWithNestedSourceView.xaml

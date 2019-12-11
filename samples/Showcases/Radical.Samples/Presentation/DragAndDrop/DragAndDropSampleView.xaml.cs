@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.DragAndDrop
+namespace Radical.Samples.Presentation.DragAndDrop
 {
 	/// <summary>
 	/// Interaction logic for DragAndDropSampleView.xaml

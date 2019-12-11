@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.ViewModelAsStaticResource
+namespace Radical.Samples.Presentation.ViewModelAsStaticResource
 {
     /// <summary>
     /// Interaction logic for SampleViewModelAsResourceView.xaml

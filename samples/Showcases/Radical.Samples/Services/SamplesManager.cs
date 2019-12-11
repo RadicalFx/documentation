@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.Reflection;
-using Topics.Radical.Linq;
-using Topics.Radical.Windows.Presentation.ComponentModel;
+using Radical.Reflection;
+using Radical.Linq;
+using Radical.Windows.Presentation.ComponentModel;
+using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Services
+namespace Radical.Samples.Services
 {
 	class SamplesManager
 	{
 		public class SampleCategory
 		{
-			public SampleCategory( String name, IEnumerable<SampleItem> samples )
+			public SampleCategory(string name, IEnumerable<SampleItem> samples )
 			{
-				this.Name = name;
-				this.Samples = samples;
+				Name = name;
+				Samples = samples;
 			}
 
-			public String Name { get; private set; }
+			public string Name { get; private set; }
 
 			public IEnumerable<SampleItem> Samples
 			{
@@ -34,17 +32,17 @@ namespace Topics.Radical.Services
 			public SampleItem( Type viewModelType, Type viewType )
 			{
 				var attribute = viewModelType.GetAttribute<SampleAttribute>();
-				this.ViewType = viewType;
+				ViewType = viewType;
 
-				this.Title = attribute.Title;
-				this.Description = attribute.Description;
+				Title = attribute.Title;
+				Description = attribute.Description;
 
-				this.Order = attribute.Order;
+				Order = attribute.Order;
 			}
 
-			public String Title { get; private set; }
-			public String Description { get; private set; }
-			public Int32 Order { get; private set; }
+			public string Title { get; private set; }
+			public string Description { get; private set; }
+			public int Order { get; private set; }
 
 			public Type ViewType { get; private set; }
 
@@ -52,13 +50,13 @@ namespace Topics.Radical.Services
 
 			public void ViewSample() 
 			{
-				this.ViewSampleHandler( this );
+				ViewSampleHandler( this );
 			}
 		}
 
 		public SamplesManager( IConventionsHandler conventions )
 		{
-			this.Categories = GetAssembly.ThatContains<SamplesManager>()
+			Categories = GetAssembly.ThatContains<SamplesManager>()
 				.GetTypes()
 				.Where( t => t.IsAttributeDefined<SampleAttribute>() )
 				.GroupBy( t =>

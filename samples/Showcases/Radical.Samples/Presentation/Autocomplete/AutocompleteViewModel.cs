@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Linq;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.Observers;
-using Topics.Radical.Windows;
+using Radical.ComponentModel;
+using Radical.Observers;
+using Radical.Windows;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.Autocomplete
+namespace Radical.Samples.Presentation.Autocomplete
 {
 	[Sample( Title = "Autocomplete", Category = Categories.Presentation )]
 	public class AutocompleteViewModel : SampleViewModel
@@ -23,7 +24,7 @@ namespace Topics.Radical.Presentation.Autocomplete
 
 		public AutocompleteViewModel()
 		{
-			this.Data = new ObservableCollection<Person>();
+			Data = new ObservableCollection<Person>();
 
 			PropertyObserver.For( this )
 				.Observe( v => v.Choosen, ( v, s ) =>
@@ -32,30 +33,30 @@ namespace Topics.Radical.Presentation.Autocomplete
 				} )
 				.Observe( v => v.UserText, ( v, s ) =>
 				{
-					if( this.UserText.Length >= 3 )
+					if( UserText.Length >= 3 )
 				    {
-				        this.Data.Clear();
-						var filtered = storage.Where( p => p.FullName.StartsWith( this.UserText, StringComparison.OrdinalIgnoreCase ) );
+				        Data.Clear();
+						var filtered = storage.Where( p => p.FullName.StartsWith( UserText, StringComparison.OrdinalIgnoreCase ) );
 						foreach( var item in filtered )
 						{
-							this.Data.Add( item );
+							Data.Add( item );
 						}
 				    }
 				} );
 		}
 
-		public String UserText
+		public string UserText
 		{
-			get { return this.GetPropertyValue( () => this.UserText ); }
-			set { this.SetPropertyValue( () => this.UserText, value ); }
+			get { return GetPropertyValue( () => UserText ); }
+			set { SetPropertyValue( () => UserText, value ); }
 		}
 
 		public ObservableCollection<Person> Data { get; private set; }
 
 		public Person Choosen
 		{
-			get { return this.GetPropertyValue( () => this.Choosen ); }
-			set { this.SetPropertyValue( () => this.Choosen, value ); }
+			get { return GetPropertyValue( () => Choosen ); }
+			set { SetPropertyValue( () => Choosen, value ); }
 		}
 	}
 }

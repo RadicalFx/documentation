@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.Windows.Input;
-using Topics.Radical.Model;
-using Topics.Radical.Windows.Input;
+﻿using System.Collections.Generic;
+using Radical.ComponentModel;
+using Radical.ComponentModel.Windows.Input;
+using Radical.Model;
+using Radical.Samples.ComponentModel;
+using Radical.Windows.Input;
 
-namespace Topics.Radical.Presentation.EntityView
+namespace Radical.Samples.Presentation.EntityView
 {
 	[Sample( Title = "EntityView Custom Property Mapping", Category = Categories.IEntityView )]
 	public class CustomPropertyMappingViewModel : SampleViewModel
@@ -59,33 +59,33 @@ namespace Topics.Radical.Presentation.EntityView
             //    }
             //};
 
-			this.ToggleCustomProperty = DelegateCommand.Create()
+			ToggleCustomProperty = DelegateCommand.Create()
 				.OnExecute( o =>
 				{
-					var temp = this.Items;
-					this.Items = null;
-					this.OnPropertyChanged( () => this.Items );
+					var temp = Items;
+					Items = null;
+					this.OnPropertyChanged( () => Items );
 
-					if( !temp.IsPropertyMappingDefined( this.propertyName ) )
+					if( !temp.IsPropertyMappingDefined( propertyName ) )
 					{
-						var prop = temp.AddPropertyMapping<String>( "Nome proprietà", obj =>
+						var prop = temp.AddPropertyMapping<string>( "Nome proprietà", obj =>
 						{
 							return obj.Item.EntityItem.FirstName + " " + obj.Item.EntityItem.LastName;
 						} );
 
-						this.propertyName = prop.Name;
+						propertyName = prop.Name;
 					}
 					else
 					{
-						temp.RemovePropertyMapping( this.propertyName );
+						temp.RemovePropertyMapping( propertyName );
 					}
 
-					this.Items = temp;
-					this.OnPropertyChanged( () => this.Items );
+					Items = temp;
+					this.OnPropertyChanged( () => Items );
 				} );
 
-			this.Items = new EntityView<Person>( data );
-			this.Items.AddingNew += ( s, e ) =>
+			Items = new EntityView<Person>( data );
+			Items.AddingNew += ( s, e ) =>
 			{
 				e.NewItem = new Person( "--empty--" );
 			};

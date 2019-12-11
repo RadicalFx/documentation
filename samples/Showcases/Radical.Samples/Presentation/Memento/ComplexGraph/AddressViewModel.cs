@@ -1,64 +1,64 @@
 ﻿using System;
-using Topics.Radical.Model;
+using Radical.Model;
 
-namespace Topics.Radical.Presentation.Memento.ComplexGraph
+namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {
 	public class AddressViewModel : MementoEntity
 	{
-		public void Initialize( Address address, Boolean registerAsTransient )
+		public void Initialize( Address address, bool registerAsTransient )
 		{
 			if( registerAsTransient )
 			{
-				this.RegisterTransient();
+				RegisterTransient();
 			}
 
-			this.SetInitialPropertyValue
+			SetInitialPropertyValue
 			(
-				() => this.Street,
+				() => Street,
 				address.With( a => a.Street ).Return( s => s, "" )
 			);
 
-			this.SetInitialPropertyValue
+			SetInitialPropertyValue
 			(
-				() => this.Number,
+				() => Number,
 				address.With( a => a.Number ).Return( n => n, "" )
 			);
 
-			this.SetInitialPropertyValue
+			SetInitialPropertyValue
 			(
-				() => this.City,
+				() => City,
 				address.With( a => a.City ).Return( c => c, "" )
 			);
 
-			this.SetInitialPropertyValue
+			SetInitialPropertyValue
 			(
-				() => this.ZipCode,
+				() => ZipCode,
 				address.With( a => a.ZipCode ).Return( zc => zc, "" )
 			);
 		}
 
-		public String Street
+		public string Street
 		{
-			get { return this.GetPropertyValue( () => this.Street ); }
-			set { this.SetPropertyValue( () => this.Street, value ); }
+			get { return GetPropertyValue( () => Street ); }
+			set { SetPropertyValue( () => Street, value ); }
 		}
 
-		public String Number
+		public string Number
 		{
-			get { return this.GetPropertyValue( () => this.Number ); }
-			set { this.SetPropertyValue( () => this.Number, value ); }
+			get { return GetPropertyValue( () => Number ); }
+			set { SetPropertyValue( () => Number, value ); }
 		}
 
-		public String City
+		public string City
 		{
-			get { return this.GetPropertyValue( () => this.City ); }
-			set { this.SetPropertyValue( () => this.City, value ); }
+			get { return GetPropertyValue( () => City ); }
+			set { SetPropertyValue( () => City, value ); }
 		}
 
-		public String ZipCode
+		public string ZipCode
 		{
-			get { return this.GetPropertyValue( () => this.ZipCode ); }
-			set { this.SetPropertyValue( () => this.ZipCode, value ); }
+			get { return GetPropertyValue( () => ZipCode ); }
+			set { SetPropertyValue( () => ZipCode, value ); }
 		}
 	}
 }

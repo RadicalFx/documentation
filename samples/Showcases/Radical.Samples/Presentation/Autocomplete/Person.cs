@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Topics.Radical.Windows.Behaviors;
+using Radical.Windows.Behaviors;
 
-namespace Topics.Radical.Presentation.Autocomplete
+namespace Radical.Samples.Presentation.Autocomplete
 {
 	public class Person //: 
 		//AutoComplete.ICanRepresentMyself,
 		//AutoComplete.IHaveAnOpinionOnFilter
 	{
-		public String FirstName { get; set; }
-		public String LastName { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 
-		public String FullName { get { return this.FirstName + " " + this.LastName; } }
+		public string FullName { get { return FirstName + " " + LastName; } }
 
 		public override string ToString()
 		{
-			return this.FirstName;
+			return FirstName;
 		}
 
 		//string AutoComplete.ICanRepresentMyself.AsString()

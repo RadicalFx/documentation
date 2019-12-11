@@ -1,21 +1,22 @@
 ﻿using System;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.Observers;
-using Topics.Radical.Windows;
+using Radical.ComponentModel;
+using Radical.Observers;
+using Radical.Windows;
 using System.Collections.Generic;
-using Topics.Radical.Model;
+using Radical.Model;
 using System.Threading.Tasks;
 using System.Threading;
-using Topics.Radical.Threading;
+using Radical.Threading;
+using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.Commanding
+namespace Radical.Samples.Presentation.Commanding
 {
 	[Sample( Title = "Auto Command Binding (with Templates)", Category = Categories.Commanding )]
 	public class AutoCommandBindingWithTemplatesViewModel : SampleViewModel
 	{
 		public AutoCommandBindingWithTemplatesViewModel()
 		{
-			this.Children = new List<Child>()
+			Children = new List<Child>()
 			{
 				new Child( this ){ Id = "foo" },
 				new Child( this ){ Id = "bar" }
@@ -24,10 +25,10 @@ namespace Topics.Radical.Presentation.Commanding
 
 		public List<Child> Children { get; private set; }
 
-		public String InvokedOn
+		public string InvokedOn
 		{
-			get { return this.GetPropertyValue( () => this.InvokedOn ); }
-			set { this.SetPropertyValue( () => this.InvokedOn, value ); }
+			get { return this.GetPropertyValue( () => InvokedOn ); }
+			set { this.SetPropertyValue( () => InvokedOn, value ); }
 		}
 	}
 
@@ -39,35 +40,35 @@ namespace Topics.Radical.Presentation.Commanding
 		{
 			this.owner = owner;
 
-			this.Status = "Idle";
+			Status = "Idle";
 
-			this.GetPropertyMetadata( () => this.IsDoActive )
-				.AddCascadeChangeNotifications( () => this.CanDo );
+			GetPropertyMetadata( () => IsDoActive )
+				.AddCascadeChangeNotifications( () => CanDo );
 		}
 
-		public String Id { get; set; }
+		public string Id { get; set; }
 
-		public String Status
+		public string Status
 		{
-			get { return this.GetPropertyValue( () => this.Status ); }
-			set { this.SetPropertyValue( () => this.Status, value ); }
+			get { return GetPropertyValue( () => Status ); }
+			set { SetPropertyValue( () => Status, value ); }
 		}
 
-		public Boolean IsDoActive
+		public bool IsDoActive
 		{
-			get { return this.GetPropertyValue( () => this.IsDoActive ); }
-			set { this.SetPropertyValue( () => this.IsDoActive, value ); }
+			get { return GetPropertyValue( () => IsDoActive ); }
+			set { SetPropertyValue( () => IsDoActive, value ); }
 		}
 
-		public Boolean CanDo
+		public bool CanDo
 		{
-			get { return this.IsDoActive; }
+			get { return IsDoActive; }
 		}
 
 		public void Do()
 		{
-			this.owner.InvokedOn = this.Id;
-			this.Status = "Running: " + this.Id;
+			owner.InvokedOn = Id;
+			Status = "Running: " + Id;
 
 			//await Task.Factory.StartNew( () =>
 			//{
@@ -75,7 +76,7 @@ namespace Topics.Radical.Presentation.Commanding
 			//    Thread.Sleep( 2000 );
 			//} );
 
-			this.Status = "Completed: " + this.Id;
+			Status = "Completed: " + Id;
 		}
 	}
 }

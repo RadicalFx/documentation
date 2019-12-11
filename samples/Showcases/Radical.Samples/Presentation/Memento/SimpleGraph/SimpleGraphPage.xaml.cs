@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Samples.Memento.SimpleGraph
+namespace Radical.Samples.Presentation.Memento.SimpleGraph
 {
 	/// <summary>
 	/// Interaction logic for SimpleGraphPage.xaml

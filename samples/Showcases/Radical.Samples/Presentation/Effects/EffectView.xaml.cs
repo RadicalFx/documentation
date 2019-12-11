@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.Effects
+namespace Radical.Presentation.Effects
 {
 	/// <summary>
 	/// Interaction logic for EffectView.xaml

@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Samples.Effects
+namespace Radical.Samples.Effects
 {
 	/// <summary>
 	/// Interaction logic for EffectPage.xaml

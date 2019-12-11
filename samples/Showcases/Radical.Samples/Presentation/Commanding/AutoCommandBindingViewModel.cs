@@ -1,12 +1,12 @@
 ﻿using System;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.Observers;
-using Topics.Radical.Windows;
+using Radical.Observers;
+using Radical.Windows;
 using System.Collections.ObjectModel;
-using Topics.Radical.Model;
-using Topics.Radical.ComponentModel.Windows.Input;
+using Radical.Model;
+using Radical.ComponentModel.Windows.Input;
+using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.Commanding
+namespace Radical.Samples.Presentation.Commanding
 {
 	[Sample( Title = "Auto Command Binding", Category = Categories.Commanding )]
 	public class AutoCommandBindingViewModel : SampleViewModel
@@ -15,15 +15,15 @@ namespace Topics.Radical.Presentation.Commanding
 		{
 			public void Execute()
 			{
-				this.ExecutedOn = String.Format( " {0}: {1}", this.Name, DateTime.Now.ToLongTimeString() );
+				ExecutedOn = string.Format( " {0}: {1}", Name, DateTime.Now.ToLongTimeString() );
 			}
 
-			public String Name { get; set; }
+			public string Name { get; set; }
 
-			public String ExecutedOn
+			public string ExecutedOn
 			{
-				get { return this.GetPropertyValue( () => this.ExecutedOn ); }
-				set { this.SetPropertyValue( () => this.ExecutedOn, value ); }
+				get { return GetPropertyValue( () => ExecutedOn ); }
+				set { SetPropertyValue( () => ExecutedOn, value ); }
 			}
 		}
 
@@ -32,11 +32,11 @@ namespace Topics.Radical.Presentation.Commanding
 		{
 			get
 			{
-				if( this._canExecuteWithFact == null )
+				if( _canExecuteWithFact == null )
 				{
-					this._canExecuteWithFact = Fact.Create( o =>
+					_canExecuteWithFact = Fact.Create( o =>
 					{
-						return this.IsActiveWithFact;
+						return IsActiveWithFact;
 					} )
 					.AddMonitor
 					(
@@ -45,68 +45,68 @@ namespace Topics.Radical.Presentation.Commanding
 					);
 				}
 
-				return this._canExecuteWithFact;
+				return _canExecuteWithFact;
 			}
 		}
 
 		public void ExecuteWithFact()
 		{
-			this.ExecutedWithFact = DateTime.Now.ToLongTimeString();
+			ExecutedWithFact = DateTime.Now.ToLongTimeString();
 		}
 
-		public String ExecutedWithFact
+		public string ExecutedWithFact
 		{
-			get { return this.GetPropertyValue( () => this.ExecutedWithFact ); }
-			set { this.SetPropertyValue( () => this.ExecutedWithFact, value ); }
+			get { return this.GetPropertyValue( () => ExecutedWithFact ); }
+			set { this.SetPropertyValue( () => ExecutedWithFact, value ); }
 		}
 
-		private Boolean _isActiveWithFact = false;
-		public Boolean IsActiveWithFact
+		private bool _isActiveWithFact = false;
+		public bool IsActiveWithFact
 		{
-			get { return this._isActiveWithFact; }
+			get { return _isActiveWithFact; }
 			set
 			{
-				if( value != this.IsActiveWithFact )
+				if( value != IsActiveWithFact )
 				{
-					this._isActiveWithFact = value;
-					this.OnPropertyChanged( () => this.IsActiveWithFact );
+					_isActiveWithFact = value;
+					this.OnPropertyChanged( () => IsActiveWithFact );
 				}
 			}
 		}
 
 		public AutoCommandBindingViewModel()
 		{
-			this.GetPropertyMetadata( () => this.IsActiveWithBoolean )
-				.AddCascadeChangeNotifications( () => this.CanExecuteWithBoolean );
+			this.GetPropertyMetadata( () => IsActiveWithBoolean )
+				.AddCascadeChangeNotifications( () => CanExecuteWithBoolean );
 
-			this.Items = new ObservableCollection<Item>() 
+			Items = new ObservableCollection<Item>() 
 			{
 				new Item(){ Name = "Foo"},
 				new Item(){ Name = "Bar"},
 			};
 		}
 
-		public Boolean CanExecuteWithBoolean
+		public bool CanExecuteWithBoolean
 		{
-			get { return this.IsActiveWithBoolean; }
+			get { return IsActiveWithBoolean; }
 		}
 
 		[KeyBindingAttribute(System.Windows.Input.Key.B, Modifiers= System.Windows.Input.ModifierKeys.Control)]
 		public void ExecuteWithBoolean()
 		{
-			this.ExecutedWithBoolean = DateTime.Now.ToLongTimeString();
+			ExecutedWithBoolean = DateTime.Now.ToLongTimeString();
 		}
 
-		public String ExecutedWithBoolean
+		public string ExecutedWithBoolean
 		{
-			get { return this.GetPropertyValue( () => this.ExecutedWithBoolean ); }
-			set { this.SetPropertyValue( () => this.ExecutedWithBoolean, value ); }
+			get { return this.GetPropertyValue( () => ExecutedWithBoolean ); }
+			set { this.SetPropertyValue( () => ExecutedWithBoolean, value ); }
 		}
 
-		public Boolean IsActiveWithBoolean
+		public bool IsActiveWithBoolean
 		{
-			get { return this.GetPropertyValue( () => this.IsActiveWithBoolean ); }
-			set { this.SetPropertyValue( () => this.IsActiveWithBoolean, value ); }
+			get { return this.GetPropertyValue( () => IsActiveWithBoolean ); }
+			set { this.SetPropertyValue( () => IsActiveWithBoolean, value ); }
 		}
 
 		public ObservableCollection<Item> Items { get; private set; }

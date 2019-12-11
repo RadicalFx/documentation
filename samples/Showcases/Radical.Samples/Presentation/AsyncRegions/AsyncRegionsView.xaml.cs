@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Topics.Radical.Presentation.AsyncRegions
+namespace Radical.Samples.Presentation.AsyncRegions
 {
 	/// <summary>
 	/// Interaction logic for AsyncRegionsView.xaml

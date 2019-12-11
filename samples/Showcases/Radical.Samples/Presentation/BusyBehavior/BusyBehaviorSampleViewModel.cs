@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Topics.Radical.ComponentModel;
+using Radical.ComponentModel;
+using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.BusyBehavior
+namespace Radical.Samples.Presentation.BusyBehavior
 {
 	[Sample( Title = "BusyStatus behavior", Category = Categories.Behaviors )]
 	class BusyBehaviorSampleViewModel : SampleViewModel
@@ -18,35 +16,35 @@ namespace Topics.Radical.Presentation.BusyBehavior
 			this.dispatcher = dispatcher;
 		}
 
-		public Boolean ThresholdElapsed
+		public bool ThresholdElapsed
 		{
-			get { return this.GetPropertyValue( () => this.ThresholdElapsed ); }
-			private set { this.SetPropertyValue( () => this.ThresholdElapsed, value ); }
+			get { return GetPropertyValue( () => ThresholdElapsed ); }
+			private set { SetPropertyValue( () => ThresholdElapsed, value ); }
 		}
 
-		public Boolean IsBusy
+		public bool IsBusy
 		{
-			get { return this.GetPropertyValue( () => this.IsBusy ); }
-			private set { this.SetPropertyValue( () => this.IsBusy, value ); }
+			get { return GetPropertyValue( () => IsBusy ); }
+			private set { SetPropertyValue( () => IsBusy, value ); }
 		}
 
-		public String Status
+		public string Status
 		{
-			get { return this.GetPropertyValue( () => this.Status ); }
-			private set { this.SetPropertyValue( () => this.Status, value ); }
+			get { return GetPropertyValue( () => Status ); }
+			private set { SetPropertyValue( () => Status, value ); }
 		}
 
 		Worker w = null;
 
 		public void CancelWork()
 		{
-			if ( this.w != null )
+			if ( w != null )
 			{
 				lock ( this )
 				{
-					if ( this.w != null )
+					if ( w != null )
 					{
-						this.w.CancelWork();
+						w.CancelWork();
 					}
 				}
 			}
@@ -54,15 +52,15 @@ namespace Topics.Radical.Presentation.BusyBehavior
 
 		public async void WorkAsync()
 		{
-			this.IsBusy = true;
-			this.Status = "running...";
+			IsBusy = true;
+			Status = "running...";
 
-			this.w = new Worker()
+			w = new Worker()
 			{
-				OnThresholdElapsed = () => this.dispatcher.Dispatch( () => this.ThresholdElapsed = true )
+				OnThresholdElapsed = () => dispatcher.Dispatch( () => ThresholdElapsed = true )
 			};
 
-			var r = await this.w.Execute( token =>
+			var r = await w.Execute( token =>
 			{
 				var count = 0;
 				while ( count < 15 && !token.IsCancellationRequested )
@@ -74,14 +72,14 @@ namespace Topics.Radical.Presentation.BusyBehavior
 
 			lock ( this )
 			{
-				this.w = null;
+				w = null;
 			}
 
-			this.Status = r.Cancelled
+			Status = r.Cancelled
 				? "cancelled."
 				: "completed.";
 
-			this.IsBusy = false;
+			IsBusy = false;
 		}
 	}
 
@@ -89,28 +87,28 @@ namespace Topics.Radical.Presentation.BusyBehavior
 	{
 		public class Result
 		{
-			public Boolean Cancelled { get; set; }
+			public bool Cancelled { get; set; }
 		}
 
 		CancellationTokenSource cs = null;
 
 		public Worker()
 		{
-			this.OnThresholdElapsed = () => { };
+			OnThresholdElapsed = () => { };
 		}
 
 		public Action OnThresholdElapsed { get; set; }
 
 		public async Task<Result> Execute( Action<CancellationToken> action )
 		{
-			this.cs = new CancellationTokenSource();
-			var token = this.cs.Token;
+			cs = new CancellationTokenSource();
+			var token = cs.Token;
 
 			var r = await Task.Factory.StartNew( () =>
 			{
 				var threshold = new System.Timers.Timer( 5000 );
 				threshold.AutoReset = false;
-				threshold.Elapsed += ( s, e ) => this.OnThresholdElapsed();
+				threshold.Elapsed += ( s, e ) => OnThresholdElapsed();
 				threshold.Start();
 
 				action( token );
@@ -122,7 +120,7 @@ namespace Topics.Radical.Presentation.BusyBehavior
 
 			lock ( this )
 			{
-				this.cs = null;
+				cs = null;
 			}
 
 			return r;
@@ -130,11 +128,11 @@ namespace Topics.Radical.Presentation.BusyBehavior
 
 		public void CancelWork()
 		{
-			if ( this.cs != null )
+			if ( cs != null )
 			{
 				lock ( this )
 				{
-					if ( this.cs != null )
+					if ( cs != null )
 					{
 						cs.Cancel();
 					}

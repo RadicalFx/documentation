@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Topics.Radical.ComponentModel.Messaging;
-using Topics.Radical.Presentation.OpenChildWindow;
-using Topics.Radical.Windows.Presentation.ComponentModel;
-using Topics.Radical.Windows.Presentation.Messaging;
+﻿using System.Windows;
+using Radical.ComponentModel.Messaging;
+using Radical.Messaging;
+using Radical.Samples.Presentation.OpenChildWindow;
+using Radical.Windows.Presentation.ComponentModel;
 
-namespace Topics.Radical.Messaging.Handlers
+namespace Radical.Samples.Messaging.Handlers
 {
     class OpenChildWindowSampleMessageHandler : AbstractMessageHandler<OpenChildWindowSampleMessage>, INeedSafeSubscription
     {
@@ -24,8 +19,8 @@ namespace Topics.Radical.Messaging.Handlers
 
         public override void Handle( object sender, OpenChildWindowSampleMessage message )
         {
-            var view = this.viewResolver.GetView<ChildView>();
-            view.Owner = this.conventions.GetViewOfViewModel( sender ) as Window;
+            var view = viewResolver.GetView<ChildView>();
+            view.Owner = conventions.GetViewOfViewModel( sender ) as Window;
             if( message.AsDialog )
             {
                 view.ShowDialog();
