@@ -26,9 +26,13 @@ public partial class App : Application
 }
 ```
 
-**Press F5 and you are up & running**: the MainView window will be shown.
+**Press F5 and you are up & running**: the MainView window will be shown. The following things happen:
 
-The application boots, all the default and required services \(for MVVM and UI Composition\) are wired into Castle Windsor, the MainView is designed as the main window, at boot time the MainView is resolved and using the conventions engine the MainViewModel is setup and set as the DataContext of the MainView, in the end the MainView is shown.
+* The application boots
+* All the default and required services \(for MVVM and UI Composition\) are wired into the default IoC container
+* The MainView is designed as the main window
+* At boot time the MainView is resolved and using the conventions engine the MainViewModel is setup and set as the DataContext of the MainView
+* Finally the MainView is shown.
 
 #### What’s next
 
