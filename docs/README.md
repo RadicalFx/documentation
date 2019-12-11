@@ -21,7 +21,7 @@ public partial class App : Application
 {
    public App()
    {
-      var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>();
+      var bootstrapper = new ApplicationBootstrapper<Presentation.MainView>();
    }
 }
 ```
