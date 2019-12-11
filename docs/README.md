@@ -5,8 +5,8 @@
 #### Steps to bootstrap your project in 3 minutes
 
 * Create a new Visual Studio solution with a WPF application project;
-* Add, using nuget, a reference to: [Radical.Windows.Presentation.CastleWindsor](https://www.nuget.org/packages/Radical.Windows.Presentation.CastleWindsor);
-  * this will give us the full Radical Presentation stack with the default Castle Windsor support as IoC/DI container;
+* Add, using nuget, a reference to: [Radical.Windows](https://www.nuget.org/packages/Radical.Windows);
+  * this will give us the full Radical Presentation stack with the default built-in IoC container;
 * Delete the default MainWindow.xaml;
 * Edit the app.xaml file to remove the StartupUri attribute;
 * Add a “Presentation” folder to the project;
