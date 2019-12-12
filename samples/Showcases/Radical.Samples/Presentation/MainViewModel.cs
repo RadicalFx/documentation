@@ -3,23 +3,14 @@ using System.Linq;
 using Radical.Windows.Presentation;
 using Radical.Linq;
 using Radical.Windows.Presentation.ComponentModel;
-using Radical.Samples;
 using Radical.Samples.Services;
 
-namespace Radical.Presentation.Presentation
+namespace Radical.Samples.Presentation
 {
 	class MainViewModel : AbstractViewModel
 	{
-		readonly SamplesManager samplesManager;
-		readonly IViewResolver viewResolver;
-		readonly IRegionService regionService;
-
 		public MainViewModel( SamplesManager samplesManager, IViewResolver viewResolver, IRegionService regionService )
 		{
-			this.samplesManager = samplesManager;
-			this.viewResolver = viewResolver;
-			this.regionService = regionService;
-
 			Categories = samplesManager.Categories;
 
 			Categories
@@ -29,9 +20,9 @@ namespace Radical.Presentation.Presentation
 					s.ViewSampleHandler = sample =>
 					{
 						SelectedSample = sample;
-						this.regionService.GetKnownRegionManager<MainView>()
+						regionService.GetKnownRegionManager<MainView>()
 							.GetRegion<IContentRegion>( "SampleContentRegion" )
-							.Content = this.viewResolver.GetView( SelectedSample.ViewType );
+							.Content = viewResolver.GetView( SelectedSample.ViewType );
 					};
 				} );
 		}

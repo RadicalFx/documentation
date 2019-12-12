@@ -14,7 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Radical.Windows\src\Radical.Windows\Radical.Windows.csproj" />
+    <None Remove="Resources\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Radical.Windows" Version="2.0.0-PR.111.29445050.Beta.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Radical.Samples.Components\Radical.Samples.Components.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\logo.png" />
   </ItemGroup>
 
 </Project>

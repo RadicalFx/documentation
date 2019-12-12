@@ -1,12 +1,12 @@
-﻿<Page x:Class="Radical.Samples.EntityView.CustomPropertyMappingPage"
+﻿<Page x:Class="Radical.Samples.Presentation.EntityView.CustomPropertyMappingPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      xmlns:local="clr-namespace:Radical.Samples.EntityView"
+      xmlns:local="clr-namespace:Radical.Samples.Presentation.EntityView"
       d:DesignHeight="300" d:DesignWidth="300"
-	  Title="{Binding Path=Title}"
+      Title="{Binding Path=Title}"
       Style="{StaticResource ResourceKey=samplePage}">
     <Page.DataContext>
         <local:CustomPropertyMappingViewModel />

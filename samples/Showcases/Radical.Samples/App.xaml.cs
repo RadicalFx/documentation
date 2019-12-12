@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using Radical.Windows.Presentation.Boot;
 using Radical.Windows.Presentation.ComponentModel;
-using Radical.Samples.ViewModelAsStaticResource;
 using Radical.Samples.Presentation.ViewModelAsStaticResource;
 
 namespace Radical.Samples
@@ -27,8 +26,9 @@ namespace Radical.Samples
                         : conventions.DefaultShouldExposeViewModelAsStaticResource(view, viewModel);
                    };
 
-                   //var w = (ServiceProviderWrapper)container;
-                   //w.Container.AddFacility<TypedFactoryFacility>();
+                    //TODO: TypedFactoryFacility
+                    //var w = (ServiceProviderWrapper)container;
+                    //w.Container.AddFacility<TypedFactoryFacility>();
                 });
         }
     }
