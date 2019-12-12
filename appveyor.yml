@@ -27,6 +27,6 @@ before_build:
 build_script:
   - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Modules\Modules.sln /Build Release'
   - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Plugins\Plugins.sln /Build Release'
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Showcases\Showcases /Build Release'
+  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Showcases\Showcases.sln /Build Release'
 
 deploy: off
