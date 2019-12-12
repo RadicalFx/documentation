@@ -20,13 +20,13 @@ configuration: Release
 platform: Any CPU
 
 before_build:
-  - 'nuget restore .\src\samples\Modules\Modules.sln'
-  - 'nuget restore .\src\samples\Plugins\Plugins.sln'
-  - 'nuget restore .\src\samples\Showcases\Showcases.sln'
+  - 'nuget restore .\samples\Modules\Modules.sln'
+  - 'nuget restore .\samples\Plugins\Plugins.sln'
+  - 'nuget restore .\samples\Showcases\Showcases.sln'
 
 build_script:
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\src\samples\Modules\Modules.sln /Build Release'
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\src\samples\Plugins\Plugins.sln /Build Release'
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\src\samples\Showcases\Showcases /Build Release'
+  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Modules\Modules.sln /Build Release'
+  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Plugins\Plugins.sln /Build Release'
+  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Showcases\Showcases /Build Release'
 
 deploy: off
