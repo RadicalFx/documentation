@@ -1,11 +1,11 @@
-﻿using System.Windows.Input;
-using System.Linq;
-using Radical.ChangeTracking;
+﻿using Radical.ChangeTracking;
 using Radical.ComponentModel;
 using Radical.ComponentModel.ChangeTracking;
 using Radical.Observers;
-using Radical.Windows.Input;
 using Radical.Samples.ComponentModel;
+using Radical.Windows.Input;
+using System.Linq;
+using System.Windows.Input;
 
 namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {

@@ -1,8 +1,8 @@
-﻿using System.Windows;
-using Radical.ComponentModel.Messaging;
+﻿using Radical.ComponentModel.Messaging;
 using Radical.Messaging;
 using Radical.Samples.Presentation.OpenChildWindow;
 using Radical.Windows.Presentation.ComponentModel;
+using System.Windows;
 
 namespace Radical.Samples.Messaging.Handlers
 {

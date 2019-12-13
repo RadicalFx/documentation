@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Radical.Samples.ComponentModel
+﻿namespace Radical.Samples.ComponentModel
 {
 	public static class Categories
 	{

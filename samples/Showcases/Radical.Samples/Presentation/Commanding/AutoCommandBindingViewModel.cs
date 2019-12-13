@@ -1,10 +1,10 @@
-﻿using System;
-using Radical.Observers;
-using Radical.Windows;
-using System.Collections.ObjectModel;
+﻿using Radical.ComponentModel.Windows.Input;
 using Radical.Model;
-using Radical.ComponentModel.Windows.Input;
+using Radical.Observers;
 using Radical.Samples.ComponentModel;
+using Radical.Windows;
+using System;
+using System.Collections.ObjectModel;
 
 namespace Radical.Samples.Presentation.Commanding
 {

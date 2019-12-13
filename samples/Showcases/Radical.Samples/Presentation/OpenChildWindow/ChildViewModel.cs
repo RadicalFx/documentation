@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Radical.Windows.Presentation;
+﻿using Radical.Windows.Presentation;
 
 namespace Radical.Samples.Presentation.OpenChildWindow
 {

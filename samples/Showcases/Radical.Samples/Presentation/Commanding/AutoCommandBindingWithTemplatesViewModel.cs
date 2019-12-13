@@ -1,13 +1,6 @@
-﻿using System;
-using Radical.ComponentModel;
-using Radical.Observers;
-using Radical.Windows;
-using System.Collections.Generic;
-using Radical.Model;
-using System.Threading.Tasks;
-using System.Threading;
-using Radical.Threading;
+﻿using Radical.Model;
 using Radical.Samples.ComponentModel;
+using System.Collections.Generic;
 
 namespace Radical.Samples.Presentation.Commanding
 {

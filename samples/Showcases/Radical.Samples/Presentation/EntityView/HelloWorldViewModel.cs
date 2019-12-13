@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Radical.ComponentModel;
+﻿using Radical.ComponentModel;
 using Radical.Model;
 using Radical.Samples.ComponentModel;
+using System.Collections.Generic;
 
 namespace Radical.Samples.Presentation.EntityView
 {

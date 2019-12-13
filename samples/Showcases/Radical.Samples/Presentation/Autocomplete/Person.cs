@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Radical.Windows.Behaviors;
-
-namespace Radical.Samples.Presentation.Autocomplete
+﻿namespace Radical.Samples.Presentation.Autocomplete
 {
 	public class Person //: 
 		//AutoComplete.ICanRepresentMyself,

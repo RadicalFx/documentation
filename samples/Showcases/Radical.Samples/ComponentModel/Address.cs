@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Radical.Samples.ComponentModel
+﻿namespace Radical.Samples.ComponentModel
 {
 	public class Address
 	{

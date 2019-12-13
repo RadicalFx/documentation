@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Radical.ComponentModel;
+﻿using Radical.ComponentModel;
 using Radical.ComponentModel.Windows.Input;
 using Radical.Model;
 using Radical.Samples.ComponentModel;
 using Radical.Windows.Input;
+using System.Collections.Generic;
 
 namespace Radical.Samples.Presentation.EntityView
 {

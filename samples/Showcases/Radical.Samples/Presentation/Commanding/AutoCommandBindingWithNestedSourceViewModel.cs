@@ -1,6 +1,6 @@
-﻿using System;
-using Radical.Samples.ComponentModel;
+﻿using Radical.Samples.ComponentModel;
 using Radical.Windows.Presentation;
+using System;
 
 namespace Radical.Samples.Presentation.Commanding
 {

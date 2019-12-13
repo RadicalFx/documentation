@@ -1,12 +1,9 @@
-﻿using System;
-using System.Reflection;
-using Radical.ComponentModel.Validation;
-using Radical.Reflection;
+﻿using Radical.Reflection;
 using Radical.Windows.Presentation;
 
 namespace Radical.Samples.ComponentModel
 {
-    public abstract class SampleViewModel : AbstractViewModel
+	public abstract class SampleViewModel : AbstractViewModel
 	{
 		protected SampleViewModel()
 		{

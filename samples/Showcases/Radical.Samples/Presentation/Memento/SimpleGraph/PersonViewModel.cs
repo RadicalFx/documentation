@@ -1,7 +1,4 @@
-﻿using System;
-using Radical.ComponentModel;
-using Radical.ComponentModel.ChangeTracking;
-using Radical.Model;
+﻿using Radical.Model;
 
 namespace Radical.Samples.Presentation.Memento.SimpleGraph
 {

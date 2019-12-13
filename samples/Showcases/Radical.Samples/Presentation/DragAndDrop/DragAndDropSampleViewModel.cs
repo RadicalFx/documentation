@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Radical.ComponentModel;
-using Radical.Samples.ComponentModel;
+﻿using Radical.Samples.ComponentModel;
 using Radical.Windows.Behaviors;
 using Radical.Windows.Input;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Radical.Samples.Presentation.DragAndDrop
 {
 
-	[Sample( Title = "Drag & Drop", Category = Categories.Behaviors )]
+    [Sample( Title = "Drag & Drop", Category = Categories.Behaviors )]
 	class DragAndDropSampleViewModel : SampleViewModel
 	{
 		public DragAndDropSampleViewModel()

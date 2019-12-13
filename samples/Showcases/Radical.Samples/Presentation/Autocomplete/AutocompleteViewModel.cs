@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
-using Radical.ComponentModel;
-using Radical.Observers;
-using Radical.Windows;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Radical.Observers;
 using Radical.Samples.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Radical.Samples.Presentation.Autocomplete
 {

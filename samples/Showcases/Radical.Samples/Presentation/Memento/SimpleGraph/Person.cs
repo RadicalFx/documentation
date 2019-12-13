@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Radical.Samples.Presentation.Memento.SimpleGraph
+﻿namespace Radical.Samples.Presentation.Memento.SimpleGraph
 {
 	public class Person
 	{

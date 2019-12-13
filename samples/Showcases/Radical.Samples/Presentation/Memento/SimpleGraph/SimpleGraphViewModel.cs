@@ -1,10 +1,9 @@
-﻿using Radical.ComponentModel;
+﻿using Radical.ChangeTracking;
 using Radical.ComponentModel.ChangeTracking;
-using Radical.ChangeTracking;
 using Radical.Observers;
+using Radical.Samples.ComponentModel;
 using Radical.Windows.Input;
 using System.Windows.Input;
-using Radical.Samples.ComponentModel;
 
 namespace Radical.Samples.Presentation.Memento.SimpleGraph
 {

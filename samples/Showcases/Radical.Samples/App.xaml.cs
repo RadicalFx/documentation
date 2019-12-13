@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using Radical.Samples.Presentation.ViewModelAsStaticResource;
 using Radical.Windows.Presentation.Boot;
 using Radical.Windows.Presentation.ComponentModel;
-using Radical.Samples.Presentation.ViewModelAsStaticResource;
+using System.Windows;
 
 namespace Radical.Samples
 {

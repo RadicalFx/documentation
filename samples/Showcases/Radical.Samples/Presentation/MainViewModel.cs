@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Radical.Windows.Presentation;
-using Radical.Linq;
-using Radical.Windows.Presentation.ComponentModel;
+﻿using Radical.Linq;
 using Radical.Samples.Services;
+using Radical.Windows.Presentation;
+using Radical.Windows.Presentation.ComponentModel;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Radical.Samples.Presentation
 {

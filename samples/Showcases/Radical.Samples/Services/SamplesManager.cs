@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Radical.Linq;
+using Radical.Reflection;
+using Radical.Samples.ComponentModel;
+using Radical.Windows.Presentation.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Radical.Reflection;
-using Radical.Linq;
-using Radical.Windows.Presentation.ComponentModel;
-using Radical.Samples.ComponentModel;
 
 namespace Radical.Samples.Services
 {

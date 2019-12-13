@@ -1,5 +1,4 @@
-﻿using System;
-using Radical.Validation;
+﻿using Radical.Validation;
 
 namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {

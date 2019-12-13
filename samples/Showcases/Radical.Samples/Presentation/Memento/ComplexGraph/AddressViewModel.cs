@@ -1,5 +1,4 @@
-﻿using System;
-using Radical.Model;
+﻿using Radical.Model;
 
 namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {

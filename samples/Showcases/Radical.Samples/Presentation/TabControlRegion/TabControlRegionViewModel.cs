@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using System.Windows;
-using Radical.ComponentModel.Windows.Input;
+﻿using Radical.ComponentModel.Windows.Input;
 using Radical.Samples.ComponentModel;
 using Radical.Windows.Input;
 using Radical.Windows.Presentation;
 using Radical.Windows.Presentation.ComponentModel;
+using System.Linq;
+using System.Windows;
 
 namespace Radical.Samples.Presentation.TabControlRegion
 {

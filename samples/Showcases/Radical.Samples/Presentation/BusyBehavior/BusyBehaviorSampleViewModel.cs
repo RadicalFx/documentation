@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Radical.ComponentModel;
+using Radical.Samples.ComponentModel;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Radical.ComponentModel;
-using Radical.Samples.ComponentModel;
 
 namespace Radical.Samples.Presentation.BusyBehavior
 {
