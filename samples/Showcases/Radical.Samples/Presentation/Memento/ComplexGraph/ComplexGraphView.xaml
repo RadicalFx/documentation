@@ -36,7 +36,7 @@
                   HorizontalAlignment="Left" 
                   Margin="12,103,0,0" 
                   VerticalAlignment="Top" 
-                  SelectedItem="{Binding Path=SelectedAddress}"
+                  SelectedItem="{Binding Path=SelectedAddress, Mode=OneWay}"
                   Width="392" 
                   ItemsSource="{Binding Path=Entity.Addresses}" />
         <Button Command="{Binding Path=CreateNewAddressCommand}" 
