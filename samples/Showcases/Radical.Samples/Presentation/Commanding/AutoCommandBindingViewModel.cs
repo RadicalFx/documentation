@@ -1,8 +1,6 @@
 ﻿using Radical.ComponentModel.Windows.Input;
 using Radical.Model;
-using Radical.Observers;
 using Radical.Samples.ComponentModel;
-using Radical.Windows;
 using System;
 using System.Collections.ObjectModel;
 
@@ -27,57 +25,10 @@ namespace Radical.Samples.Presentation.Commanding
 			}
 		}
 
-		Fact _canExecuteWithFact;
-		public Fact CanExecuteWithFact
-		{
-			get
-			{
-				if( _canExecuteWithFact == null )
-				{
-					_canExecuteWithFact = Fact.Create( o =>
-					{
-						return IsActiveWithFact;
-					} )
-					.AddMonitor
-					(
-						PropertyObserver.For( this )
-							.Observe( v => v.IsActiveWithFact )
-					);
-				}
-
-				return _canExecuteWithFact;
-			}
-		}
-
-		public void ExecuteWithFact()
-		{
-			ExecutedWithFact = DateTime.Now.ToLongTimeString();
-		}
-
-		public string ExecutedWithFact
-		{
-			get { return this.GetPropertyValue( () => ExecutedWithFact ); }
-			set { this.SetPropertyValue( () => ExecutedWithFact, value ); }
-		}
-
-		private bool _isActiveWithFact = false;
-		public bool IsActiveWithFact
-		{
-			get { return _isActiveWithFact; }
-			set
-			{
-				if( value != IsActiveWithFact )
-				{
-					_isActiveWithFact = value;
-					this.OnPropertyChanged( () => IsActiveWithFact );
-				}
-			}
-		}
-
 		public AutoCommandBindingViewModel()
 		{
-			this.GetPropertyMetadata( () => IsActiveWithBoolean )
-				.AddCascadeChangeNotifications( () => CanExecuteWithBoolean );
+			this.GetPropertyMetadata( () => IsActive )
+				.AddCascadeChangeNotifications( () => CanExecute );
 
 			Items = new ObservableCollection<Item>() 
 			{
@@ -86,27 +37,27 @@ namespace Radical.Samples.Presentation.Commanding
 			};
 		}
 
-		public bool CanExecuteWithBoolean
+		public bool CanExecute
 		{
-			get { return IsActiveWithBoolean; }
+			get { return IsActive; }
 		}
 
 		[KeyBindingAttribute(System.Windows.Input.Key.B, Modifiers= System.Windows.Input.ModifierKeys.Control)]
-		public void ExecuteWithBoolean()
+		public void Execute()
 		{
-			ExecutedWithBoolean = DateTime.Now.ToLongTimeString();
+			Executed = DateTime.Now.ToLongTimeString();
 		}
 
-		public string ExecutedWithBoolean
+		public string Executed
 		{
-			get { return this.GetPropertyValue( () => ExecutedWithBoolean ); }
-			set { this.SetPropertyValue( () => ExecutedWithBoolean, value ); }
+			get { return this.GetPropertyValue( () => Executed ); }
+			set { this.SetPropertyValue( () => Executed, value ); }
 		}
 
-		public bool IsActiveWithBoolean
+		public bool IsActive
 		{
-			get { return this.GetPropertyValue( () => IsActiveWithBoolean ); }
-			set { this.SetPropertyValue( () => IsActiveWithBoolean, value ); }
+			get { return this.GetPropertyValue( () => IsActive ); }
+			set { this.SetPropertyValue( () => IsActive, value ); }
 		}
 
 		public ObservableCollection<Item> Items { get; private set; }
