@@ -7,19 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Presentation\Effects\**" />
-    <EmbeddedResource Remove="Presentation\Effects\**" />
-    <None Remove="Presentation\Effects\**" />
-    <Page Remove="Presentation\Effects\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\logo.png" />
+    <None Remove="Presentation\Effects\Blender.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Radical" Version="2.0.0-Beta.3" />
-    <PackageReference Include="Radical.Windows" Version="2.0.0-Beta.5" />
+    <PackageReference Include="Radical.Windows" Version="2.0.0-Beta.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Presentation\Effects\Blender.png" />
     <Resource Include="Resources\logo.png" />
   </ItemGroup>
 

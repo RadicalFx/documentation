@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Radical.ComponentModel;
+﻿using Radical.Samples.ComponentModel;
 
 namespace Radical.Presentation.Effects
 {
@@ -11,13 +7,13 @@ namespace Radical.Presentation.Effects
 	{
 		public EffectViewModel()
 		{
-			this.SetInitialPropertyValue( () => this.IsChecked, true );
+			SetInitialPropertyValue( () => IsChecked, true );
 		}
 
-		public Boolean IsChecked
+		public bool IsChecked
 		{
-			get { return this.GetPropertyValue( () => this.IsChecked ); }
-			set { this.SetPropertyValue( () => this.IsChecked, value ); }
+			get { return GetPropertyValue( () => IsChecked ); }
+			set { SetPropertyValue( () => IsChecked, value ); }
 		}
 	}
 }
