@@ -66,9 +66,9 @@ namespace Radical.Samples.Presentation.EntityView
 					Items = null;
 					this.OnPropertyChanged( () => Items );
 
-					if( !temp.IsPropertyMappingDefined( propertyName ) )
+					if( !temp.IsCustomPropertyDefined( propertyName ) )
 					{
-						var prop = temp.AddPropertyMapping<string>( "Nome proprietà", obj =>
+						var prop = temp.AddCustomProperty<string>( "Nome proprietà", obj =>
 						{
 							return obj.Item.EntityItem.FirstName + " " + obj.Item.EntityItem.LastName;
 						} );
@@ -77,7 +77,7 @@ namespace Radical.Samples.Presentation.EntityView
 					}
 					else
 					{
-						temp.RemovePropertyMapping( propertyName );
+						temp.RemoveCustomProperty( propertyName );
 					}
 
 					Items = temp;
