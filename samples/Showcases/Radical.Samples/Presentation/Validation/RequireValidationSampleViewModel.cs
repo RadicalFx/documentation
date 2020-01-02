@@ -1,5 +1,6 @@
 ﻿using Radical.ComponentModel.Validation;
 using Radical.Samples.ComponentModel;
+using Radical.Windows.Presentation;
 using Radical.Windows.Presentation.ComponentModel;
 using Radical.Windows.Presentation.Services.Validation;
 using System.ComponentModel;
@@ -7,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Radical.Samples.Presentation.Validation
 {
-    [Sample( Title = "DataAnnotation (IRequireValidation)", Category = Categories.Validation )]
+    [Sample(Title = "DataAnnotation (IRequireValidation)", Category = Categories.Validation)]
     class RequireValidationSampleViewModel :
         SampleViewModel,
         IRequireValidationCallback<RequireValidationSampleViewModel>,
@@ -15,32 +16,36 @@ namespace Radical.Samples.Presentation.Validation
     {
         public RequireValidationSampleViewModel()
         {
-            this.GetPropertyMetadata( () => Text )
-                .AddCascadeChangeNotifications( () => Sample );
+            this.GetPropertyMetadata(() => Text)
+                .AddCascadeChangeNotifications(() => Sample);
 
-            this.SetInitialPropertyValue( () => MergeErrors, true )
-                .OnChanged( pvc =>
-                {
-                    var invalid = this.ValidationService.GetInvalidProperties();
-                    this.ValidationService.MergeValidationErrors = MergeErrors;
-                    foreach( var item in invalid )
-                    {
-                        this.OnPropertyChanged( item );
-                        this.OnErrorsChanged( item );
-                    }
-                } );
+            this.SetInitialPropertyValue(() => MergeErrors, true)
+                .OnChanged(pvc =>
+               {
+                   ValidationService.MergeValidationErrors = MergeErrors;
+                   var invalid = ValidationErrors.GetInvalidProperties();
+                   foreach (var item in invalid)
+                   {
+                       OnPropertyChanged(item);
+                       OnErrorsChanged(item);
+                   }
+               });
         }
 
         protected override IValidationService GetValidationService()
         {
-            var svc = new DataAnnotationValidationService<RequireValidationSampleViewModel>( this )
+            var svc = new DataAnnotationValidationService<RequireValidationSampleViewModel>(this)
             {
                 MergeValidationErrors = MergeErrors
             }.AddRule
             (
-                property: () => Text,
-                error: ctx => "must be equal to 'foo'",
-                rule: ctx => ctx.Entity.Text == "foo"
+                property: o => o.Text,
+                rule: ctx =>
+                {
+                    return ctx.Entity.Text == "foo"
+                        ? ctx.Succeeded()
+                        : ctx.Failed("must be equal to 'foo'");
+                }
             );
 
             return svc;
@@ -62,29 +67,29 @@ namespace Radical.Samples.Presentation.Validation
             set { this.SetPropertyValue(() => AnotherText, value); }
         }
 
-        [DisplayName( "Esempio" )]
+        [DisplayName("Esempio")]
         public int Sample
         {
-            get { return this.GetPropertyValue( () => Sample ); }
-            set { this.SetPropertyValue( () => Sample, value ); }
+            get { return this.GetPropertyValue(() => Sample); }
+            set { this.SetPropertyValue(() => Sample, value); }
         }
 
         public bool MergeErrors
         {
-            get { return this.GetPropertyValue( () => MergeErrors ); }
-            set { this.SetPropertyValue( () => MergeErrors, value ); }
+            get { return this.GetPropertyValue(() => MergeErrors); }
+            set { this.SetPropertyValue(() => MergeErrors, value); }
         }
 
-        public void OnValidate( Radical.Validation.ValidationContext<RequireValidationSampleViewModel> context )
+        public void OnValidate(Radical.Validation.ValidationContext<RequireValidationSampleViewModel> context)
         {
-            var displayname = this.ValidationService.GetPropertyDisplayName( this, o => o.Sample );
+            var displayname = GetPropertyDisplayName(nameof(Sample));
 
-            context.Results.AddError( () => Sample, displayname, new[] { "This is fully custom, and works even on non-bound properties such as 'Sample'." } );
+            context.Results.AddError(() => Sample, displayname, new[] { "This is fully custom, and works even on non-bound properties such as 'Sample'." });
         }
 
         public void RunValidation()
         {
-            this.Validate( ValidationBehavior.TriggerValidationErrorsOnFailure );
+            this.Validate(ValidationBehavior.TriggerValidationErrorsOnFailure);
         }
     }
 }
