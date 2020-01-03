@@ -5,6 +5,7 @@ using Radical.Windows.Presentation.ComponentModel;
 using Radical.Windows.Presentation.Services.Validation;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Radical.Samples.Presentation.Validation
 {
@@ -23,12 +24,8 @@ namespace Radical.Samples.Presentation.Validation
                 .OnChanged(pvc =>
                {
                    ValidationService.MergeValidationErrors = MergeErrors;
-                   var invalid = ValidationErrors.GetInvalidProperties();
-                   foreach (var item in invalid)
-                   {
-                       OnPropertyChanged(item);
-                       OnErrorsChanged(item);
-                   }
+                   ResetValidation();
+                   Validate(ValidationBehavior.TriggerValidationErrorsOnFailure);
                });
         }
 
@@ -82,9 +79,12 @@ namespace Radical.Samples.Presentation.Validation
 
         public void OnValidate(Radical.Validation.ValidationContext<RequireValidationSampleViewModel> context)
         {
-            var displayname = GetPropertyDisplayName(nameof(Sample));
+            if (context.PropertyName == null)
+            {
+                var displayname = GetPropertyDisplayName(nameof(Sample));
 
-            context.Results.AddError(() => Sample, displayname, new[] { "This is fully custom, and works even on non-bound properties such as 'Sample'." });
+                context.Results.AddError(() => Sample, displayname, new[] { "This is fully custom, and works even on non-bound properties such as 'Sample'." });
+            }
         }
 
         public void RunValidation()
