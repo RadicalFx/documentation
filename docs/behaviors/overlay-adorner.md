@@ -21,6 +21,6 @@ Radical offers a rich set of adorners and also a generic purpose adorner to put 
 
 producing the following effect at runtime:
 
-![Overlay adorner sample](/images/calendar-overlay-adorner.png)
+![Overlay adorner sample](../images/calendar-overlay-adorner.png)
 
 The behavior is defined in the `http://schemas.topics.it/wpf/radical/windows/behaviors` xml namespace.

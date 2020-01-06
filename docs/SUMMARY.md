@@ -79,6 +79,7 @@
 ## Markup Extensions
 
 - [Editor binding](/markup/editor-binding.md)
+- [Auto Command binding](/markup/auto-command-binding.md)
 
 ## How to
 
@@ -89,4 +90,4 @@
 - [Manage focus](/how-tos/manage-focus.md)
 - [Create a splash screen](/how-tos/splash-screen.md)
 - [Access view model after view is closed](/how-tos/access-view-model-after-view-closed.md)
-- [Intercept ViewModels before usage](/how-tos/intercept-viewmodels-before-usage.md)
+- [Intercept ViewModels before it's used](/how-tos/intercept-viewmodels-before-usage.md)

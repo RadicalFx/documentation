@@ -1,13 +1,12 @@
 {
     "root": "./docs",
     "plugins" : [ 
-        "anchors", 
-        "github-edit@1.0.8" 
+        "anchors",
+        "ga"
     ],
     "pluginsConfig": {
-        "github-edit": {
-            "repo": "RadicalFx/documentation",
-            "branch": "master"
-        }
+       "ga": {
+            "token": "UA-92229383-2"
+       }
     }
 }

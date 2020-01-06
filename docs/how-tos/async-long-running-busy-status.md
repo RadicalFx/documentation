@@ -1,4 +1,4 @@
-Radical provides an [[overlay adorner]] to handle busy/long running operations, that for simple scenarios just works as expected. Sometimes there are cases when we need to handle a much more complex scenario such as the following:
+Radical provides an [overlay adorner](../behaviors/overlay-adorner.md) to handle busy/long running operations, that for simple scenarios just works as expected. Sometimes there are cases when we need to handle a much more complex scenario such as the following:
 
 As a user I want to be able to start a long running operation, and if, after a certain amount of time, the operation is not completed I want to be able to cancel the operation itself.
 
@@ -231,4 +231,4 @@ class Worker
 }
 ```
 
-The above worker is tight to the sample and is not intended to be used in production.
+The above worker is for sample purpose and is not intended to be used in production.

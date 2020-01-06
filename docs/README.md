@@ -32,7 +32,7 @@ The application boots, all the default and required services \(for MVVM and UI C
 
 #### What’s next
 
-The best topic to read now is basic [concepts about the ViewModel](//mvvm/abstract-view-model.md).
+The best topic to read now is basic [concepts about the ViewModel](mvvm/abstract-view-model.md).
 
 ## Release management process
 
@@ -87,3 +87,37 @@ Check the [Release pages](https://github.com/RadicalFx/radical/releases) for the
 The Radical source code includes several samples that are divided per scope and technology, samples are available in the documentation repository: [https://github.com/RadicalFx/documentation/tree/master/samples](https://github.com/RadicalFx/documentation/tree/master/samples)
 
 All samples are constantly under heavy development and are also used to test Radical features.
+
+## MyGet unstable feed
+
+Radical uses MyGet to publish unstable releases during development, to use the unstable feed:
+
+* create a `nuget.config` file in the same folder as your solution folder
+* add the following content to the configuration file:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageRestore>
+    <clear />
+    <add key="enabled" value="True" />
+    <add key="automatic" value="True" />
+  </packageRestore>
+  <packageSources>
+    <add key="nuget.org" value="https://www.nuget.org/api/v2/" />
+    <add key="Radical Unstable" value="https://www.myget.org/F/radical-unstable/api/v2" />
+  </packageSources>
+  <disabledPackageSources />
+  <config>
+    <add key="DependencyVersion" value="HighestMinor" />
+  </config>
+  <activePackageSource>
+    <clear />
+    <add key="All" value="(Aggregate source)" />
+  </activePackageSource>
+</configuration>
+```
+
+* close and reopen the solution
+
+By going to the Manage Nuget Packages page of your solution, you'll now see a "Radical Unstable" option in the source selection dropdown. Do not forget to check the "prerelease versions" checkbox search setting.

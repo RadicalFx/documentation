@@ -6,7 +6,7 @@ From the perspective of an application producer it is really important to know w
 * we invest money in building a feature;
 * we deploy a feature;
 
-we do not know nothing about how the user utilizes the feature we invested on, we do not even know if the user utilizes it at all.
+we know nothing about how the user utilizes the feature we invested on, we do not even know if the user utilizes it at all.
 
 ```csharp
 AnalyticsServices.UserActionTrackingHandler = evt =>

@@ -7,7 +7,7 @@ The message broker pattern is basically a way to decouple the sender of an event
 
 In lots of cases we need to be able to let 2 different components speak to each other in a more decoupled way since we have no easy way to satisfy the first point, in this cases introducing a third actor, the broker, that both knows is a really simple way to solve the original problem:
 
-![Messaging diagram](/images/message-broker-1.png)
+![Messaging diagram](../images/message-broker-1.png)
 
 Radical has its own built-in broker implementation represented by the `IMessageBroker` interface and by the default MessageBroker implementation found in the Radical assembly.
 
