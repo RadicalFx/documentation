@@ -1,6 +1,6 @@
 ## Entity Property State
 
-Available in `Radical` starting `v1.7.0`.
+Available in `Radical` starting `v2.0.0`.
 
 When dealing with change tracking systems it is important to know the state of the graph from 2 different point of views
 
