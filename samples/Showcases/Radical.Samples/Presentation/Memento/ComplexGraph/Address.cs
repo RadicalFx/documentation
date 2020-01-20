@@ -1,7 +1,6 @@
-﻿using System;
-using Topics.Radical.Validation;
+﻿using Radical.Validation;
 
-namespace Topics.Radical.Presentation.Memento.ComplexGraph
+namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {
 	public class Address
 	{
@@ -9,14 +8,14 @@ namespace Topics.Radical.Presentation.Memento.ComplexGraph
 		{
 			Ensure.That( owner ).Named( () => owner ).IsNotNull();
 
-			this.Person = owner;
+			Person = owner;
 		}
 
 		public Person Person { get; private set; }
 
-		public String Street { get; set; }
-		public String Number { get; set; }
-		public String City { get; set; }
-		public String ZipCode { get; set; }
+		public string Street { get; set; }
+		public string Number { get; set; }
+		public string City { get; set; }
+		public string ZipCode { get; set; }
 	}
 }

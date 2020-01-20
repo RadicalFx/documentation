@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Topics.Radical.Presentation.Commanding
+namespace Radical.Samples.Presentation.Commanding
 {
 	/// <summary>
 	/// Interaction logic for AutoCommandBindingView.xaml

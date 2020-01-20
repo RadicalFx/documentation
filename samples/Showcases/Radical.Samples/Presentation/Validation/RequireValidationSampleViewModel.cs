@@ -1,81 +1,95 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Radical.ComponentModel.Validation;
+using Radical.Samples.ComponentModel;
+using Radical.Windows.Presentation;
+using Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.Presentation.Services.Validation;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.Validation;
-using Topics.Radical.Validation;
-using Topics.Radical.Windows.Presentation.ComponentModel;
-using Topics.Radical.Windows.Presentation.Services.Validation;
 
-namespace Topics.Radical.Presentation.Validation
+namespace Radical.Samples.Presentation.Validation
 {
-    [Sample( Title = "DataAnnotation (IRequireValidation)", Category = Categories.Validation )]
-	class RequireValidationSampleViewModel :
-		AbstractValidationSampleViewModel,
-		IRequireValidationCallback<RequireValidationSampleViewModel>,
-		IRequireValidation
-	{
-		public RequireValidationSampleViewModel()
-		{
-			this.GetPropertyMetadata( () => this.Text )
-				.AddCascadeChangeNotifications( () => this.Sample );
+    [Sample(Title = "DataAnnotation (IRequireValidation)", Category = Categories.Validation)]
+    class RequireValidationSampleViewModel :
+        SampleViewModel,
+        IRequireValidationCallback<RequireValidationSampleViewModel>,
+        IRequireValidation
+    {
+        public RequireValidationSampleViewModel()
+        {
+            this.GetPropertyMetadata(() => Text)
+                .AddCascadeChangeNotifications(() => Sample);
 
-			this.SetInitialPropertyValue( () => this.MergeErrors, true )
-                .OnChanged( pvc =>
+            this.SetInitialPropertyValue(() => MergeErrors, true)
+                .OnChanged(pvc =>
+               {
+                   ValidationService.MergeValidationErrors = MergeErrors;
+                   ResetValidation();
+                   Validate(ValidationBehavior.TriggerValidationErrorsOnFailure);
+               });
+        }
+
+        protected override IValidationService GetValidationService()
+        {
+            var svc = new DataAnnotationValidationService<RequireValidationSampleViewModel>(this)
+            {
+                MergeValidationErrors = MergeErrors
+            }.AddRule
+            (
+                property: o => o.Text,
+                rule: ctx =>
                 {
-                    var invalid = this.ValidationService.GetInvalidProperties();
-                    this.ValidationService.MergeValidationErrors = this.MergeErrors;
-                    foreach( var item in invalid )
-                    {
-                        this.OnPropertyChanged( item );
-                        this.OnErrorsChanged( item );
-                    }
-                } );
-		}
+                    return ctx.Entity.Text == "foo"
+                        ? ctx.Succeeded()
+                        : ctx.Failed("must be equal to 'foo'");
+                }
+            );
 
-		protected override IValidationService GetValidationService()
-		{
-			var svc = new DataAnnotationValidationService<RequireValidationSampleViewModel>( this )
-			{
-				MergeValidationErrors = this.MergeErrors
-			}.AddRule
-			(
-				property: () => this.Text,
-				error: ctx => "must be equal to 'foo'",
-				rule: ctx => ctx.Entity.Text == "foo"
-			);
+            return svc;
+        }
 
-			return svc;
-		}
+        [Required(AllowEmptyStrings = false)]
+        [DisplayName("Testo")]
+        public string Text
+        {
+            get { return this.GetPropertyValue(() => Text); }
+            set { this.SetPropertyValue(() => Text, value); }
+        }
 
-		[DisplayName( "Esempio" )]
-		public Int32 Sample
-		{
-			get { return this.GetPropertyValue( () => this.Sample ); }
-			set { this.SetPropertyValue( () => this.Sample, value ); }
-		}
+        [Required(AllowEmptyStrings = false)]
+        [DisplayName("Altro Testo")]
+        public string AnotherText
+        {
+            get { return this.GetPropertyValue(() => AnotherText); }
+            set { this.SetPropertyValue(() => AnotherText, value); }
+        }
 
-		public Boolean MergeErrors
-		{
-			get { return this.GetPropertyValue( () => this.MergeErrors ); }
-			set { this.SetPropertyValue( () => this.MergeErrors, value ); }
-		}
+        [DisplayName("Esempio")]
+        public int Sample
+        {
+            get { return this.GetPropertyValue(() => Sample); }
+            set { this.SetPropertyValue(() => Sample, value); }
+        }
 
-		public void OnValidate( Radical.Validation.ValidationContext<RequireValidationSampleViewModel> context )
-		{
-			var displayname = this.ValidationService.GetPropertyDisplayName( this, o => o.Sample );
+        public bool MergeErrors
+        {
+            get { return this.GetPropertyValue(() => MergeErrors); }
+            set { this.SetPropertyValue(() => MergeErrors, value); }
+        }
 
-			context.Results.AddError( () => this.Sample, displayname, new[] { "This is fully custom, and works even on non-bound properties such as 'Sample'." } );
-		}
+        public void OnValidate(Radical.Validation.ValidationContext<RequireValidationSampleViewModel> context)
+        {
+            if (context.PropertyName == null)
+            {
+                var displayname = GetPropertyDisplayName(nameof(Sample));
 
-		public void RunValidation()
-		{
-			this.Validate( ValidationBehavior.TriggerValidationErrorsOnFailure );
-		}
-	}
+                context.Results.AddError(() => Sample, displayname, new[] { "This is fully custom, and works even on non-bound properties such as 'Sample'." });
+            }
+        }
+
+        public void RunValidation()
+        {
+            this.Validate(ValidationBehavior.TriggerValidationErrorsOnFailure);
+        }
+    }
 }

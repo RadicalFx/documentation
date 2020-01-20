@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Radical.Conversions;
+using Radical.Windows.Presentation.Regions;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using Topics.Radical.Windows.Presentation.Regions;
-using Topics.Radical.Conversions;
 
 namespace MyApp.CustomRegions
 {

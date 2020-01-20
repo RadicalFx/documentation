@@ -1,9 +1,9 @@
-﻿using Castle;
-using PluginsInfrastructure;
+﻿using PluginsInfrastructure;
 using System.Linq;
 using System.Windows;
-using Topics.Radical.Linq;
-using Topics.Radical.Windows.Presentation.Boot;
+using Radical.Linq;
+using Radical.Windows.Presentation.Boot;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MyApplication
 {
@@ -14,12 +14,10 @@ namespace MyApplication
     {
         public App()
         {
-            var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>()
+            var bootstrapper = new ApplicationBootstrapper<Presentation.MainView>()
                 .OnBootCompleted(serviceProvider =>
                 {
-                    ((ServiceProviderWrapper)serviceProvider)
-                        .Container
-                        .ResolveAll<IPluginDefinition>()
+                    serviceProvider.GetServices<IPluginDefinition>()
                         .OrderBy(plugin => plugin.Name)
                         .ForEach(plugin => plugin.Initialize());
                 });

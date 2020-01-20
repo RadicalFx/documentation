@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Topics.Radical.ComponentModel;
+﻿using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.Focus
+namespace Radical.Samples.Presentation.Focus
 {
 	[Sample( Title = "Focus behavior", Category = Categories.Behaviors )]
 	public class FocusViewModel : SampleViewModel
 	{
 		public void MoveFocusToName() 
 		{
-			this.MoveFocusTo( () => this.Name );
+			this.MoveFocusTo( () => Name );
 		}
 
-		public String Name
+		public string Name
 		{
-			get { return this.GetPropertyValue( () => this.Name ); }
-			set { this.SetPropertyValue( () => this.Name, value ); }
+			get { return this.GetPropertyValue( () => Name ); }
+			set { this.SetPropertyValue( () => Name, value ); }
 		}
 	}
 }

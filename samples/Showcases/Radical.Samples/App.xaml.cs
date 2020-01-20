@@ -1,20 +1,18 @@
-﻿using System.Windows;
-using Castle;
-using Castle.Facilities.TypedFactory;
-using Topics.Radical.Windows.Presentation.Boot;
-using Topics.Radical.Windows.Presentation.ComponentModel;
-using Topics.Radical.Presentation.ViewModelAsStaticResource;
+﻿using Radical.Samples.Presentation.ViewModelAsStaticResource;
+using Radical.Windows.Presentation.Boot;
+using Radical.Windows.Presentation.ComponentModel;
+using System.Windows;
 
-namespace Topics.Radical
+namespace Radical.Samples
 {
     public partial class App : Application
     {
         public App()
         {
-            var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>()
+            var bootstrapper = new ApplicationBootstrapper<Presentation.MainView>()
                 .EnableSplashScreen()
                 .OnBoot(container =>
-               {
+                {
                    var conventions = container.GetService<IConventionsHandler>();
                    /*
                     * the following will make every ViewModel 
@@ -28,9 +26,10 @@ namespace Topics.Radical
                         : conventions.DefaultShouldExposeViewModelAsStaticResource(view, viewModel);
                    };
 
-                   var w = (ServiceProviderWrapper)container;
-                   w.Container.AddFacility<TypedFactoryFacility>();
-               });
+                    //TODO: TypedFactoryFacility
+                    //var w = (ServiceProviderWrapper)container;
+                    //w.Container.AddFacility<TypedFactoryFacility>();
+                });
         }
     }
 }

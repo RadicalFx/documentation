@@ -1,12 +1,10 @@
-﻿using System;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.Observers;
-using Topics.Radical.Windows;
+﻿using Radical.ComponentModel.Windows.Input;
+using Radical.Model;
+using Radical.Samples.ComponentModel;
+using System;
 using System.Collections.ObjectModel;
-using Topics.Radical.Model;
-using Topics.Radical.ComponentModel.Windows.Input;
 
-namespace Topics.Radical.Presentation.Commanding
+namespace Radical.Samples.Presentation.Commanding
 {
 	[Sample( Title = "Auto Command Binding", Category = Categories.Commanding )]
 	public class AutoCommandBindingViewModel : SampleViewModel
@@ -15,98 +13,51 @@ namespace Topics.Radical.Presentation.Commanding
 		{
 			public void Execute()
 			{
-				this.ExecutedOn = String.Format( " {0}: {1}", this.Name, DateTime.Now.ToLongTimeString() );
+				ExecutedOn = string.Format( " {0}: {1}", Name, DateTime.Now.ToLongTimeString() );
 			}
 
-			public String Name { get; set; }
+			public string Name { get; set; }
 
-			public String ExecutedOn
+			public string ExecutedOn
 			{
-				get { return this.GetPropertyValue( () => this.ExecutedOn ); }
-				set { this.SetPropertyValue( () => this.ExecutedOn, value ); }
-			}
-		}
-
-		Fact _canExecuteWithFact;
-		public Fact CanExecuteWithFact
-		{
-			get
-			{
-				if( this._canExecuteWithFact == null )
-				{
-					this._canExecuteWithFact = Fact.Create( o =>
-					{
-						return this.IsActiveWithFact;
-					} )
-					.AddMonitor
-					(
-						PropertyObserver.For( this )
-							.Observe( v => v.IsActiveWithFact )
-					);
-				}
-
-				return this._canExecuteWithFact;
-			}
-		}
-
-		public void ExecuteWithFact()
-		{
-			this.ExecutedWithFact = DateTime.Now.ToLongTimeString();
-		}
-
-		public String ExecutedWithFact
-		{
-			get { return this.GetPropertyValue( () => this.ExecutedWithFact ); }
-			set { this.SetPropertyValue( () => this.ExecutedWithFact, value ); }
-		}
-
-		private Boolean _isActiveWithFact = false;
-		public Boolean IsActiveWithFact
-		{
-			get { return this._isActiveWithFact; }
-			set
-			{
-				if( value != this.IsActiveWithFact )
-				{
-					this._isActiveWithFact = value;
-					this.OnPropertyChanged( () => this.IsActiveWithFact );
-				}
+				get { return GetPropertyValue( () => ExecutedOn ); }
+				set { SetPropertyValue( () => ExecutedOn, value ); }
 			}
 		}
 
 		public AutoCommandBindingViewModel()
 		{
-			this.GetPropertyMetadata( () => this.IsActiveWithBoolean )
-				.AddCascadeChangeNotifications( () => this.CanExecuteWithBoolean );
+			this.GetPropertyMetadata( () => IsActive )
+				.AddCascadeChangeNotifications( () => CanExecute );
 
-			this.Items = new ObservableCollection<Item>() 
+			Items = new ObservableCollection<Item>() 
 			{
 				new Item(){ Name = "Foo"},
 				new Item(){ Name = "Bar"},
 			};
 		}
 
-		public Boolean CanExecuteWithBoolean
+		public bool CanExecute
 		{
-			get { return this.IsActiveWithBoolean; }
+			get { return IsActive; }
 		}
 
 		[KeyBindingAttribute(System.Windows.Input.Key.B, Modifiers= System.Windows.Input.ModifierKeys.Control)]
-		public void ExecuteWithBoolean()
+		public void Execute()
 		{
-			this.ExecutedWithBoolean = DateTime.Now.ToLongTimeString();
+			Executed = DateTime.Now.ToLongTimeString();
 		}
 
-		public String ExecutedWithBoolean
+		public string Executed
 		{
-			get { return this.GetPropertyValue( () => this.ExecutedWithBoolean ); }
-			set { this.SetPropertyValue( () => this.ExecutedWithBoolean, value ); }
+			get { return this.GetPropertyValue( () => Executed ); }
+			set { this.SetPropertyValue( () => Executed, value ); }
 		}
 
-		public Boolean IsActiveWithBoolean
+		public bool IsActive
 		{
-			get { return this.GetPropertyValue( () => this.IsActiveWithBoolean ); }
-			set { this.SetPropertyValue( () => this.IsActiveWithBoolean, value ); }
+			get { return this.GetPropertyValue( () => IsActive ); }
+			set { this.SetPropertyValue( () => IsActive, value ); }
 		}
 
 		public ObservableCollection<Item> Items { get; private set; }

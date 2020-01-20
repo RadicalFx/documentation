@@ -1,11 +1,11 @@
-﻿using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.ChangeTracking;
-using Topics.Radical.ChangeTracking;
-using Topics.Radical.Observers;
-using Topics.Radical.Windows.Input;
+﻿using Radical.ChangeTracking;
+using Radical.ComponentModel.ChangeTracking;
+using Radical.Observers;
+using Radical.Samples.ComponentModel;
+using Radical.Windows.Input;
 using System.Windows.Input;
 
-namespace Topics.Radical.Presentation.Memento.SimpleGraph
+namespace Radical.Samples.Presentation.Memento.SimpleGraph
 {
 	[Sample( Title = "Simple Graph", Category = Categories.Memento )]
 	public class SimpleGraphViewModel : SampleViewModel
@@ -14,16 +14,16 @@ namespace Topics.Radical.Presentation.Memento.SimpleGraph
 
 		public SimpleGraphViewModel()
 		{
-			var observer = MementoObserver.Monitor( this.service );
+			var observer = MementoObserver.Monitor( service );
 
-			this.UndoCommand = DelegateCommand.Create()
-				.OnCanExecute( o => this.service.CanUndo )
-				.OnExecute( o => this.service.Undo() )
+			UndoCommand = DelegateCommand.Create()
+				.OnCanExecute( o => service.CanUndo )
+				.OnExecute( o => service.Undo() )
 				.AddMonitor( observer );
 
-			this.RedoCommand = DelegateCommand.Create()
-				.OnCanExecute( o => this.service.CanRedo )
-				.OnExecute( o => this.service.Redo() )
+			RedoCommand = DelegateCommand.Create()
+				.OnCanExecute( o => service.CanRedo )
+				.OnExecute( o => service.Redo() )
 				.AddMonitor( observer );
 
 			var person = new Person()
@@ -34,23 +34,23 @@ namespace Topics.Radical.Presentation.Memento.SimpleGraph
 
 			var entity = new PersonViewModel();
 
-			this.service.Attach( entity );
+			service.Attach( entity );
 
 			entity.Initialize( person, false );
 
-			this.Entity = entity;
+			Entity = entity;
 		}
 
 		private PersonViewModel _entity = null;
 		public PersonViewModel Entity
 		{
-			get { return this._entity; }
+			get { return _entity; }
 			private set
 			{
-				if( value != this.Entity )
+				if( value != Entity )
 				{
-					this._entity = value;
-					this.OnPropertyChanged( () => this.Entity );
+					_entity = value;
+					this.OnPropertyChanged( () => Entity );
 				}
 			}
 		}

@@ -1,45 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Topics.Radical.ComponentModel.Messaging;
-using Topics.Radical.Presentation.AsyncRegions;
-using Topics.Radical.Windows.Presentation;
-using Topics.Radical.Windows.Presentation.ComponentModel;
-using Topics.Radical.Windows.Presentation.Messaging;
-using Topics.Radical.Windows.Presentation.Regions;
+﻿using Radical.ComponentModel.Messaging;
+using Radical.Messaging;
+using Radical.Samples.Presentation.AsyncRegions;
+using Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.Presentation.Messaging;
+using Radical.Windows.Presentation.Regions;
 
-namespace Topics.Radical.Messaging.Handlers
+namespace Radical.Samples.Messaging.Handlers
 {
-	class AsyncRegionsViewLoadedHandler : MessageHandler<ViewLoaded>, INeedSafeSubscription
+	class AsyncRegionsViewLoadedHandler : AbstractMessageHandler<ViewLoaded>, INeedSafeSubscription
 	{
 		readonly IViewResolver viewResolver;
-		readonly IConventionsHandler conventions;
 		readonly IRegionService regionService;
 
-		public AsyncRegionsViewLoadedHandler( IViewResolver viewResolver, IConventionsHandler conventions, IRegionService regionService )
+		public AsyncRegionsViewLoadedHandler( IViewResolver viewResolver, IRegionService regionService )
 		{
 			this.viewResolver = viewResolver;
-			this.conventions = conventions;
 			this.regionService = regionService;
 		}
 
-		protected override bool OnShouldHandle( ViewLoaded message )
+		protected override bool OnShouldHandle(object sender, ViewLoaded message )
 		{
-			return message.View is Presentation.AsyncRegions.AsyncRegionsView;
+			return message.View is AsyncRegionsView;
 		}
 
-		public override void Handle( ViewLoaded message )
+		public override void Handle(object sender, ViewLoaded message )
 		{
-			if ( this.regionService.HoldsRegionManager( message.View ) )
+			if ( regionService.HoldsRegionManager( message.View ) )
 			{
-				this.regionService.GetRegionManager( message.View )
+				regionService.GetRegionManager( message.View )
 					.GetRegion<IContentRegion>( "AsyncFoo" )
 					.SetContentAsync( () => 
 					{
-						var foo = this.viewResolver.GetView<FooView>();
+						var foo = viewResolver.GetView<FooView>();
 						return foo;
 					} );
 			}

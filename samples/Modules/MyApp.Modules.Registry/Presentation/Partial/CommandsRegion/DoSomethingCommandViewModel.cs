@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Topics.Radical.ComponentModel.Messaging;
+﻿using Radical.ComponentModel.Messaging;
 
 namespace MyApp.Modules.Registry.Presentation.Partial.CommandsRegion
 {
@@ -18,7 +13,7 @@ namespace MyApp.Modules.Registry.Presentation.Partial.CommandsRegion
 
         public void DoWhatever() 
         {
-            this.broker.Broadcast( this, new MyApp.Contracts.Messaging.SharedMessage() 
+            this.broker.Broadcast( this, new Contracts.Messaging.SharedMessage() 
             {
                 Text = "Hi, there!"
             } );

@@ -1,8 +1,6 @@
 ﻿<Window x:Class="MyApplication.Presentation.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
-        xmlns:behavior="http://schemas.topics.it/wpf/radical/windows/behaviors"
         xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
         Title="MainView" Height="300" Width="300">
     <Grid>

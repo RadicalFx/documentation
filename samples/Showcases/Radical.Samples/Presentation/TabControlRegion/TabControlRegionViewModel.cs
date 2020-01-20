@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Radical.ComponentModel.Windows.Input;
+using Radical.Samples.ComponentModel;
+using Radical.Windows.Input;
+using Radical.Windows.Presentation;
+using Radical.Windows.Presentation.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.Windows.Input;
-using Topics.Radical.Windows.Input;
-using Topics.Radical.Windows.Presentation;
-using Topics.Radical.Windows.Presentation.ComponentModel;
 
-namespace Topics.Radical.Presentation.TabControlRegion
+namespace Radical.Samples.Presentation.TabControlRegion
 {
     [Sample(Title = "Tab Control Region", Category = Categories.UIComposition)]
     public class TabControlRegionViewModel : AbstractViewModel
@@ -21,7 +17,7 @@ namespace Topics.Radical.Presentation.TabControlRegion
 
         public TabControlRegionViewModel(IViewResolver viewResolver, IRegionService regionService)
         {
-            this.AddNewGammaViewCommand =
+            AddNewGammaViewCommand =
                 DelegateCommand.Create()
                                .OnExecute(x =>
                                {
@@ -34,7 +30,7 @@ namespace Topics.Radical.Presentation.TabControlRegion
                                    }
                                });
 
-            this.ActivateGammaViewCommand =
+            ActivateGammaViewCommand =
                 DelegateCommand.Create()
                                .OnExecute(x =>
                                {
@@ -64,7 +60,7 @@ namespace Topics.Radical.Presentation.TabControlRegion
                                    }
                                });
 
-            this.RemoveLastViewCommand =
+            RemoveLastViewCommand =
                 DelegateCommand.Create()
                                .OnExecute(x =>
                                {

@@ -1,43 +1,41 @@
-﻿using System;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.ChangeTracking;
-using Topics.Radical.Conversions;
-using Topics.Radical.Model;
+﻿using Radical.ComponentModel;
+using Radical.ComponentModel.ChangeTracking;
+using Radical.Model;
 
-namespace Topics.Radical.Presentation.Memento.ComplexGraph
+namespace Radical.Samples.Presentation.Memento.ComplexGraph
 {
 	public class PersonViewModel : MementoEntity
 	{
 		MementoEntityCollection<AddressViewModel> addressesDataSource;
 
-		public void Initialize( Person person, Boolean registerAsTransient )
+		public void Initialize( Person person, bool registerAsTransient )
 		{
 			if( registerAsTransient )
 			{
-				this.RegisterTransient();
+				RegisterTransient();
 			}
 
-			this.SetInitialPropertyValue( () => this.FirstName, person.FirstName );
-			this.SetInitialPropertyValue( () => this.LastName, person.LastName );
+			SetInitialPropertyValue( () => FirstName, person.FirstName );
+			SetInitialPropertyValue( () => LastName, person.LastName );
 
-			this.addressesDataSource = new MementoEntityCollection<AddressViewModel>();
-			this.addressesDataSource.BulkLoad( person.Addresses, a =>
+			addressesDataSource = new MementoEntityCollection<AddressViewModel>();
+			addressesDataSource.BulkLoad( person.Addresses, a =>
 				{
-					var vm = this.CreateAddressViewModel( a, registerAsTransient );
+					var vm = CreateAddressViewModel( a, registerAsTransient );
 					return vm;
 				} );
 
-			this.Addresses = this.addressesDataSource.DefaultView;
-			this.Addresses.AddingNew += ( s, e ) =>
+			Addresses = addressesDataSource.DefaultView;
+			Addresses.AddingNew += ( s, e ) =>
 			{
-				var vm = this.CreateAddressViewModel( null, true );
+				var vm = CreateAddressViewModel( null, true );
 
 				e.NewItem = vm;
 				e.AutoCommit = true;
 			};
 		}
 
-		AddressViewModel CreateAddressViewModel( Address a, Boolean registerAsTransient )
+		AddressViewModel CreateAddressViewModel( Address a, bool registerAsTransient )
 		{
 			var vm = new AddressViewModel();
 
@@ -46,31 +44,31 @@ namespace Topics.Radical.Presentation.Memento.ComplexGraph
 			return vm;
 		}
 
-		protected override void OnMementoChanged( ComponentModel.ChangeTracking.IChangeTrackingService newMemento, ComponentModel.ChangeTracking.IChangeTrackingService oldMemento )
+		protected override void OnMementoChanged( IChangeTrackingService newMemento, IChangeTrackingService oldMemento )
 		{
 			base.OnMementoChanged( newMemento, oldMemento );
 
 			if( oldMemento != null )
 			{
-				oldMemento.Detach( this.addressesDataSource );
+				oldMemento.Detach( addressesDataSource );
 			}
 
 			if( newMemento != null )
 			{
-				newMemento.Attach( this.addressesDataSource );
+				newMemento.Attach( addressesDataSource );
 			}
 		}
 
-		public String FirstName
+		public string FirstName
 		{
-			get { return this.GetPropertyValue( () => this.FirstName ); }
-			set { this.SetPropertyValue( () => this.FirstName, value ); }
+			get { return GetPropertyValue( () => FirstName ); }
+			set { SetPropertyValue( () => FirstName, value ); }
 		}
 
-		public String LastName
+		public string LastName
 		{
-			get { return this.GetPropertyValue( () => this.LastName ); }
-			set { this.SetPropertyValue( () => this.LastName, value ); }
+			get { return GetPropertyValue( () => LastName ); }
+			set { SetPropertyValue( () => LastName, value ); }
 		}
 
 		public IEntityView<AddressViewModel> Addresses

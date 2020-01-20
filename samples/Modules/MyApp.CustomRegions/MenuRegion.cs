@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Radical.Conversions;
+using Radical.Windows.Presentation.Regions;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using Topics.Radical.Windows.Presentation.Regions;
-using Topics.Radical.Conversions;
 
 namespace MyApp.CustomRegions
 {
@@ -17,23 +13,23 @@ namespace MyApp.CustomRegions
 
         }
 
-        public MenuRegion( String name )
+        public MenuRegion(string name )
         {
-            this.Name = name;
+            Name = name;
         }
 
         protected override void OnAdd( DependencyObject view )
         {
-            this.Element.Items.Add( ( MenuItem )view );
+            Element.Items.Add( ( MenuItem )view );
         }
 
         protected override void OnRemove( DependencyObject view, RemoveReason reason )
         {
             view.As<MenuItem>( e =>
             {
-                if ( this.Element.Items.Contains( e ) )
+                if ( Element.Items.Contains( e ) )
                 {
-                    this.Element.Items.Remove( e );
+                    Element.Items.Remove( e );
                 }
             } );
         }

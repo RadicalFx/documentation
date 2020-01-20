@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.ComponentModel.Messaging;
+﻿using Radical.ComponentModel.Messaging;
+using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.OpenChildWindow
+namespace Radical.Samples.Presentation.OpenChildWindow
 {
 	[Sample( Title = "Open Child Window", Category = Categories.Presentation )]
 	public class OpenChildWindowViewModel : SampleViewModel
@@ -19,16 +15,16 @@ namespace Topics.Radical.Presentation.OpenChildWindow
 
 	    public void OpenWindow()
 	    {
-	        this.broker.Broadcast(this, new Messaging.OpenChildWindowSampleMessage()
+	        broker.Broadcast(this, new Messaging.OpenChildWindowSampleMessage()
 	        {
-	            AsDialog = this.AsDialog
+	            AsDialog = AsDialog
 	        });
 	    }
 
-	    public Boolean AsDialog
+	    public bool AsDialog
 		{
-			get { return this.GetPropertyValue( () => this.AsDialog ); }
-			set { this.SetPropertyValue( () => this.AsDialog, value ); }
+			get { return this.GetPropertyValue( () => AsDialog ); }
+			set { this.SetPropertyValue( () => AsDialog, value ); }
 		}
 	}
 }

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radical.Samples", "Radical.Samples\Radical.Samples.csproj", "{5213A9D0-EBC6-4B79-88C5-F9618B22E566}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radical.Samples", "Radical.Samples\Radical.Samples.csproj", "{5213A9D0-EBC6-4B79-88C5-F9618B22E566}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radical.Samples.Autofac", "Radical.Samples.Autofac\Radical.Samples.Autofac.csproj", "{54549B5A-EFE2-4932-9681-6A135C796973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radical.Samples.Components", "Radical.Samples.Components\Radical.Samples.Components.csproj", "{69C801A6-9E90-4A8F-A3F8-DBC21C7F5703}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radical.Samples.Components", "Radical.Samples.Components\Radical.Samples.Components.csproj", "{69C801A6-9E90-4A8F-A3F8-DBC21C7F5703}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radical.Samples.Unity2", "Radical.Samples.Unity2\Radical.Samples.Unity2.csproj", "{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F}"
 EndProject
@@ -44,6 +44,7 @@ Global
 		{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F} = {22CF00B8-80F7-4331-A56E-B964F4B6825A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DF6322E-6E3C-4591-B53A-F4F03ECE45FC}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

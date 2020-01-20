@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp", "MyApp\MyApp.csproj", "{CD6D0B5B-306B-4357-B4EC-F5AFF7CFEA35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp", "MyApp\MyApp.csproj", "{CD6D0B5B-306B-4357-B4EC-F5AFF7CFEA35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Contracts", "MyApp.Contracts\MyApp.Contracts.csproj", "{D53F09B8-1360-412C-A41B-5D68EA2ACA13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Contracts", "MyApp.Contracts\MyApp.Contracts.csproj", "{D53F09B8-1360-412C-A41B-5D68EA2ACA13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Modules.Registry", "MyApp.Modules.Registry\MyApp.Modules.Registry.csproj", "{981D7FF5-EEF2-4EFC-BCE9-50B8A1ACBBAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Modules.Registry", "MyApp.Modules.Registry\MyApp.Modules.Registry.csproj", "{981D7FF5-EEF2-4EFC-BCE9-50B8A1ACBBAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.CustomRegions", "MyApp.CustomRegions\MyApp.CustomRegions.csproj", "{459BACAB-3214-403F-9D67-A16B9811A046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.CustomRegions", "MyApp.CustomRegions\MyApp.CustomRegions.csproj", "{459BACAB-3214-403F-9D67-A16B9811A046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +38,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEE92B05-C574-467A-A0E5-970BB3F7FACD}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

@@ -1,12 +1,8 @@
-﻿using System;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.Observers;
-using Topics.Radical.Windows;
+﻿using Radical.ComponentModel;
+using Radical.Samples.ComponentModel;
 using System.Collections.Generic;
-//using Topics.Radical.Windows.Model;
-using System.Windows.Data;
 
-namespace Topics.Radical.Presentation.EntityCollectionView
+namespace Radical.Samples.Presentation.EntityCollectionView
 {
 	//[Sample( Title = "Entity CollectionView", Category = Categories.IEntityView )]
 	public class EntityCollectionViewViewModel : SampleViewModel

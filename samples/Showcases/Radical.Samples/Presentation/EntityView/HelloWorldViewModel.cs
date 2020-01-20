@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using Topics.Radical.ComponentModel;
-using Topics.Radical.Model;
+﻿using Radical.ComponentModel;
+using Radical.Model;
+using Radical.Samples.ComponentModel;
+using System.Collections.Generic;
 
-namespace Topics.Radical.Presentation.EntityView
+namespace Radical.Samples.Presentation.EntityView
 {
 	[Sample( Title = "EntityView Primer", Category = Categories.IEntityView )]
 	public class HelloWorldViewModel : SampleViewModel
@@ -30,8 +31,8 @@ namespace Topics.Radical.Presentation.EntityView
 				}
 			};
 
-			this.Items = new EntityView<Person>( data );
-			this.Items.AddingNew += ( s, e ) => 
+			Items = new EntityView<Person>( data );
+			Items.AddingNew += ( s, e ) => 
 			{
 				e.NewItem = new Person("--empty--");
 			};

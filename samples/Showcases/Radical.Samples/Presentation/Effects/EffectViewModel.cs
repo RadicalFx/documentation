@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Topics.Radical.ComponentModel;
+﻿using Radical.Samples.ComponentModel;
 
-namespace Topics.Radical.Presentation.Effects
+namespace Radical.Presentation.Effects
 {
 	[Sample( Title = "Grayscale Shader", Category = Categories.Presentation )]
 	public class EffectViewModel : SampleViewModel
 	{
 		public EffectViewModel()
 		{
-			this.SetInitialPropertyValue( () => this.IsChecked, true );
+			SetInitialPropertyValue( () => IsChecked, true );
 		}
 
-		public Boolean IsChecked
+		public bool IsChecked
 		{
-			get { return this.GetPropertyValue( () => this.IsChecked ); }
-			set { this.SetPropertyValue( () => this.IsChecked, value ); }
+			get { return GetPropertyValue( () => IsChecked ); }
+			set { SetPropertyValue( () => IsChecked, value ); }
 		}
 	}
 }

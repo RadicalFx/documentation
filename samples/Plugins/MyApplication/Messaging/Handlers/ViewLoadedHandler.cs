@@ -1,20 +1,20 @@
 ﻿using PluginsInfrastructure;
 using System.Collections.Generic;
 using System.Linq;
-using Topics.Radical.ComponentModel.Messaging;
-using Topics.Radical.Linq;
-using Topics.Radical.Messaging;
-using Topics.Radical.Windows.Presentation.ComponentModel;
-using Topics.Radical.Windows.Presentation.Messaging;
+using Radical.ComponentModel.Messaging;
+using Radical.Linq;
+using Radical.Messaging;
+using Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.Presentation.Messaging;
 
 namespace MyApplication.Messaging.Handlers
 {
     class ViewLoadedHandler : AbstractMessageHandler<ViewLoaded>, INeedSafeSubscription
     {
-        IRegionService regionService;
-        IEnumerable<IPluginDefinition> plugins;
+        readonly IRegionService regionService;
+        readonly IEnumerable<IPluginDefinition> plugins;
 
-        public ViewLoadedHandler(IRegionService regionService, IPluginDefinition[] plugins)
+        public ViewLoadedHandler(IRegionService regionService, IEnumerable<IPluginDefinition> plugins)
         {
             this.regionService = regionService;
             this.plugins = plugins.OrderBy(plugin=>plugin.Name);
