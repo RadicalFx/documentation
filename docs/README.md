@@ -109,7 +109,7 @@ Radical uses MyGet to publish unstable releases during development, to use the u
   </packageRestore>
   <packageSources>
     <add key="nuget.org" value="https://www.nuget.org/api/v2/" />
-    <add key="Radical Unstable" value="https://www.myget.org/F/radical-unstable/api/v2" />
+    <add key="Radical Unstable" value="https://www.myget.org/F/radical-unstable/api/v3/index.json" />
   </packageSources>
   <disabledPackageSources />
   <config>
