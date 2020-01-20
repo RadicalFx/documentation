@@ -4,14 +4,13 @@
 
 #### Steps to bootstrap your project in 3 minutes
 
-* Create a new Visual Studio solution with a WPF application project;
+* Create a new Visual Studio solution and add a new WPF (.NET Core 3) application project;
 * Add, using nuget, a reference to: [Radical.Windows](https://www.nuget.org/packages/Radical.Windows);
-  * this will give us the full Radical Presentation stack with the default built-in IoC container;
 * Delete the default MainWindow.xaml;
-* Edit the app.xaml file to remove the StartupUri attribute;
-* Add a “Presentation” folder to the project;
-  * Presentation is the default location, based on a convention, where Radical Presentation looks for views and view models;
-* Create 2 new items:
+* Edit the app.xaml file to remove the `StartupUri` attribute;
+* Add a `Presentation` folder to the project;
+  * `Presentation` is the default location, based on conventions, where Radical looks for Views and ViewModels;
+* Create 2 new items in the `Presentation` folder:
   * A WPF window named Main**View**.xaml \(\*View is important for the default conventions\);
   * A class Main**ViewModel** \(&lt;_ViewName_&gt;ViewModel is important for the default conventions\);
 * In the app.xaml.cs add a single line of code:
@@ -29,10 +28,10 @@ public partial class App : Application
 **Press F5 and you are up & running**: the MainView window will be shown. The following things happen:
 
 * The application boots
-* All the default and required services \(for MVVM and UI Composition\) are wired into the default IoC container
-* The MainView is designed as the main window
-* At boot time the MainView is resolved and using the conventions engine the MainViewModel is setup and set as the DataContext of the MainView
-* Finally the MainView is shown.
+* All the default and required services \(for MVVM and UI Composition\) are wired into the IoC container (using `IServiceCollection`)
+* The `MainView` is designed as the main window
+* At boot time the `MainView` is resolved and using the conventions engine the `MainViewModel` is setup and set as the `DataContext` of the `MainView`
+* Finally the `MainView` is shown.
 
 #### What’s next
 
