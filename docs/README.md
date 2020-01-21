@@ -118,3 +118,9 @@ Radical uses MyGet to publish unstable releases during development, to use the u
 * close and reopen the solution
 
 By going to the Manage Nuget Packages page of your solution, you'll now see a "Radical Unstable" option in the source selection dropdown. Do not forget to check the "prerelease versions" checkbox search setting.
+
+## Continuous Integration
+
+Radical uses [AppVeyor](https://ci.appveyor.com/account/radical-bot/projects) to host the build infrastructure. All active repositories are mapped to an AppVeyor project. Branches are configured so that Pull Requests require builds to be green to be merged. Each time a new PR is raised and/or each time a new commit is pushed to an existing PR a build is triggered and the build status is reported to GitHub.
+From AppVeyor build artfacts, such as Nuget packages, can be pushed to Myget or to Nuget, depending on their stability level.
+Builds are triggered also when a TAG is pushed. Usually a TAG identifies a stable build that will be released to Nuget.
