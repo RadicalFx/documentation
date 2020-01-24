@@ -33,6 +33,8 @@ The convention accomplish two needs:
 
 * ViewModels as resources: there are scenarios in which it's handy to have the current `View` `ViewModel` available in the `View` resources. **ShouldExposeViewModelAsStaticResource** and **ExposeViewModelAsStaticResource** control if a `ViewModel` is exposed as a resource (`false` by default) and how it is exposed. The default behavior, when this feature is active, is to register the `ViewModel` in the resources using its `Type` name as the resource key.
 
+* **GenerateViewModelStaticResourceKey**: The GenerateViewModelStaticResourceKey conventions is used to determine the resource key used to store ViewModel instances in View resources when exposing ViewModels as resources in Views.
+
 * **ViewHasDataContext**, **SetViewDataContext** and **GetViewDataContext**: The ViewHasDataContext convention simply checks if the given view DataContext property is not null, this convention accepts a DependencyObject because in WPF the DataContext property is not defined on a single root object but is defined on FrameworkElement and on FrameworkContentElement.  
 SetViewDataContext and GetViewDataContext respectively sets and gets the DataContext of the given view.
 
