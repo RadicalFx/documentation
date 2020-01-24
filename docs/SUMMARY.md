@@ -25,7 +25,7 @@
 * [Validation and Validation Services](/mvvm/validation-validationservice.md)
 * Resources
   * [Services as resources](/mvvm/services-as-resources.md)
-
+  * [ViewModels as resources](/mvvm/viewmodels-as-resources.md)
 ## UI Composition
 
 * [UI Composition](/ui-composition/index.md)
