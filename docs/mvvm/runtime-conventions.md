@@ -64,3 +64,5 @@ SetViewDataContext and GetViewDataContext respectively sets and gets the DataCon
     * WindowLifecycleNotificationsBehavior;
     * FrameworkElementLifecycleNotificationsBehavior;
     * DependencyObjectCloseHandlerBehavior;
+
+* **GenerateServiceStaticResourceKey**: The GenerateServiceStaticResourceKey conventions is used to determine the key used whne registering services as resources, both at the application level or at the View level.

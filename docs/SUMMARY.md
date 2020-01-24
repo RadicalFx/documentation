@@ -23,6 +23,8 @@
   * [Simple ViewModel graphs](/mvvm/memento-change-tracking-simple-view-model.md)
   * [Collections and complex ViewModel graphs](/mvvm/memento-change-tracking-collection-and-complex-view-model.md.md)
 * [Validation and Validation Services](/mvvm/validation-validationservice.md)
+* Resources
+  * [Services as resources](/mvvm/services-as-resources.md)
 
 ## UI Composition
 
