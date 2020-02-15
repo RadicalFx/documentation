@@ -1,8 +1,8 @@
 ﻿using Radical.ComponentModel.Messaging;
 using Radical.Messaging;
 using Radical.Windows.Input;
-using Radical.Windows.Presentation.ComponentModel;
-using Radical.Windows.Presentation.Messaging;
+using Radical.Windows.ComponentModel;
+using Radical.Windows.Messaging;
 using System.Windows.Controls;
 
 namespace MyApp.Modules.Registry.Messaging.Handlers

@@ -1,7 +1,7 @@
 ﻿using MyApp.Contracts;
 using Radical.ComponentModel.Messaging;
 using Radical.Messaging;
-using Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.ComponentModel;
 
 namespace MyApp.Modules.Registry.Messaging.Handlers
 {
