@@ -1,9 +1,9 @@
 ﻿using Radical.ComponentModel.Messaging;
 using Radical.Messaging;
 using Radical.Samples.Presentation.AsyncRegions;
-using Radical.Windows.Presentation.ComponentModel;
-using Radical.Windows.Presentation.Messaging;
-using Radical.Windows.Presentation.Regions;
+using Radical.Windows.ComponentModel;
+using Radical.Windows.Messaging;
+using Radical.Windows.Regions;
 
 namespace Radical.Samples.Messaging.Handlers
 {

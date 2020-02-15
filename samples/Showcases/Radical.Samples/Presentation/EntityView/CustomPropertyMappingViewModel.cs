@@ -1,19 +1,19 @@
 ﻿using Radical.ComponentModel;
-using Radical.ComponentModel.Windows.Input;
 using Radical.Model;
 using Radical.Samples.ComponentModel;
+using Radical.Windows.ComponentModel;
 using Radical.Windows.Input;
 using System.Collections.Generic;
 
 namespace Radical.Samples.Presentation.EntityView
 {
-	[Sample( Title = "EntityView Custom Property Mapping", Category = Categories.IEntityView )]
-	public class CustomPropertyMappingViewModel : SampleViewModel
-	{
-		string propertyName = "";
+    [Sample( Title = "EntityView Custom Property Mapping", Category = Categories.IEntityView )]
+    public class CustomPropertyMappingViewModel : SampleViewModel
+    {
+        string propertyName = "";
 
-		public CustomPropertyMappingViewModel()
-		{
+        public CustomPropertyMappingViewModel()
+        {
             var data = new List<Person>()
             {
                 new Person( "topics" )
@@ -59,45 +59,45 @@ namespace Radical.Samples.Presentation.EntityView
             //    }
             //};
 
-			ToggleCustomProperty = DelegateCommand.Create()
-				.OnExecute( o =>
-				{
-					var temp = Items;
-					Items = null;
-					this.OnPropertyChanged( () => Items );
+            ToggleCustomProperty = DelegateCommand.Create()
+                .OnExecute( o =>
+                {
+                    var temp = Items;
+                    Items = null;
+                    this.OnPropertyChanged( () => Items );
 
-					if( !temp.IsCustomPropertyDefined( propertyName ) )
-					{
-						var prop = temp.AddCustomProperty<string>( "Nome proprietà", obj =>
-						{
-							return obj.Item.EntityItem.FirstName + " " + obj.Item.EntityItem.LastName;
-						} );
+                    if( !temp.IsCustomPropertyDefined( propertyName ) )
+                    {
+                        var prop = temp.AddCustomProperty<string>( "Nome proprietà", obj =>
+                        {
+                            return obj.Item.EntityItem.FirstName + " " + obj.Item.EntityItem.LastName;
+                        } );
 
-						propertyName = prop.Name;
-					}
-					else
-					{
-						temp.RemoveCustomProperty( propertyName );
-					}
+                        propertyName = prop.Name;
+                    }
+                    else
+                    {
+                        temp.RemoveCustomProperty( propertyName );
+                    }
 
-					Items = temp;
-					this.OnPropertyChanged( () => Items );
-				} );
+                    Items = temp;
+                    this.OnPropertyChanged( () => Items );
+                } );
 
-			Items = new EntityView<Person>( data );
-			Items.AddingNew += ( s, e ) =>
-			{
-				e.NewItem = new Person( "--empty--" );
-			};
+            Items = new EntityView<Person>( data );
+            Items.AddingNew += ( s, e ) =>
+            {
+                e.NewItem = new Person( "--empty--" );
+            };
 
-		}
+        }
 
-		public IEntityView<Person> Items { get; private set; }
+        public IEntityView<Person> Items { get; private set; }
 
-		public IDelegateCommand ToggleCustomProperty
-		{
-			get;
-			private set;
-		}
-	}
+        public IDelegateCommand ToggleCustomProperty
+        {
+            get;
+            private set;
+        }
+    }
 }

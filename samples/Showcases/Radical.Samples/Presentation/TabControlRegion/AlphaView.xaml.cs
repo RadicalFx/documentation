@@ -1,4 +1,4 @@
-﻿using Radical.Windows.Presentation.ComponentModel.Regions;
+﻿using Radical.Windows.ComponentModel;
 using System.Windows.Controls;
 
 namespace Radical.Samples.Presentation.TabControlRegion

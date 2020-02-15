@@ -1,6 +1,6 @@
 ﻿using Radical.Samples.Presentation.ViewModelAsStaticResource;
-using Radical.Windows.Presentation.Boot;
-using Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows;
+using Radical.Windows.ComponentModel;
 using System.Windows;
 
 namespace Radical.Samples
@@ -25,10 +25,6 @@ namespace Radical.Samples
                         ? true
                         : conventions.DefaultShouldExposeViewModelAsStaticResource(view, viewModel);
                    };
-
-                    //TODO: TypedFactoryFacility
-                    //var w = (ServiceProviderWrapper)container;
-                    //w.Container.AddFacility<TypedFactoryFacility>();
                 });
         }
     }

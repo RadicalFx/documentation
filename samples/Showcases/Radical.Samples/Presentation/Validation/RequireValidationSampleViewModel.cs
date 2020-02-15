@@ -1,11 +1,9 @@
 ﻿using Radical.ComponentModel.Validation;
 using Radical.Samples.ComponentModel;
-using Radical.Windows.Presentation;
-using Radical.Windows.Presentation.ComponentModel;
-using Radical.Windows.Presentation.Services.Validation;
+using Radical.Windows.ComponentModel;
+using Radical.Windows.Validation;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace Radical.Samples.Presentation.Validation
 {
@@ -27,11 +25,8 @@ namespace Radical.Samples.Presentation.Validation
                    ResetValidation();
                    Validate(ValidationBehavior.TriggerValidationErrorsOnFailure);
                });
-        }
 
-        protected override IValidationService GetValidationService()
-        {
-            var svc = new DataAnnotationValidationService<RequireValidationSampleViewModel>(this)
+            ValidationService = new DataAnnotationValidationService<RequireValidationSampleViewModel>(this)
             {
                 MergeValidationErrors = MergeErrors
             }.AddRule
@@ -44,8 +39,6 @@ namespace Radical.Samples.Presentation.Validation
                         : ctx.Failed("must be equal to 'foo'");
                 }
             );
-
-            return svc;
         }
 
         [Required(AllowEmptyStrings = false)]

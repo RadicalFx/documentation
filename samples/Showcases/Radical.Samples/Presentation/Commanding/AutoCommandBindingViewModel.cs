@@ -1,6 +1,6 @@
-﻿using Radical.ComponentModel.Windows.Input;
-using Radical.Model;
+﻿using Radical.Model;
 using Radical.Samples.ComponentModel;
+using Radical.Windows.ComponentModel;
 using System;
 using System.Collections.ObjectModel;
 
