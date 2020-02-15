@@ -1,5 +1,5 @@
 ﻿using Radical.Conversions;
-using Radical.Windows.Presentation.Regions;
+using Radical.Windows.Regions;
 using System;
 using System.Windows;
 using System.Windows.Controls;

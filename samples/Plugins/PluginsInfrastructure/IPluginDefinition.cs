@@ -1,5 +1,5 @@
 ﻿using System;
-using Radical.Windows.Presentation.ComponentModel;
+using Radical.Windows.ComponentModel;
 
 namespace PluginsInfrastructure
 {

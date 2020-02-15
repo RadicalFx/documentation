@@ -1,5 +1,5 @@
 ﻿using MyApp.Presentation;
-using Radical.Windows.Presentation.Boot;
+using Radical.Windows;
 using System.Windows;
 
 namespace MyApp
@@ -11,8 +11,7 @@ namespace MyApp
     {
         public App()
         {
-            var bootstrapper = new ApplicationBootstrapper()
-                .UsingAsShell<MainView>();
+            var bootstrapper = new ApplicationBootstrapper<MainView>();
         }
     }
 }
