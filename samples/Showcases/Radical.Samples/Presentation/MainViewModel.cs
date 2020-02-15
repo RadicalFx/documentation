@@ -1,7 +1,7 @@
 ﻿using Radical.Linq;
 using Radical.Samples.Services;
+using Radical.Windows.ComponentModel;
 using Radical.Windows.Presentation;
-using Radical.Windows.Presentation.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
 

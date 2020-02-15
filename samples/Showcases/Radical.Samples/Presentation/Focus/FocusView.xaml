@@ -4,7 +4,7 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:pb="http://schemas.topics.it/wpf/radical/windows/presentation/behaviors"
+             xmlns:pb="http://schemas.topics.it/wpf/radical/windows/behaviors"
              xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="600">

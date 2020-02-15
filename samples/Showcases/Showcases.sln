@@ -5,13 +5,7 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radical.Samples", "Radical.Samples\Radical.Samples.csproj", "{5213A9D0-EBC6-4B79-88C5-F9618B22E566}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radical.Samples.Autofac", "Radical.Samples.Autofac\Radical.Samples.Autofac.csproj", "{54549B5A-EFE2-4932-9681-6A135C796973}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radical.Samples.Components", "Radical.Samples.Components\Radical.Samples.Components.csproj", "{69C801A6-9E90-4A8F-A3F8-DBC21C7F5703}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radical.Samples.Unity2", "Radical.Samples.Unity2\Radical.Samples.Unity2.csproj", "{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Containers", "Containers", "{22CF00B8-80F7-4331-A56E-B964F4B6825A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,28 +17,16 @@ Global
 		{5213A9D0-EBC6-4B79-88C5-F9618B22E566}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5213A9D0-EBC6-4B79-88C5-F9618B22E566}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5213A9D0-EBC6-4B79-88C5-F9618B22E566}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54549B5A-EFE2-4932-9681-6A135C796973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54549B5A-EFE2-4932-9681-6A135C796973}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54549B5A-EFE2-4932-9681-6A135C796973}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54549B5A-EFE2-4932-9681-6A135C796973}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69C801A6-9E90-4A8F-A3F8-DBC21C7F5703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{69C801A6-9E90-4A8F-A3F8-DBC21C7F5703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C801A6-9E90-4A8F-A3F8-DBC21C7F5703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69C801A6-9E90-4A8F-A3F8-DBC21C7F5703}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{54549B5A-EFE2-4932-9681-6A135C796973} = {22CF00B8-80F7-4331-A56E-B964F4B6825A}
-		{9922DCDF-57B3-43C9-A8FB-FCAB22A8556F} = {22CF00B8-80F7-4331-A56E-B964F4B6825A}
-	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6DF6322E-6E3C-4591-B53A-F4F03ECE45FC}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+		SolutionGuid = {6DF6322E-6E3C-4591-B53A-F4F03ECE45FC}
 	EndGlobalSection
 EndGlobal
