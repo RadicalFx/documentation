@@ -4,8 +4,8 @@ using System.Linq;
 using Radical.ComponentModel.Messaging;
 using Radical.Linq;
 using Radical.Messaging;
-using Radical.Windows.Presentation.ComponentModel;
-using Radical.Windows.Presentation.Messaging;
+using Radical.Windows.ComponentModel;
+using Radical.Windows.Messaging;
 
 namespace MyApplication.Messaging.Handlers
 {

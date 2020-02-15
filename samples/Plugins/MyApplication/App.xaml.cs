@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Windows;
 using Radical.Linq;
-using Radical.Windows.Presentation.Boot;
 using Microsoft.Extensions.DependencyInjection;
+using Radical.Windows;
 
 namespace MyApplication
 {
