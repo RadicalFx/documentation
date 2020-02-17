@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Radical" Version="2.0.0-Beta.6" />
-    <PackageReference Include="Radical.Windows" Version="2.0.0-Beta.11" />
+    <PackageReference Include="Radical.Windows" Version="2.0.0-Beta.6.1.PR.138.29857843" />
   </ItemGroup>
 
   <ItemGroup>
