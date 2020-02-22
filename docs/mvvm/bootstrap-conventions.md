@@ -21,20 +21,18 @@ public partial class App : Application
 {
     public App()
     {
-        var bootstrapper = new WindsorApplicationBootstrapper<MainView>()
-            .OnBeforeInstall( conventions => 
-            {
-                var original = conventions.IsViewModel;
-                conventions.IsViewModel = type => 
-                {
-                    if ( type.Namespace == "MyViewModelsNamespace" ) 
-                    {
-                        return true;
-                    }
+        this.AddRadicalApplication<MainView>(conventions => 
+        {
+           conventions.IsViewModel = type => 
+           {
+              if (type.Namespace == "MyViewModelsNamespace") 
+              {
+                 return true;
+              }
 
-                    return original( type );
-                };
-            } );
+              return conventions.DefaultIsViewModel(type);
+            };
+         });
     }
 }
 ```
