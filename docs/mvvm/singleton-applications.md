@@ -7,13 +7,16 @@ public partial class App : Application
 {
     public App()
     {
-        var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>()
-            .RegisterAsSingleton( "my-singleton-key", SingletonApplicationScope.Local );
+        this.AddRadicalApplication<Presentation.MainView>(configuration=>
+        {
+           configuration.RegisterAsLocalSingleton("my-singleton-key");
+        });
     }
 }
 ```
 
-Using the `RegisterAsSingleton` method we can set the singleton key (that in the end is the name of the Mutex used to handle “singletoness”) and we can specify if we want our application to be singleton in the current user session (Local) or globally for the running OS independently of the user (Global).
+Using the `RegisterAsLocalSingleton` method we can set the singleton key (that in the end is the name of the Mutex used to handle “singletoness”) and make so the application is a singleton for the current user session. To make the application singleton globally for the running OS independently of the user (Global) use the `RegisterAsGlobalSingleton` method.
+
 If the system determines that the application can run we have the opportunity to change this decision:
 
 ```csharp
@@ -21,12 +24,14 @@ public partial class App : Application
 {
     public App()
     {
-        var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>()
-            .RegisterAsSingleton( "my-singleton-key", SingletonApplicationScope.Local )
-            .OnSingletonApplicationStartup( e =>
-            {
-                e.AllowStartup = false;
-            } );
+        this.AddRadicalApplication<Presentation.MainView>(configuration=>
+        {
+           configuration.RegisterAsLocalSingleton("my-singleton-key");
+           configuration.OnSingletonApplicationStartup(e =>
+           {
+               e.AllowStartup = false;
+           });
+        });
     }
 }
 ```
