@@ -21,16 +21,16 @@ public partial class App : Application
 {
     public App()
     {
-        this.AddRadicalApplication<MainView>(conventions => 
+        this.AddRadicalApplication<MainView>(configuration => 
         {
-           conventions.IsViewModel = type => 
+           configuration.BootstrapConventions.IsViewModel = type => 
            {
               if (type.Namespace == "MyViewModelsNamespace") 
               {
                  return true;
               }
 
-              return conventions.DefaultIsViewModel(type);
+              return configuration.BootstrapConventions.DefaultIsViewModel(type);
             };
          });
     }
