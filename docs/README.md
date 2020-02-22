@@ -20,12 +20,12 @@ public partial class App : Application
 {
    public App()
    {
-      var bootstrapper = new ApplicationBootstrapper<Presentation.MainView>();
+      this.AddRadicalApplication<Presentation.MainView>();
    }
 }
 ```
 
-**Press F5 and you are up & running**: the MainView window will be shown. The following things happen:
+**Press F5 and you are up & running**: the `MainView` window will be shown. The following things happen:
 
 * The application boots
 * All the default and required services \(for MVVM and UI Composition\) are wired into the IoC container (using `IServiceCollection`)
@@ -77,7 +77,7 @@ extensions      - pre-release extensions
 version         - pre-release version
 ```
 
-Check the [Release pages](https://github.com/RadicalFx/radical/releases) for the version history of all the Radical's packages.
+Check the [Release pages](https://github.com/RadicalFx/radical/releases) for the version history of all the Radical's packages. And the [Radical.Windows release pages](https://github.com/RadicalFx/radical.windows/releases) for Radical.Windows releases.
 
 ## Samples
 
@@ -95,23 +95,10 @@ Radical uses MyGet to publish unstable releases during development, to use the u
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-  <packageRestore>
-    <clear />
-    <add key="enabled" value="True" />
-    <add key="automatic" value="True" />
-  </packageRestore>
   <packageSources>
-    <add key="nuget.org" value="https://www.nuget.org/api/v2/" />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
     <add key="Radical Unstable" value="https://www.myget.org/F/radical-unstable/api/v3/index.json" />
   </packageSources>
-  <disabledPackageSources />
-  <config>
-    <add key="DependencyVersion" value="HighestMinor" />
-  </config>
-  <activePackageSource>
-    <clear />
-    <add key="All" value="(Aggregate source)" />
-  </activePackageSource>
 </configuration>
 ```
 
