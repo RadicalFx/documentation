@@ -31,7 +31,7 @@ The first thing we get using a Radical property is property change notification,
 
 ##Property Metadata
 
-Since we have everything managed by the base class, thus the base class holds all the properties and property values we can easily  introduce the concept of `csharp` attached to a property without requiring the inheriting class to do nothing:
+Since we have everything managed by the base class, thus the base class holds all the properties and property values we can easily  introduce interesting behaviors without requiring the inheriting class to do anything special:
 
 ```csharp
 class MyObject : Entity
@@ -51,9 +51,9 @@ class MyObject : Entity
 
 We are retrieving the default property metadata for the given property, using metadata the first thing we can do is to define the property default value.
 
-##Default Value
+## Default Value
 
-The property default value is requested the first time a property get is issued, we will use the property metadata to define the default value for a property because we do not want to trigger a PropertyChanged event for the simple fact of defining a default, initial value:
+The property default value is requested the first time a property `get` is performed. We will use the property metadata to define the default value for a property because we do not want to trigger a `PropertyChanged` event for the simple fact of defining a default, initial value:
 
 ```csharp
 public MyObject()
@@ -64,7 +64,7 @@ public MyObject()
 }
 ```
 
-but much more interesting is the possibility to intercept the default value request using a lambda:
+It's also possible to dynamically define the default value using a lambda:
 
 ```csharp
 public MyObject()
@@ -83,7 +83,9 @@ public MyObject()
     this.GetPropertyMetadata( () => this.MyProperty )
         .WithDefaultValue( "this is the default value" );
 }
+```
 
+```csharp
 public MyObject()
 {
     this.GetPropertyMetadata( () => this.MyProperty )
@@ -91,9 +93,9 @@ public MyObject()
 }
 ```
 
-##Cascade changes
+## Cascade changes notifications
 
-once we have property metadata we can add some interesting features such as cascade change notifications:
+Another interesting feature are cascade change notifications:
 
 ```csharp
 class MyObject : Entity
@@ -117,9 +119,9 @@ class MyObject : Entity
 }
 ```
 
-in this sample each time the MyProperty changes the PropertyChanged event is raised even for the AnotherProperty property. The RemoveCascadeChangeNotifications can be used to remove a cascade change notification previously added.
+in this sample each time `MyProperty` changes the `PropertyChanged` event is raised even for `AnotherProperty` property. The `RemoveCascadeChangeNotifications` can be used to remove a cascade change notification previously added.
 
-##Disable change notifications
+## Disable change notifications
 
 by default all the radical properties notify of their change, if we want to disable change notifications for a specific property we’ll use once again property metadata:
 
@@ -131,9 +133,9 @@ public MyObject()
 }
 ```
 
-at a later time changes can be re-enabled using the EnableChangeNotifications method.
+at a later time changes can be re-enabled using the `EnableChangeNotifications` method.
 
-##Change detection
+## Change detection
 
 In the case we need to detect the change of a property from within the object itself we can use property metadata:
 
