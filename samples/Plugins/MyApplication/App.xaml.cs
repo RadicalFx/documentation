@@ -3,7 +3,6 @@ using System.Linq;
 using System.Windows;
 using Radical.Linq;
 using Microsoft.Extensions.DependencyInjection;
-using Radical.Windows;
 
 namespace MyApplication
 {
@@ -14,13 +13,15 @@ namespace MyApplication
     {
         public App()
         {
-            var bootstrapper = new ApplicationBootstrapper<Presentation.MainView>()
-                .OnBootCompleted(serviceProvider =>
+            this.AddRadicalApplication<Presentation.MainView>(config =>
+            {
+                config.OnBootCompleted(serviceProvider =>
                 {
                     serviceProvider.GetServices<IPluginDefinition>()
                         .OrderBy(plugin => plugin.Name)
                         .ForEach(plugin => plugin.Initialize());
                 });
+            });
         }
     }
 }
