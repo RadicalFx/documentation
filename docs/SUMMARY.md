@@ -62,7 +62,6 @@
   * [Change Tracking Service API](/memento/change-tracking-service-api.md)
   * [Property Metadata for the ChangeTrackingService](/memento/memento-metadata.md)
   * [Handling collection sync](/memento/handling-collection-sync.md)
-* States
   * [Property State](/memento/property-state.md)
 
 
