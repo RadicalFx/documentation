@@ -1,8 +1,8 @@
 ## Password
 
-If we try to data-bind the Password property of a PasswordBox control we end up with an error because the Password property cannot be bound due to the fact that is not a dependency property (mainly for security reasons).
+If we try to data-bind the `Password` property of a `PasswordBox` control we end up with an error because the `Password` property cannot be bound due to the fact that is not a dependency property (mainly for security reasons).
 
-In those cases you can take advantage of the PasswordBoxBehavior in the following manner:
+In those cases you can take advantage of the `PasswordBoxBehavior` in the following manner:
 
 ```xml
 <PasswordBox>
@@ -12,6 +12,6 @@ In those cases you can take advantage of the PasswordBoxBehavior in the followin
 </PasswordBox>
 ```
 
-where the behaviors xml namespace is defined as: `http://schemas.topics.it/wpf/radical/windows/behaviors`. In the same namespace is also defined a `Password` attached property that exposes exactly the same behaviors.
+where the behaviors xml namespace is defined as: `http://schemas.topics.it/wpf/radical/windows/behaviors`. In the same namespace is also defined a `Password` attached property that exposes exactly the same behavior.
 
-The password behavior, and the attached property too, exposes also a `Command` property useful to bind a command to the “enter” key when the `PasswordBox` is focused.
+The password behavior, and the attached property too, also exposes a `Command` property useful to bind a command to the “enter” key when the `PasswordBox` is focused.
