@@ -96,4 +96,4 @@
 
 ## Upgrade guides
 
-- [Radical Presentation 1.x to Radical 2.x for .NET Core](/upgrade-guides/1-to-2.md)
+- [Radical Presentation 1.x to Radical 2.x for .NET Core](/upgrade-guides/1.x-to-2.0.0.md)
