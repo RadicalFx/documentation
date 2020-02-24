@@ -38,22 +38,3 @@ public partial class App : Application
 ```
 
 In the above sample we are integrating the conventions used to determine if a type is a view model.
-
-The following is the list of the used conventions with a brief description of their meaning and usage:
-
-* `IsService`: determines if a type should be considered a service or not;
-* `SelectServiceContracts`: given the service type returns the list of contracts that should be used to register the given service;
-* `IsMessageHandler`: determines if a type should be considered a message handler or not;
-* `SelectMessageHandlerContracts`: given the message handler type returns the list of contracts that should be used to register the given message handler;
-* `IsView`: determines if a type should be considered a view or not. The View is registered as transient in the IoC container;
-* `IsViewModel`: determines if a type should be considered a view model or not. The ViewModel is registered as transient in the IoC container;
-* `IsShellView`: determines if a type should be considered a shell/main view or not. The View is registered as singleton in the IoC container;
-* `IsShellViewModel`: determines if a type should be considered a shell/main view model or not. The ViewModel is registered as singleton in the IoC container;
-* `SelectViewContracts`: given the view type returns the list of contracts that should be used to register the given view;
-* `SelectViewModelContracts`: given the view model type returns the list of contracts that should be used to register the given view model;
-* `IsExcluded`: determines if a type should be excluded \(ignored\) by the registration process;
-* `GetInterestedRegionNameIfAny`: this convention requires a deep knowledge of the UI Composition feature and is used to determine if a view is asking to be injected into a region, the conventions is used to retrieve the region name the view would like to be injected into;
-* `AssemblyFileScanPatterns`: given the entry assembly returns a list of patterns that should be used by MEF directory catalogs to scan for assemblies at boot time;
-
-
-
