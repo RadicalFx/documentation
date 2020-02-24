@@ -1,4 +1,4 @@
-## Intercept ViewModels before it's used
+## Intercept ViewModels before they are used
 
 One of the typical scenario in a desktop application is the requirement to “open” a new view passing to newly created view/view model some data, the ideal solution is also to be able to pass data to the constructor of the new view model in order to be sure that at the end of the construction process everything is correctly setup.
 
