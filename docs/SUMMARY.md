@@ -93,3 +93,7 @@
 - [Create a splash screen](/how-tos/splash-screen.md)
 - [Access view model after view is closed](/how-tos/access-view-model-after-view-closed.md)
 - [Intercept ViewModels before it's used](/how-tos/intercept-viewmodels-before-usage.md)
+
+## Upgrade guides
+
+- [Radical Presentation 1.x to Radical 2.x for .NET Core](/upgrade-guides/1-to-2.md)
