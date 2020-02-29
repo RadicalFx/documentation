@@ -1,7 +1,7 @@
 ﻿using Radical.ComponentModel.Messaging;
 using Radical.Messaging;
-using Radical.Windows.Input;
 using Radical.Windows.ComponentModel;
+using Radical.Windows.Input;
 using Radical.Windows.Messaging;
 using System.Windows.Controls;
 

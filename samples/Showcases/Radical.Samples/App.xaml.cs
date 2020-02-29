@@ -1,5 +1,4 @@
 ﻿using Radical.Samples.Presentation.ViewModelAsStaticResource;
-using Radical.Windows;
 using Radical.Windows.ComponentModel;
 using System.Windows;
 

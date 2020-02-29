@@ -1,11 +1,11 @@
 ﻿using PluginsInfrastructure;
-using System.Collections.Generic;
-using System.Linq;
 using Radical.ComponentModel.Messaging;
 using Radical.Linq;
 using Radical.Messaging;
 using Radical.Windows.ComponentModel;
 using Radical.Windows.Messaging;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MyApplication.Messaging.Handlers
 {
