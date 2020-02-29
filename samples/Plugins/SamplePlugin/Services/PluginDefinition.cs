@@ -1,6 +1,6 @@
 ﻿using PluginsInfrastructure;
-using System;
 using Radical.Windows.ComponentModel;
+using System;
 
 namespace SamplePlugin.Services
 {
