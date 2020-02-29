@@ -8,4 +8,4 @@ We can use the following syntax:
 <DataGrid behaviors:DataGridBehavior.LastColumnFill="True" ... />
 ```
 
-the attached property is defined in the `http://schemas.topics.it/wpf/radical/windows/behaviors` xml namespace.
+the attached property is defined in the `http://schemas.radicalframework.com/windows/behaviors` xml namespace.

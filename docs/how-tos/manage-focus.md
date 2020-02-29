@@ -16,7 +16,7 @@ In order to manage focus on the view side we need to introduce on each control w
 </TextBox>
 ```
 
-where the "lb" xml namespace is defined in the `http://schemas.topics.it/wpf/radical/windows/behaviors` XML namespace:
+where the "lb" xml namespace is defined in the `http://schemas.radicalframework.com/windows/behaviors` XML namespace:
 
 The Focus behavior defines which property of the ViewModel controls the focused element (`ControlledBy`) and which is the key (`UsingKey`) that uniquely identifies the control among all the others, in this case we are using, as key, exactly the same name name as the property the control is bound to: "SampleText".
 

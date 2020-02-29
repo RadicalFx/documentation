@@ -14,4 +14,4 @@ It could be interesting to attach a command to a TextBox if the enter key is pre
 <TextBox Text="bla bla..." behaviors:TextBoxManager.Command="{Binding Path=MyCommand}" />
 ```
 
-the attached property, and the behavior too, is defined in the `http://schemas.topics.it/wpf/radical/windows/behaviors` xml namespace.
+the attached property, and the behavior too, is defined in the `http://schemas.radicalframework.com/windows/behaviors` xml namespace.

@@ -14,7 +14,7 @@ The `DependencyObject` we can add as content will be used as the `TabItem` conte
 <UserControl x:Class="SampleView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
+             xmlns:rg="http://schemas.radicalframework.com/windows/presentation/regions"
              rg:RegionHeaderedElement.Header="This will be used as header">
 </UserControl>
 ```

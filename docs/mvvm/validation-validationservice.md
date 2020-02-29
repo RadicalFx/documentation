@@ -100,7 +100,7 @@ As we have seen WPF requires that the view model inherits the `INotifyDataErrorI
 <TextBox Text="{markup:EditorBinding Path=Text}" />
 ```
 
-The `EditorBinding` is a standard binding with everything already setup for validation, the `EditorBinding` markup extension can be found in the `http://schemas.topics.it/wpf/radical/windows/markup` xml namespace.
+The `EditorBinding` is a standard binding with everything already setup for validation, the `EditorBinding` markup extension can be found in the `http://schemas.radicalframework.com/windows/markup` xml namespace.
 
 ### First time property validation
 

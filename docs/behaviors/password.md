@@ -12,6 +12,6 @@ In those cases you can take advantage of the `PasswordBoxBehavior` in the follow
 </PasswordBox>
 ```
 
-where the behaviors xml namespace is defined as: `http://schemas.topics.it/wpf/radical/windows/behaviors`. In the same namespace is also defined a `Password` attached property that exposes exactly the same behavior.
+where the behaviors xml namespace is defined as: `http://schemas.radicalframework.com/windows/behaviors`. In the same namespace is also defined a `Password` attached property that exposes exactly the same behavior.
 
 The password behavior, and the attached property too, also exposes a `Command` property useful to bind a command to the “enter” key when the `PasswordBox` is focused.
