@@ -1,9 +1,9 @@
-﻿using PluginsInfrastructure;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PluginsInfrastructure;
+using Radical.Linq;
+using Radical.Windows;
 using System.Linq;
 using System.Windows;
-using Radical.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using Radical.Windows;
 
 namespace MyApplication
 {
