@@ -10,8 +10,6 @@ All the memento entities implement the `IMemento` interface.
 *   `Undo()` /  `Redo()`: Undo and Redo controls the state of the tracked entities, calling `Undo` will revert the last tracked operation, if any, calling `Redo` will apply the last operation that has been undone, if any;
 *   `CanRedo` and `CanUndo` allows the user code to determine if calling Undo and Redo operations something will be done; 
 *   `RegisterTransient( Object entity )` and `RegisterTransient( Object entity, Boolean autoRemove )` allows the user to register an entity as a transient, versus persistent, entity.  
-Registering transient entities is not really required for the memento to work properly, it is on the other hand very handy for the user if the code needs at a certain point to deal with a storage trying to understand which operations should be done to align the storage with the current in memory state. if `autoRemove` is set to `true` (*the default value*) and `RejectChanges()`, or an `Undo()` that removes the last `IChange` of the object, is called the object then is automatically removed from the list of the new objects.  
-When it is the case to set `autoRemove` to `false`? The question should be: a transient untouched entity should be considered as changed? Or from the user perspective: a transient untouched entity should trigger a question to the user such as "Do you want to save your changes?", if the answer is yes then set `autoRemove` to `false`;
 *   `UnregisterTransient( Object entity )` manually remove the given transient entity from the list of transient entities;
 *   `HasTransientEntities` determines if the the memento is currently tracking transient entities;
 *   `GetEntityState( Object entity )` return, given a tracked entity, the current entity state as seen by the memento, the returned value is a `EntityTrackingStates` enumeration that can assume one, or more, of the following values:
@@ -21,6 +19,19 @@ When it is the case to set `autoRemove` to `false`? The question should be: a tr
     *  `HasBackwardChanges`: The entity is changed and has changes that can be undone, meaning that `Undo` can n be called;
     *  `HasForwardChanges`: The entity has changes that can be reapplied, meaning that `Redo` can be called;
 *   `BeginAtomicOperation()`: begins an [atomic operation](atomic-operations.md) returned as a `IAtomicOperation` instance on which the caller is expected to call `Complete()` to store it in the changes stack;
+
+### Transient entities explaind
+
+The change tracking service is meant to keep track of changes applied to a `IMemento` instance. One of the questions we need to find an answer for when designing rich clients is "should this entity be saved?", or put in another way "should the save button be enabled?". The answer is not trivial as it might depend on a couple of factors, one of which is: should we allow to save instances of not changed entities? Technically speaking what we're trying to define is what should happen in the following scenario:
+
+- An new instance of `Person` is created
+- An Edit View is shown
+- The `IsChanged` value is false, as no changes were made yet
+- Is the save button enabled or not?
+
+If we want the save button to be enabled, or much simpler, we want the `IsChanged` value to be true in the outlined scenario we can register the `Person` instance as ransient with the change tracking service via the `RegisterTransient` method. Once done, the `new` operation, the simple fact that the entity exists is considered a changed in the changes stack.
+
+At this point the problem is what happens at undo time. The default behavior is to remove the entity from the changes stack. This behavior can be changed via te `autoRemove` parameter of the `RegisterTransient` method; if set to `false` calling `Undo` or `ResetChanges` won't remove the entity from the list of tracked entities even if it is registered as transient.
 
 ### Searches
 
