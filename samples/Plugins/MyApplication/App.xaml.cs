@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using PluginsInfrastructure;
 using Radical.Linq;
 using Radical.Windows;
@@ -14,13 +14,15 @@ namespace MyApplication
     {
         public App()
         {
-            var bootstrapper = new ApplicationBootstrapper<Presentation.MainView>()
-                .OnBootCompleted(serviceProvider =>
+            this.AddRadicalApplication<Presentation.MainView>(config =>
+            {
+                config.OnBootCompleted(serviceProvider =>
                 {
                     serviceProvider.GetServices<IPluginDefinition>()
                         .OrderBy(plugin => plugin.Name)
                         .ForEach(plugin => plugin.Initialize());
                 });
+            });
         }
     }
 }

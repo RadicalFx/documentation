@@ -62,7 +62,6 @@
   * [Change Tracking Service API](/memento/change-tracking-service-api.md)
   * [Property Metadata for the ChangeTrackingService](/memento/memento-metadata.md)
   * [Handling collection sync](/memento/handling-collection-sync.md)
-* States
   * [Property State](/memento/property-state.md)
 
 
@@ -92,7 +91,7 @@
 - [Manage focus](/how-tos/manage-focus.md)
 - [Create a splash screen](/how-tos/splash-screen.md)
 - [Access view model after view is closed](/how-tos/access-view-model-after-view-closed.md)
-- [Intercept ViewModels before it's used](/how-tos/intercept-viewmodels-before-usage.md)
+- [Intercept ViewModels before they are used](/how-tos/intercept-viewmodels-before-usage.md)
 
 ## Upgrade guides
 

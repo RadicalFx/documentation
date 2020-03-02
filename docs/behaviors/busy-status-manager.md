@@ -37,4 +37,4 @@ In the previous example we are using the BusyStatusManager to put the “searchi
 
 The important thing is that the Content property type is System.Object, this, inline with the WPF default behavior, allows us to put any content as the busy content of the BusyStatusManager.
 
-The attached property is defined in the `http://schemas.topics.it/wpf/radical/windows/behaviors` xml namespace, and the converter is defined in the `http://schemas.topics.it/wpf/radical/windows/converters` xml namespace.
+The attached property is defined in the `http://schemas.radicalframework.com/windows/behaviors` xml namespace, and the converter is defined in the `http://schemas.radicalframework.com/windows/converters` xml namespace.

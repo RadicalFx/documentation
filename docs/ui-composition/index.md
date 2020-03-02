@@ -52,7 +52,7 @@ First define a region in the XAML where is needed and attach it to the `UIElemen
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
+             xmlns:rg="http://schemas.radicalframework.com/windows/presentation/regions"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
@@ -64,7 +64,7 @@ First define a region in the XAML where is needed and attach it to the `UIElemen
 
 **Remarks**
 
-* The `rg` namespace declaration pointing to the Radical region namespace `http://schemas.topics.it/wpf/radical/windows/presentation/regions`;
+* The `rg` namespace declaration pointing to the Radical region namespace `http://schemas.radicalframework.com/windows/presentation/regions`;
 * A region is attached to a `UIElement` via the `Region` attached property of the `RegionService` element;
 * A region is declared as a markup extension whose primary role is to define the region type and the region name;
 

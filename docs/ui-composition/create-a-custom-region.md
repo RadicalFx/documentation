@@ -6,7 +6,7 @@ Radical out of the box offers a limited set of regions:
 * PanelRegion;
 * TabControlRegion;
 
-Building a custom region is a simple task, the first thing is to decide which type of region we need, depending on 3 factors:
+Building a custom region is a simple task, the first thing is to decide which type of region we need, depending multiple factors:
 
 * Single content vs multiple contents in a region;
 * If we need multiple contents the next decision is if we need to have an active content, such as a `TabItem` in a `TabControl` or not;
