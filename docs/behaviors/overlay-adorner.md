@@ -23,4 +23,4 @@ producing the following effect at runtime:
 
 ![Overlay adorner sample](../images/calendar-overlay-adorner.png)
 
-The behavior is defined in the `http://schemas.topics.it/wpf/radical/windows/behaviors` xml namespace.
+The behavior is defined in the `http://schemas.radicalframework.com/windows/behaviors` xml namespace.

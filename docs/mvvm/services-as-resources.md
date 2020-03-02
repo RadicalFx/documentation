@@ -1,6 +1,6 @@
 ## Expose services as resources
 
-Radical registers, during the application booty phase, all dependencies as components in the IoC container of choice. Other components can depend on registered dependencies via DI. There are scenarios when DI is not available, as in WPF template selectors, and the code needs a dependency registered in the IoC container.
+Radical registers, during the application boot phase, all dependencies as components in the IoC container. Other components can depend on registered dependencies via DI. There are scenarios when DI is not available, for example when using WPF template selectors, and the code needs a dependency that is registered in the IoC container.
 For these scenarios, it's possible to expose registered components as resources both at the application level or at the view level.
 To expose a service at the application level, the following API can be used:
 
@@ -9,8 +9,10 @@ public partial class App : Application
 {
     public App()
     {
-        var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>();
-        bootstrapper.ExposeAsResource<MyServiceType>();
+        this.AddRadicalApplication<Presentation.MainView>(configuration => 
+        {
+            configuration.ExposeServiceAsResource<MyServiceType>();
+        });
     }
 }
 ```
@@ -22,8 +24,10 @@ public partial class App : Application
 {
     public App()
     {
-        var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>();
-        bootstrapper.ExposeAsResource<MyServiceType, MyView>();
+        this.AddRadicalApplication<Presentation.MainView>(configuration => 
+        {
+            configuration.ExposeServiceAsResource<MyServiceType, MyView>();
+        });
     }
 }
 ```

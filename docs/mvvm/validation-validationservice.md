@@ -5,16 +5,11 @@ One of the most common task during the development of a rich client application 
 Let’s start from the end of the story, using a view model like the following:
 
 ```csharp
-class SampleViewModel : AbstractViewModel, ICanBeValidated
+class SampleViewModel : AbstractViewModel, IRequireValidation
 {
     public SampleViewModel()
     {
-
-    }
-
-    protected override IValidationService GetValidationService()
-    {
-        return new DataAnnotationValidationService<SampleViewModel>( this );
+        ValidationService = new DataAnnotationValidationService<SampleViewModel>( this );
     }
 
     [Required( AllowEmptyStrings = false )]
@@ -25,8 +20,6 @@ class SampleViewModel : AbstractViewModel, ICanBeValidated
     }
 }
 ```
-
-NOTE: If your project is based on .NET framework 4.5, or greater, the `IRequireValidation` interface can be used instead of the `ICanBeValidated` enabling support for multiple errors per property.
 
 and a view as:
 
@@ -56,47 +49,11 @@ we immediately get full validation support, even with error summary:
 
 ## WPF validation support
 
-Obviously we are not reinventing the wheel, we are simply leveraging the power of the built-in validation support that WPF already has using the `IDataErrorInfo` or the `INotifyDataErrorInfo` interfaces; for a detailed explanation of the WPF validation capabilities take a look a the following MSDN Magazine detailed article: http://msdn.microsoft.com/en-us/magazine/ff714593.aspx
+Obviously we are not reinventing the wheel, we are simply leveraging the power of the built-in validation support that WPF already has using the `INotifyDataErrorInfo` interface; for a detailed explanation of the WPF validation capabilities take a look a the following MSDN Magazine detailed article: https://docs.microsoft.com/en-us/archive/msdn-magazine/2010/june/msdn-magazine-input-validation-enforcing-complex-business-data-rules-with-wpf
 
-## How it works
+## How IRequireValidation works
 
-### ICanBeValidated
-
-The first important piece is the `ICanBeValidated` interface that inherits from the `IDataErrorInfo` interface, the `ICanBeValidated` is defined as follows:
-
-```csharp
-public interface ICanBeValidated : IDataErrorInfo
-{
-    Boolean IsValid { get; }
-
-    ObservableCollection<ValidationError> ValidationErrors { get; }
-
-    Boolean Validate();
-
-    Boolean Validate( ValidationBehavior behavior );
-
-    Boolean Validate( String ruleSet, ValidationBehavior behavior );
-
-    event EventHandler Validated;
-
-    void TriggerValidation();
-}
-```
-
-All the interface methods and properties are already implemented by the base `AbstractViewModel`, the user is only required to inherit from the interface so to tell to the WPF infrastructure that the `DataContext` of the `View` is a class the implements `IDataErrorInfo`. Going deeper the `ICanBeValidated` interface exposes the following features:
-
-* **IsValid**: determines if the current view model validation failed or is valid;
-* **ValidationErrors**: Gives access to a list of validation errors occurred during the validation process;
-* **Validate()**: the validate method, and its overloads, allows to manually trigger the validation process, by default the validation process is automatically triggered by WPF for each property set during a data binding operation;
-  * **Validate( ValidationBehavior behavior )**;
-  * **Validate( String ruleSet, ValidationBehavior behavior )**;
-* **Validated**: the validated event is raised each time the validation process is completed;
-* **TriggerValidation**: the TriggerValidation method allows to programmatically “ask” to WPF to trigger the error status even on properties, valid or invalid, that has never been involved in a binding write operation;
-  The typical scenario is a form with a submit button, if the user never fills the form but simply press the submit button we want to show, visually show, invalid properties/fields to the user, the `TriggerValidation` method allows us to achieve this.
-
-### IRequireValidation
-
-As said before if you are using .NET Framework 4.5, or greater, you can use the new `IRequireValidation` interface that inherits from the `INotifyDataErrorInfo` interface, the `IRequireValidation` is defined as follows:
+`IRequireValidation` interface inherits from the built-in `INotifyDataErrorInfo` interface, `IRequireValidation` is defined as follows:
 
 ```csharp
 public interface IRequireValidation : INotifyDataErrorInfo
@@ -123,33 +80,31 @@ All the interface methods and properties are already implemented by the base `Ab
 
 * **IsValid**: determines if the current view model validation failed or is valid;
 * **ValidationErrors**: Gives access to a list of validation errors occurred during the validation process;
-* **Validate()**: the validate method, and its overloads, allows to manually trigger the validation process, by default the validation process is automatically triggered by WPF for each property set during a data binding operation;
-  * **Validate( ValidationBehavior behavior )**;
-  * **Validate( String ruleSet, ValidationBehavior behavior )**;
+* **Validate()**: the validate method, and its overloads, allows to manually trigger the validation process, by default the validation process is automatically triggered by WPF for each property set during a data binding operation; The `ValidationBehavior` enumeration allows to customize the validation engine behavior;
 * **Validated**: the validated event is raised each time the validation process is completed;
 * **TriggerValidation**: the `TriggerValidation` method allows to programmatically “ask” to WPF to trigger the error status even on properties, valid or invalid, that has never been involved in a binding write operation;
-  The typical scenario is a form with a submit button, if the user never fills the form but simply press the submit button we want to show, visually show, invalid properties/fields to the user, the `TriggerValidation` method allows us to achieve this.
-* **ResetValidation**: Resets the staus of the validation infrastructure to its default value.
+  The typical scenario is a form with a submit button, if the user never fills the form but simply presses the submit button we want to visually show invalid properties and fields, the `TriggerValidation` method is designed to achieve this.
+* **ResetValidation**: Resets the staus of the validation infrastructure to its default value, that is no errors and valid.
 
 ### Validation Services
 
-The other step that must be accomplished by the user is to define the engine used to run the validation process, in order to achieve that is enough to override the protected method `GetValidationService()` that is called, by the infrastructure, once and only once the first time the validation process gets executed.
+The other step that must be accomplished by the user is to define the engine used to run the validation process, in order to achieve that is enough to set the `VaidationService` protected property.
 
 In the above sample we are using the most powerful validation service provided built-in in Radical, we are using the `DataAnnotationValidationService<TViewModel>` that, as the name implies, works against the [Data Annotation services](http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx), and add support for custom inline validation rules.
 
 ### Editor bindings
 
-As we have seen WPF requires that the view model inherits from the `IDataErrorInfo` interface, or the new `INotifyDataErrorInfo`, in order to run the validation process, the second requirement is that each binding is configured to enable validation, since there are several properties to set to true this operation tends to be tedious and prone to errors; in order drastically simplify the validation setup [Radical](https://github.com/RadicalFx/radical) offers its [[own binding extension|Editor Binding]] with everything setup as expected:
+As we have seen WPF requires that the view model inherits the `INotifyDataErrorInfo` interface, in order to run the validation process, the second requirement is that each binding is configured to enable validation, since there are several properties to set to true this operation tends to be tedious and prone to errors; in order drastically simplify the validation setup [Radical](https://github.com/RadicalFx/radical) offers its [own binding extension](/markup/editor-binding.md) with everything setup as expected:
 
 ```xml
 <TextBox Text="{markup:EditorBinding Path=Text}" />
 ```
 
-The `EditorBinding` is a standard binding with everything already setup for validation, the `EditorBinding` markup extension can be found in the `http://schemas.topics.it/wpf/radical/windows/markup` xml namespace.
+The `EditorBinding` is a standard binding with everything already setup for validation, the `EditorBinding` markup extension can be found in the `http://schemas.radicalframework.com/windows/markup` xml namespace.
 
 ### First time property validation
 
-Another issue of the built-in WPF validation that the Radical validation system solves is the first time validation that WPF runs when a binding operation is performed for the first time, at the property get.
+Another issue of the built-in WPF validation that the Radical validation system solves is the first time validation that WPF runs when a binding operation is performed for the first time, at the first property get.
 
 In a scenario where we have a form bound to a view model we do not want to display the form the first time as already invalid, since the user cannot understand why the form is invalid since there has not been any interaction.
 
@@ -159,24 +114,26 @@ In order to solve this scenario the Radical validation system discard the first 
 
 In order to build your own validation logic is not necessary to create a custom validation service, even if it possible, because we have already added support for custom validation rules and custom advanced validation in the built-in `DataAnnotationValidationService`.
 
-###Custom rules
+### Custom rules
 
 There are scenarios in which validation attributes are not enough and we do not want to build a new validation attribute from scratch maybe because we already know that it will be used only in that specific scenario, in this case the best approach is to add a custom validation rule on the fly:
 
 ```csharp
-protected override IValidationService GetValidationService()
+class SampleViewModel : AbstractViewModel, IRequireValidation
 {
-    return new DataAnnotationValidationService<SampleViewModel>( this )
-        .AddRule
-        (
-            property: () => this.Text,
-            error: ctx => "must be equal to 'foo'",
-            rule: ctx => ctx.Entity.Text == "foo"
-        );
+    public SampleViewModel()
+    {
+        ValidationService = new DataAnnotationValidationService<SampleViewModel>( this )
+	    .AddRule
+            (
+                property: () => this.Text,
+                rule: ctx => ctx.Failed("This is the error message.")
+            );
+    }
 }
 ```
 
-We can add as much rule as we want for each property, the context (ctx parameter) passed to the rule evaluation lambda and the error generator lambda has the following shape:
+We can add as much rule as we want for each property, the context (`ctx` parameter in the above sample) passed to the rule evaluation lambda and the error generator lambda has the following signature:
 
 ```csharp
 public class ValidationContext<TViewModel>
@@ -195,7 +152,7 @@ public class ValidationContext<TViewModel>
 
 and we can use it to access the whole entity to do a broader validation not specifically scoped to the property we are validating.
 
-###Advanced validation
+### Advanced validation
 
 If none of the above options fit our needs we can integrate into the validation process a fully custom validation piece of code just implementing, in our view model, the `IRequireValidationCallback<TViewModel>` interface:
 

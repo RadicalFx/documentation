@@ -75,4 +75,4 @@ class MyViewModel : AbstractViewModel
 
 In the above scenario whenever the `SelectedEntity` property changes a `INotifyPropertyChanged.PropertyChanged` event is raised also for the `CanEdit` property, thus WPF reevaluates the property and based on the boolean result the bound command will be enabled or not.
 
-The markup extension is defined in the `http://schemas.topics.it/wpf/radical/windows/markup` xml namespace.
+The markup extension is defined in the `http://schemas.radicalframework.com/windows/markup` xml namespace.

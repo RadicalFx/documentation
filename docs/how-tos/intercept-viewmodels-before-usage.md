@@ -1,14 +1,14 @@
-## Intercept ViewModels before it's used
+## Intercept ViewModels before they are used
 
-One of the typical scenario in a desktop application is the requirement to “open” a new view passing to newly created view/view model some data, the ideal solution is also to be able to pass data to the constructor of the new view model in order to be sure that at the end of the construction process everything is correctly setup.
+One of the typical scenario in a desktop application is the requirement to “open” a new view passing to the newly created view/view model some data, the ideal solution is also to be able to pass data to the constructor of the new view model in order to be sure that at the end of the construction process everything is correctly setup.
 
-When dealing with Inversion of Control framework this is generally a pain point because each framework out there provide a way to achieve the goal we outlined but generally the solution, in my opinion, is really weak and full of pain point.
+When dealing with Inversion of Control framework this is generally a pain point because each framework provides ways to achieve the goal, but generally the solution is really weak and full of pain points.
 
 In order to solve the above problem the general approach is something like the following:
 
 ```csharp
 var viewModel = myFavoriteIoC.Resolve();
-viewModel.Initialize( someData );
+viewModel.Initialize(someData);
 ```
 
 In a view first scenario, like the one proposed by default by Radical this is not so easy because you end up with the following code:
@@ -23,22 +23,22 @@ it works, using the built-in [conventions](../mvvm/runtime-conventions.md) we re
 
 ## Interceptors
 
-We have so decided to add a new feature to the [view resolver](../mvvm/iview-resolver.md) to let the user intercept the view model before it is wired up to the view:
+The Radical [view resolver](../mvvm/iview-resolver.md) lets the user intercept the view model before it is wired up to the view:
 
 ```csharp
-var view = viewResolver.GetView<MyView>( vm => 
+var view = viewResolver.GetView<MyView>(vm => 
 {
   //do what you want with the view model
-} );
+});
 ```
 
-the Action that intercept the view model is called before the view model is attached to the view, in the above sample, since we cannot infer the view model type, the view model is passed to the action as Object, if you know upfront the type of the view model you can explicit tell us what it is:
+the `Action` that intercept the view model is called before the view model is attached to the view, in the above sample, since we cannot infer the view model type, the view model is passed to the action as `object`, if you know upfront the type of the view model you can explicit tell Radical what it is:
 
 ```csharp
-var view = viewResolver.GetView<MyView, MyViewModel>( vm => 
+var view = viewResolver.GetView<MyView, MyViewModel>(vm => 
 {
   //do what you want with the view model
-} );
+});
 ```
 
-And the delegate will be of type `Action`.
+And the delegate will be of type `Action<MyViewModel>`.

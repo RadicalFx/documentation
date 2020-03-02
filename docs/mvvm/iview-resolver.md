@@ -20,7 +20,8 @@ At runtime when the `GetView` method is called the default built-in view resolve
 6. Set the relation View – ViewModel;
 7. Set the ViewModel as the DataContext of the View;
 8. Attaches to the View the required behaviors;
-9. Returns the view to the caller;
+9. Exposes services registered to be exposed as resources in the View
+10. Returns the view to the caller;
 
 ### How to use the IViewResolver in our application
 

@@ -55,7 +55,7 @@ In the above sample the `PersonViewModel` and the `Person` class are basically t
 
 We are introducing a `Initialize` method, for the sake of the sample we can do the same thing using a constructor, using a `Initialize` method allows us to easily resolve `PersonViewModel` instances using an inversion of control container without the need to deal with the currently edited `Person` runtime instance. At initialization time we are doing 2 important things:
 
-1. calling the `RegisterTransient()` method of the base class to register the current instance as transient, if required; To dive into the meaning of a transient entity look at the [[Change Tracking Service API]];
+1. calling the `RegisterTransient()` method of the base class to register the current instance as transient, if required; To dive into the meaning of a transient entity look at the [Change Tracking Service API](/memento/change-tracking-service-api.md);
 2. using the `SetInitialPropertyValue()` method to initialize the default value of the `PersonViewModel` properties without affecting its tracking state;
 
 Once we have setup our `ViewModel` we can build the editor:

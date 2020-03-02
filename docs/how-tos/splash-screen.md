@@ -1,25 +1,33 @@
 ## Splash screen
 
-`Radical` utilizes its own internal [UI Composition](../ui-composition/index.md) engine to add support to splash screens at application startup:
+`Radical` utilizes its own internal [UI Composition](../ui-composition/index.md) engine to add support for splash screens at application startup:
 
 ```csharp
-var bootstrapper = new WindsorApplicationBootstrapper<Presentation.MainView>()
-    .EnableSplashScreen()
+class App : Application
+{
+   public App()
+   {
+      this.AddRadicalApplication<MainView>(configuration => 
+      {
+         configuration.EnableSplashScreen();
+      });
+   }
+}
 ```
 
-Enabling splash screen support is as easy as calling the `EnableSplashScreen` method on the application bootstrapper instance.
+Enabling splash screen support is as easy as calling the `EnableSplashScreen` method on the application configuration.
 
 #### Splash screen content
 
-Since the splash screen content is managed using the `UI Composition` engine in order to add a content to the splash screen is enough to define a [partial view](../ui-composition/index.md#automatic-aka-partial-regions) named `SplashScreenContent`:
+Splash screen content is managed using the `UI Composition` engine. To add content to the splash screen is enough to define a [partial view](../ui-composition/index.md#automatic-aka-partial-regions) named `SplashScreenContent`:
 
 ```
-Presentation
+.Presentation
   .Partial
      .SplashScreenContent
 ```
 
-The `View`, along with its `ViewModel` if any, defined in the `Presentation.Partial.SplashScreenContent` namespace will be used to populate the splash screen.
+The `View`, along with its `ViewModel` if any, defined in the `*.Presentation.Partial.SplashScreenContent` namespace will be used to populate the splash screen.
 
 #### Splash screen configuration
 
@@ -35,7 +43,3 @@ It is possible to use the `SplashScreenConfiguration` class to define some splas
 * `MinHeight`: The Minimum Height of the splash screen window. The default value is `335`;
 * `MinimumDelay`: Represents the minimum time, in milliseconds, the splash screen will be shown; 
 * `SplashScreenViewType`: Defines the default view that `Radical` uses to host the splash screen content;
-
-------
-
-Available in `Radical.Windows.Presentation` starting from version `1.10.3`, `Democracy` milestone.

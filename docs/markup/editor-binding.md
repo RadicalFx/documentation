@@ -16,4 +16,4 @@ That leads to a waste of time and to a really hard-to-manage xaml markup. In ord
 <TextBox Text="{markup:EditorBinding Path=MyText}" />
 ```
 
-simpler and cleaner. The markup extension is defined in the `http://schemas.topics.it/wpf/radical/windows/markup` xml namespace.
+simpler and cleaner. The markup extension is defined in the `http://schemas.radicalframework.com/windows/markup` xml namespace.
