@@ -36,10 +36,7 @@
 ## Concepts
 
 * [Inversion of Control](/ioc/index.md)
-  * [Castle Windsor](/ioc/windsor.md)
-  * [Autofac](/ioc/autofac.md)
-  * [Unity \(v2 & v3\)](/ioc/unity.md)
-  * [Puzzle Container](/ioc/puzzle.md)
+  * [Third party DI containers](/ioc/third-party.md)
 * Entities
   * [Property System](/entities/property-system.md)
 * [Messaging and Message Broker](/messaging/message-broker.md)
