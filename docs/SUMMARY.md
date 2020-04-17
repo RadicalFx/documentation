@@ -35,7 +35,7 @@
 
 ## Concepts
 
-* [Inversion of Control](/ioc/index.md)
+* [Inversion of Control](/ioc/README.md)
   * [Third party DI containers](/ioc/third-party.md)
 * Entities
   * [Property System](/entities/property-system.md)
