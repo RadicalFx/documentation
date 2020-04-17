@@ -42,8 +42,8 @@
 * [Messaging and Message Broker](/messaging/message-broker.md)
   * [POCO messages](/messaging/poco-messages.md)
   * [Standalone message handlers](/messaging/abstract-message-handler.md)
-* [Observers](/observers/index.md)
-  * [PropertyObserver](observers/property-observer.md)
+* [Observers](/observers/README.md)
+  * [PropertyObserver](/observers/property-observer.md)
   * [MementoObserver](/observers/memento-observer.md)
   * [BrokerObserver](/observers/broker-observer.md)
 
