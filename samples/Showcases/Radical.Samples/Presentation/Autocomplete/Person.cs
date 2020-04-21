@@ -1,8 +1,6 @@
 ﻿namespace Radical.Samples.Presentation.Autocomplete
 {
-	public class Person //: 
-		//AutoComplete.ICanRepresentMyself,
-		//AutoComplete.IHaveAnOpinionOnFilter
+	public class Person 
 	{
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
@@ -13,15 +11,5 @@
 		{
 			return FirstName;
 		}
-
-		//string AutoComplete.ICanRepresentMyself.AsString()
-		//{
-		//	return this.FullName;
-		//}
-
-		//bool AutoComplete.IHaveAnOpinionOnFilter.Match( string userText )
-		//{
-		//	return this.FullName.StartsWith( userText, StringComparison.OrdinalIgnoreCase );
-		//}
 	}
 }

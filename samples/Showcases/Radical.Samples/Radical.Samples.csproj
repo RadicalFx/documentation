@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoCompleteTextBox" Version="1.1.0" />
     <PackageReference Include="Radical" Version="2.0.0" />
     <PackageReference Include="Radical.Windows" Version="2.0.0-RC.2" />
   </ItemGroup>

@@ -6,26 +6,46 @@
       xmlns:behaviors="http://schemas.topics.it/wpf/radical/windows/behaviors"
       xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
              xmlns:effects="http://schemas.topics.it/wpf/radical/windows/effects"
+      xmlns:editors1="clr-namespace:AutoCompleteTextBox.Editors;assembly=AutoCompleteTextBox"
+      xmlns:providers="clr-namespace:Radical.Samples.Presentation.Autocomplete"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="600">
+    <UserControl.Resources>
+        <providers:PersonSuggestionProvider x:Key="PersonSuggestionProvider"/>
+        <DataTemplate x:Key="StateTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Path=Name}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
-        <TextBox Height="23" HorizontalAlignment="Left" 
-                 Margin="12,12,0,0" 
-                 behaviors:AutoComplete.UserText="{Binding Path=UserText}"
-                 behaviors:AutoComplete.FilterPath="FullName"
-                 behaviors:AutoComplete.ImplicitItemsFilter="Disabled"
-                 behaviors:AutoComplete.Source="{Binding Path=Data}"
-                 behaviors:AutoComplete.ChoosenItem="{markup:ChoosenItemBinding Path=Choosen}"
-                 VerticalAlignment="Top" Width="173">
-            <behaviors:AutoComplete.ItemTemplate>
+        <editors1:AutoCompleteTextBox HorizontalAlignment="Left"
+                                                 Delay="1000"
+                                                 Watermark="min 3 characters..."
+                                                 MaxLength="50"                         
+                                                 CharacterCasing="Upper"
+                                                 DisplayMember="FullName"
+                                                 Height="23"
+                                                 Margin="12,12,0,0"
+                                                 VerticalAlignment="Top" 
+                                                 Width="173"
+                                                 Provider="{StaticResource ResourceKey=PersonSuggestionProvider}">
+            <editors1:AutoCompleteTextBox.SelectedItem>
+                <Binding Path="Choosen" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                </Binding>
+            </editors1:AutoCompleteTextBox.SelectedItem>
+            <editors1:AutoCompleteTextBox.LoadingContent>
+                <TextBlock Text="Loading..." Margin="5" FontSize="14" />
+            </editors1:AutoCompleteTextBox.LoadingContent>
+            <editors1:AutoCompleteTextBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Path=FirstName}" />
                         <TextBlock Text="{Binding Path=LastName}" />
                     </StackPanel>
                 </DataTemplate>
-            </behaviors:AutoComplete.ItemTemplate>
-        </TextBox>
+            </editors1:AutoCompleteTextBox.ItemTemplate>
+        </editors1:AutoCompleteTextBox>
         <Button Content="for tab purpose only" Height="23" HorizontalAlignment="Left" Margin="12,41,0,0" Name="button1" VerticalAlignment="Top" Width="173" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="12,70,0,0" Name="textBox1" VerticalAlignment="Top" Width="173" />
         <Calendar Height="170" 
