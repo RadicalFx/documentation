@@ -35,7 +35,7 @@ Using the above code sample the application boostrapping process is now delegate
 - Add a reference to the `Autofac.Extensions.DependencyInjection` nuget package
 - Change the `HostBuilder` creation section to add Autofac support as follows:
 
-```
+```csharp
 var host = new HostBuilder()
     .UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .AddRadicalApplication<Presentation.MainView>()
