@@ -43,3 +43,4 @@ var host = new HostBuilder()
 ```
 
 Refer to the documentation of you container of choice to get an overview of the steps required to integrate with the generic host.
+A full sample is available in the documentation repository at https://github.com/RadicalFx/documentation/tree/master/samples/ThirdPartyContainer
