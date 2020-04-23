@@ -28,3 +28,10 @@ update_configs:
       - match:
           dependency_type: "all"
           update_type: "semver:minor"
+  - package_manager: "dotnet:nuget"
+    directory: "/samples/ThirdPartyContainer"
+    update_schedule: "live"
+    automerged_updates:
+      - match:
+          dependency_type: "all"
+          update_type: "semver:minor"
