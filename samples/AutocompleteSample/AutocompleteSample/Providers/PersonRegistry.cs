@@ -1,19 +1,10 @@
 ﻿using AutocompleteSample.BindingObjects;
-using AutoCompleteTextBox.Editors;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace AutocompleteSample.Providers
 {
-    public class PersonSuggestionProvider : ISuggestionProvider
+    public static class PersonRegistry
     {
-        public IEnumerable GetSuggestions(string filter)
-        {
-            return filter.Length >= 2 ? PersonRegistry.List.Where(p => p.FullName.StartsWith(filter, StringComparison.OrdinalIgnoreCase)) : default;
-        }
-
         public static IEnumerable<Person> List
         {
             get
@@ -30,5 +21,6 @@ namespace AutocompleteSample.Providers
         };
             }
         }
+
     }
 }

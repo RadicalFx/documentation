@@ -12,32 +12,51 @@
         <providers:PersonSuggestionProvider x:Key="PersonSuggestionProvider"/>
     </Window.Resources>
     <Grid>
-        <editors1:AutoCompleteTextBox HorizontalAlignment="Left"
+        <StackPanel>
+            <TextBlock Text="Type &quot;pe&quot; to see Peter Parker" Margin="10" FontStyle="Italic"></TextBlock>
+            <editors1:AutoCompleteTextBox HorizontalAlignment="Left"
                                       VerticalAlignment="Top" 
-                                      Watermark="enter at least three characters..."
+                                      Watermark="enter at least two characters..."
                                       Width="200"
                                       Delay="1000"
                                       MaxLength="50"   
                                       CharacterCasing="Upper"
                                       DisplayMember="FullName"
                                       Height="23" 
-                                      Margin="12,12,0,0" 
+                                      Margin="10,0,0,0" 
                                       Provider="{StaticResource ResourceKey=PersonSuggestionProvider}">
-            <editors1:AutoCompleteTextBox.SelectedItem>
-                <Binding Path="Choosen" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
-                </Binding>
-            </editors1:AutoCompleteTextBox.SelectedItem>
-            <editors1:AutoCompleteTextBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=FirstName}" />
-                        <TextBlock Text="{Binding Path=LastName}" />
-                    </StackPanel>
-                </DataTemplate>
-            </editors1:AutoCompleteTextBox.ItemTemplate>
-            <editors1:AutoCompleteTextBox.LoadingContent>
-                <TextBlock Text="Loading..." Margin="5" FontSize="14" />
-            </editors1:AutoCompleteTextBox.LoadingContent>
-        </editors1:AutoCompleteTextBox>
-    </Grid>
-</Window>
+                <editors1:AutoCompleteTextBox.SelectedItem>
+                    <Binding Path="Choosen" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                    </Binding>
+                </editors1:AutoCompleteTextBox.SelectedItem>
+                <editors1:AutoCompleteTextBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=FirstName}" />
+                            <TextBlock Text="{Binding Path=LastName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </editors1:AutoCompleteTextBox.ItemTemplate>
+                <editors1:AutoCompleteTextBox.LoadingContent>
+                    <TextBlock Text="Loading..." Margin="5" FontSize="14" />
+                </editors1:AutoCompleteTextBox.LoadingContent>
+            </editors1:AutoCompleteTextBox>
+            <TextBlock Margin="10,20,0,0" FontWeight="DemiBold">You can search between:</TextBlock>
+            <ItemsControl DataContext="{StaticResource PersonSuggestionProvider}" ItemsSource="{Binding List}" Margin="10" BorderThickness="0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <BulletDecorator VerticalAlignment="Top">
+                            <BulletDecorator.Bullet>
+                                <Ellipse Height="5" Width="5" Fill="Black" Margin="4,0,0,0"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock Text="{Binding FullName}" Margin="8,0,0,0"/>
+                        </BulletDecorator>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>          
+    </Grid>              
+</Window>                
+                         
+                         
+                         
