@@ -20,13 +20,16 @@ configuration: Release
 platform: Any CPU
 
 before_build:
-  - 'nuget restore .\samples\Modules\Modules.sln'
-  - 'nuget restore .\samples\Plugins\Plugins.sln'
-  - 'nuget restore .\samples\Showcases\Showcases.sln'
+  - '"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe'
 
 build_script:
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Modules\Modules.sln /Build Release'
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Plugins\Plugins.sln /Build Release'
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" .\samples\Showcases\Showcases.sln /Build Release'
+  - 'msbuild .\samples\Modules\Modules.sln /t:Restore /p:Configuration=Release'
+  - 'msbuild .\samples\Modules\Modules.sln /p:Configuration=Release'
+  - 'msbuild .\samples\Plugins\Plugins.sln /t:Restore /p:Configuration=Release'
+  - 'msbuild .\samples\Plugins\Plugins.sln /p:Configuration=Release'
+  - 'msbuild .\samples\Showcases\Showcases.sln /t:Restore /p:Configuration=Release'
+  - 'msbuild .\samples\Showcases\Showcases.sln /p:Configuration=Release'
+  - 'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /t:Restore /p:Configuration=Release'
+  - 'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /p:Configuration=Release'
 
 deploy: off
