@@ -21,13 +21,15 @@ platform: Any CPU
 
 before_build:
   - '"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe'
-  - 'msbuild .\samples\Modules\Modules.sln /t:Restore /p:Configuration=Release'
-  - 'msbuild .\samples\Plugins\Plugins.sln /t:Restore /p:Configuration=Release'
-  - 'msbuild .\samples\Showcases\Showcases.sln /t:Restore /p:Configuration=Release'
 
 build_script:
+  - 'msbuild .\samples\Modules\Modules.sln /t:Restore /p:Configuration=Release'
   - 'msbuild .\samples\Modules\Modules.sln /p:Configuration=Release'
+  - 'msbuild .\samples\Plugins\Plugins.sln /t:Restore /p:Configuration=Release'
   - 'msbuild .\samples\Plugins\Plugins.sln /p:Configuration=Release'
+  - 'msbuild .\samples\Showcases\Showcases.sln /t:Restore /p:Configuration=Release'
   - 'msbuild .\samples\Showcases\Showcases.sln /p:Configuration=Release'
+  - 'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /t:Restore /p:Configuration=Release'
+  - 'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /p:Configuration=Release'
 
 deploy: off
