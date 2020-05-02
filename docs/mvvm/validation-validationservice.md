@@ -58,21 +58,21 @@ Obviously we are not reinventing the wheel, we are simply leveraging the power o
 ```csharp
 public interface IRequireValidation : INotifyDataErrorInfo
 {
-	Boolean IsValid { get; }
+    Boolean IsValid { get; }
 
-	ObservableCollection<ValidationError> ValidationErrors { get; }
+    ObservableCollection<ValidationError> ValidationErrors { get; }
 
-	Boolean Validate();
+    Boolean Validate();
 
-	Boolean Validate( ValidationBehavior behavior );
+    Boolean Validate( ValidationBehavior behavior );
 
-	Boolean Validate( String ruleSet, ValidationBehavior behavior );
+    Boolean Validate( String ruleSet, ValidationBehavior behavior );
 
-	event EventHandler Validated;
+    event EventHandler Validated;
 
-	void TriggerValidation();
+    void TriggerValidation();
 
-	void ResetValidation();
+    void ResetValidation();
 }
 ```
 
@@ -124,7 +124,7 @@ class SampleViewModel : AbstractViewModel, IRequireValidation
     public SampleViewModel()
     {
         ValidationService = new DataAnnotationValidationService<SampleViewModel>( this )
-	    .AddRule
+        .AddRule
             (
                 property: () => this.Text,
                 rule: ctx => ctx.Failed("This is the error message.")

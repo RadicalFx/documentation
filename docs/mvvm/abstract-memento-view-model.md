@@ -30,7 +30,7 @@ class MainViewModel : AbstractMementoViewModel
     public MainViewModel()
     {
         var memento = new ChangeTrackingService();
-        memento.Attach( this );	
+        memento.Attach( this );
     }
 }
 ```
@@ -58,10 +58,10 @@ class MainViewModel : AbstractMementoViewModel
     {
         var memento = new ChangeTrackingService();
         memento.Attach( this );
-        
+
         this.Text = "text property default value";
     }
-    
+
     public String Text
     {
         get { return this.GetPropertyValue( () => this.Text ); }
@@ -81,10 +81,10 @@ class MainViewModel : AbstractMementoViewModel
     {
         var memento = new ChangeTrackingService();
         memento.Attach( this );
-        
+
         this.SetInitialPropertyValue( () => Text, "text property default value" );
     }
-    
+
     public String Text
     {
         get { return this.GetPropertyValue( () => this.Text ); }

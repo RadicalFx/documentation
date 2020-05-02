@@ -29,16 +29,16 @@ A `RegionManager` is automatically created by the UI Composition engine as soon 
 
 Regions can be nested as preferred, a Window can contain a region that at runtime will contain another region and so on without limitations. For example the following is a valid `logical tree`:
 
-	Window
-	  -> Grid
-	     -> ContentPresenter
-	        -> IContentRegion<ContentPresenter>
-	          -> UserControl
-	            -> Grid
-	              -> StackPanel
-	                -> IElementsRegion<StackPanel>
+    Window
+      -> Grid
+         -> ContentPresenter
+            -> IContentRegion<ContentPresenter>
+              -> UserControl
+                -> Grid
+                  -> StackPanel
+                    -> IElementsRegion<StackPanel>
 
-In the above sample one single RegionManager will be created at runtime. 
+In the above sample one single RegionManager will be created at runtime.
 
 ## Region Setup
 
@@ -81,27 +81,27 @@ Once a View contains a region each time the View is loaded a `ViewLoaded` messag
 ```csharp
 class MyViewLoadedHandler : MessageHandler<ViewLoaded>, INeedSafeSubscription
 {
-	public IViewResolver ViewResolver{ get; set; }
-	public IConventionsHandler Conventions{ get; set; }
-	public IRegionService RegionService{ get; set; }
+    public IViewResolver ViewResolver{ get; set; }
+    public IConventionsHandler Conventions{ get; set; }
+    public IRegionService RegionService{ get; set; }
 
-	protected override bool OnShouldHandle( ViewLoaded message )
-	{
-		return message.View is Samples.Presentation.MyView;
-	}
+    protected override bool OnShouldHandle( ViewLoaded message )
+    {
+        return message.View is Samples.Presentation.MyView;
+    }
 
-	public override void Handle( ViewLoaded message )
-	{
-		if ( this.RegionService.HoldsRegionManager( message.View ) )
-		{
-			var view = this.viewResolver.GetView<MyRegionView>();
+    public override void Handle( ViewLoaded message )
+    {
+        if ( this.RegionService.HoldsRegionManager( message.View ) )
+        {
+            var view = this.viewResolver.GetView<MyRegionView>();
 
-			var region = this.RegionService.GetRegionManager( message.View )
-				.GetRegion<IContentRegion>( "MyRegion" );
+            var region = this.RegionService.GetRegionManager( message.View )
+                .GetRegion<IContentRegion>( "MyRegion" );
 
-			region.Content = view;
-		}
-	}
+            region.Content = view;
+        }
+    }
 }
 ```
 
@@ -111,9 +111,9 @@ In the `Handle` method we utilize:
 
 * the `RegionService` to determine is the View has a `RegionManager`;
 * if the View has a region manager
-    * we resolve the content to inject;
-    * retrieve a reference to the region manager and to the region;
-    * inject the content;
+  * we resolve the content to inject;
+  * retrieve a reference to the region manager and to the region;
+  * inject the content;
 
 Resources:
 
@@ -130,12 +130,12 @@ Radical UI Composition engine has a concept called `partial view`, a partial vie
 
 The View will be resolved, as usual, and injected into the expected region. Given the following namespace structure:
 
-	MySampleApp
-	  .Presentation
-	     .Partial
-	        .MyRegion
-	            .MySampleView.xaml
-	            .MySampleViewModel.cs
+    MySampleApp
+      .Presentation
+         .Partial
+            .MyRegion
+                .MySampleView.xaml
+                .MySampleViewModel.cs
 
 The MySampleView and it ViewModel, MySampleViewModel, will be automatically injected into the MyRegion region.
 
