@@ -16,7 +16,7 @@
     * In ViewModels: [Callback expectations](/mvvm/callback-expectations.md)
     * Using broker messages: [notify messages](/mvvm/notify-messages.md)
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
-* [Application boot process demystified](/mvvm/boot-process-demystified.md)
+* [Application boot process](/mvvm/boot-process.md)
   * [Application shutdown](/mvvm/application-shutdown.md)
   * [Singleton applications](/mvvm/singleton-applications.md)
 * [AbstractMementoViewModel](/mvvm/abstract-memento-view-model.md)
