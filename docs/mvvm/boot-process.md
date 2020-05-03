@@ -1,4 +1,4 @@
-## Application boot process demystified
+## Application boot process
 
 What happens under the hood when we write this really trivial piece of code?
 
