@@ -17,6 +17,7 @@
     * Using broker messages: [notify messages](/mvvm/notify-messages.md)
 * [Message broker MVVM built-in messages](/mvvm/built-in-messages.md)
 * [Application boot process](/mvvm/boot-process.md)
+  * [Application configuration](/mvvm/application-configuration.md)
   * [Application shutdown](/mvvm/application-shutdown.md)
   * [Singleton applications](/mvvm/singleton-applications.md)
 * [AbstractMementoViewModel](/mvvm/abstract-memento-view-model.md)
