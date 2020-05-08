@@ -4,10 +4,10 @@ A basic observer, or monitor, in the Radical framework is a `PropertyObserver` t
 
 ```csharp
 var monitor = PropertyObserver.For(person)
-	.Observe(p => p.FirstName)
-	.Observe(p => p.LastName);
+    .Observe(p => p.FirstName)
+    .Observe(p => p.LastName);
 
-monitor.Changed += (s, e) => 
+monitor.Changed += (s, e) =>
 {
     //occurs when one of the properties change.
 };
