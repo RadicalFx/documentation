@@ -23,16 +23,16 @@ Internally the application boot process is not so trivial as it appears from the
 
 In order to configure the IoC containers assemblies needs to scanned to load types that need to be registered for DI. This is accomplished by the assembly scanner. It's possible to customize some of the assembly scanner behaviors by using the `AssemblyScanner` property of the `BootstrapConfiguration` instance, like in the following snippet:
 
-```
+```csharp
 public partial class App : Application
 {
     public App()
     {
         this.AddRadicalApplication<MainView>(configuration =>
-	{
-	   var scanner = configuration.AssemblyScanner;
-	   scanner.DirectorySearchOptions = SearchOption.TopDirectoryOnly; //default value
-	});
+        {
+            var scanner = configuration.AssemblyScanner;
+            scanner.DirectorySearchOptions = SearchOption.TopDirectoryOnly; //default value
+        });
     }
 }
 ```
@@ -41,7 +41,7 @@ public partial class App : Application
 
 To register custom types, other then the ones already automatically registered via bootstrap conventions, a dependency installer is required. Create a calls the implements the `IDependencyInstaller` interface. A class instance will be automatically created at runtime and the `Install` method will be invoked:
 
-```
+```csharp
 public class MyCustomInstaller : IDependencyInstaller
 {
    public void Install(BootstrapConventions conventions, IServiceCollection services, IEnumerable<Type> assemblyScanningResults)
@@ -55,16 +55,16 @@ public class MyCustomInstaller : IDependencyInstaller
 
 Once assemblies and types are scanned and identified through bootstrap conventions the default IoC container provided by `Microsoft.Extensions.DeendencyInjection` is created. In case an instance of the created `IServiceProvider` is required outside the scope of the Radical application, it can be retrieved using the following snippet:
 
-```
+```csharp
 public partial class App : Application
 {
     public App()
     {
         IServiceProvider container = null;
         this.AddRadicalApplication<MainView>(configuration =>
-	{
-	   configuration.OnBootCompleted(serviceProvider => container = serviceProvider);
-	});
+        {
+            configuration.OnBootCompleted(serviceProvider => container = serviceProvider);
+        });
     }
 }
 ```
@@ -79,9 +79,9 @@ public partial class App : Application
     public App()
     {
         this.AddRadicalApplication<MainView>(configuration =>
-	{
-	   configuration.OverrideShutdownMode(ShutdownMode.OnLastWindowClose);
-	});
+        {
+            configuration.OverrideShutdownMode(ShutdownMode.OnLastWindowClose);
+        });
     }
 }
 ```
@@ -120,9 +120,9 @@ public partial class App : Application
         this.AddRadicalApplication<MainView>(configuration =>
         {
            configuration.OnBooting(container=>
-	   {
-	      //boot is in progress, UI is not visible yet.
-	   });
+          {
+             //boot is in progress, UI is not visible yet.
+          });
         });
     }
 }
@@ -132,18 +132,18 @@ public partial class App : Application
 
 The last event in the process is the one used to show the main window, we have the opportunity to be notified using the exposed handler:
 
-```
+```csharp
 public partial class App : Application
 {
     public App()
     {
         this.AddRadicalApplication<MainView>(configuration =>
-	{
-	   configuration.OnBootCompleted(container=>
-	   {
-	      //UI is fully setup
-	   });
-	});
+    {
+       configuration.OnBootCompleted(container=>
+       {
+          //UI is fully setup
+       });
+    });
     }
 }
 ```
@@ -154,18 +154,15 @@ Some of the state of the boot process are also [notified to the application usin
 
 if we need to be notified whenever an unhandled exception occurs in our application we can use the provided hook:
 
-```
+```csharp
 public partial class App : Application
 {
     public App()
     {
         this.AddRadicalApplication<MainView>(configuration =>
-	{
-	   configuration.OnUnhandledException(ex=>
-	   {
-	      
-	   });
-	});
+        {
+        configuration.OnUnhandledException(ex=> { /* deal with exception */ });
+        });
     }
 }
 ```
@@ -174,18 +171,15 @@ public partial class App : Application
 
 As for the startup we can also handle the shutdown process of the application:
 
-```
+```csharp
 public partial class App : Application
 {
     public App()
     {
         this.AddRadicalApplication<MainView>(configuration =>
-	{
-	   configuration.OnShuttingDown(args=>
-	   {
-	      
-	   });
-	});
+        {
+            configuration.OnShuttingDown(args=> { });
+        });
     }
 }
 ```
@@ -202,8 +196,8 @@ public enum ApplicationShutdownReason
     UserRequest = 0,
 
     /// <summary>
-    /// The application is shutting down because another 
-    /// instance is already running and the application 
+    /// The application is shutting down because another
+    /// instance is already running and the application
     /// is marked as singleton.
     /// </summary>
     MultipleInstanceNotAllowed = 1,
