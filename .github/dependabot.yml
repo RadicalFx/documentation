@@ -1,0 +1,31 @@
+version: 2
+updates:
+- package-ecosystem: nuget
+  directory: "/samples/ThirdPartyContainer"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/samples/AutocompleteSample"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/samples/Showcases"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: Autofac
+    versions:
+    - ">= 5.a, < 6"
+- package-ecosystem: nuget
+  directory: "/samples/Plugins"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/samples/Modules"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
