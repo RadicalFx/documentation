@@ -39,7 +39,7 @@ public partial class App : Application
 
 #### Register additional types in the IoC container
 
-To register custom types, other then the ones already automatically registered via bootstrap conventions, a dependency installer is required. Create a calls the implements the `IDependencyInstaller` interface. A class instance will be automatically created at runtime and the `Install` method will be invoked:
+To register custom types, other than the ones already automatically registered via bootstrap conventions, a dependency installer is required. Create a class that implements the `IDependencyInstaller` interface. A class instance will be automatically created at runtime and the `Install` method will be invoked:
 
 ```csharp
 public class MyCustomInstaller : IDependencyInstaller
