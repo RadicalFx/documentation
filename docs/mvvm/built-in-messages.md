@@ -46,7 +46,7 @@ The following messages are broadcasted or dispatched by the infrastructure when 
 
       public void Sample()
       {
-          this.broker.Broadcast( new CloseViewRequest( this ) );
+          this.broker.Broadcast( this, new CloseViewRequest( this ) );
       }
   }
   ```
