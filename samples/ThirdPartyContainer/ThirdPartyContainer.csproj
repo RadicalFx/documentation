@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.6" />
-    <PackageReference Include="Radical.Windows" Version="2.0.0-RC.3" />
+    <PackageReference Include="Radical.Windows" Version="2.0.0" />
   </ItemGroup>
 
 </Project>
