@@ -39,3 +39,9 @@ There are cases in which we need that our application cannot be started twice by
 ### Spalsh screen
 
 Radical has built-in support for splash screens. Refer to the [splash screen how to](../how-tos/splash-screen.md), for more details.
+
+### Disable auto-boot
+
+Radical applications automatically subscribe to the hosting WPF Application lifecycle events to bootstrap the Radical infrastructure. To gain full control over the boot steps use the `DisableAutoBoot()` configuration option and call `Boot()` when in need of boostrapping the Radical application.
+
+NOTE: When using [generic host](../ioc/third-party.md) support `DisableAutoBoot()` is ignored as the generic host approach already gives full control over the bootstrap process.
