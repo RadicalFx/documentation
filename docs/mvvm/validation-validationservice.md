@@ -151,27 +151,3 @@ public class ValidationContext<TViewModel>
 ```
 
 and we can use it to access the whole entity to do a broader validation not specifically scoped to the property we are validating.
-
-### Advanced validation
-
-If none of the above options fit our needs we can integrate into the validation process a fully custom validation piece of code just implementing, in our view model, the `IRequireValidationCallback<TViewModel>` interface:
-
-```csharp
-class ValidationSampleViewModel : AbstractViewModel,
-        ICanBeValidated,
-        IRequireValidationCallback<ValidationSampleViewModel>
-{
-    public Int32 Sample
-    {
-        get;
-        set;
-    }
-
-    public void OnValidate( ValidationContext<ValidationSampleViewModel> context )
-    {
-        context.Results.AddError( () => this.Sample, "This is fully custom." );
-    }
-}
-```
-
-Each time the validation process run, if the validated view model implements the `IRequireValidationCallback<TViewModel>`, the `OnValidate` method is called allowing us to perform a fully custom validation process.
