@@ -125,14 +125,14 @@ Resources:
 Radical UI Composition engine has a concept called `partial view`, a partial view is a `View`, and if defined its `ViewModel`, that can be automatically picked up and injected based on a set of conventions:
 
 * Given a region, as in the previous XAML sample named `MyRegion`;
-* Given a View, and an optional ViewModel, that lives in a namespace that matches `*.Presentation.Partial.*`;
+* Given a View, and an optional ViewModel, that lives in a namespace that matches `*.Presentation.Partials.*`;
 * Where the last segment of the View/ViewModel namespace is the region name, in our sample MyRegion;
 
 The View will be resolved, as usual, and injected into the expected region. Given the following namespace structure:
 
     MySampleApp
       .Presentation
-         .Partial
+         .Partials
             .MyRegion
                 .MySampleView.xaml
                 .MySampleViewModel.cs
