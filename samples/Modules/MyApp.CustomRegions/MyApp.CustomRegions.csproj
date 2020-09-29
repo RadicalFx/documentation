@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Radical" Version="2.0.0" />
+    <PackageReference Include="Radical" Version="2.1.0" />
     <PackageReference Include="Radical.Windows" Version="2.0.0" />
   </ItemGroup>
 
