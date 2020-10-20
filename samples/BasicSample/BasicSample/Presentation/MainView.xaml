@@ -6,9 +6,6 @@
         mc:Ignorable="d"
         Title="Main view" Height="450" Width="800">
     <Grid>
-               
-    </Grid>              
-</Window>                
-                         
-                         
-                         
+        <TextBlock Margin="10" Text="{Binding Path=Text}" />
+    </Grid>
+</Window>
