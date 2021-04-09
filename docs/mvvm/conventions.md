@@ -24,7 +24,7 @@ A lot of things:
 1. The application `Startup` event is wired;
 2. When the `Startup` event is fired:
    1. Assemblies are scanned looking for all types
-   2. `ServiceCollection` is configured using the [bootstrap conventions](/mvvm/bootstrap-conventions.md);
+   2. `ServiceCollection` is configured using the [bootstrap conventions](./bootstrap-conventions.md);
    3. The Inversion of Control container is created; 
    4. The main window \(the one identified by the TShellView generic parameter\) is resolved and shown;
 
