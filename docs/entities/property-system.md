@@ -25,11 +25,11 @@ class MyObject : Entity
 
 what we see here is what we call a Radical property (RP), that from the outside is viewed, and behaves, like a standard CLR property but, from the inside, is totally managed by the `Entity` base class, and in our object we only expose a property.
 
-##Property change notification
+## Property change notification
 
 The first thing we get using a Radical property is property change notification, the base `Entity` class implements `INotifyPropertyChanged` and automatically fires the event whenever the property really changes; really means that subsequently setting the same value more than once fires the event only the first time.
 
-##Property Metadata
+## Property Metadata
 
 Since we have everything managed by the base class, thus the base class holds all the properties and property values we can easily  introduce interesting behaviors without requiring the inheriting class to do anything special:
 
