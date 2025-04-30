@@ -4,18 +4,11 @@ using Radical.Windows.Presentation;
 
 namespace MyApp.Modules.Registry.Presentation.Partial.CommandsRegion
 {
-    class CreateNewCommandViewModel : AbstractViewModel
+    class CreateNewCommandViewModel(IMessageBroker broker, ISampleSharedService _) : AbstractViewModel
     {
-        readonly IMessageBroker broker;
-
-        public CreateNewCommandViewModel( IMessageBroker broker, ISampleSharedService service)
-        {
-            this.broker = broker;
-        }
-
         public void Create() 
         {
-            this.broker.Broadcast( this, new Messaging.CreateNewCompany() );
+            broker.Broadcast( this, new Messaging.CreateNewCompany() );
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Radical.Conversions;
 using Radical.Windows.Regions;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,7 +12,7 @@ namespace MyApp.CustomRegions
 
         }
 
-        public MenuItemRegion( String name )
+        public MenuItemRegion( string name )
         {
             this.Name = name;
         }

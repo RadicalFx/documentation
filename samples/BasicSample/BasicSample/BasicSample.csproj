@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Radical.Windows" Version="2.1.0" />
+    <PackageReference Include="Radical.Windows" Version="3.0.0" />
   </ItemGroup>
 
 </Project>

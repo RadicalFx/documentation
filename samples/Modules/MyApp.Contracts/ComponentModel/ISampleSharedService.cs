@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace MyApp.Contracts.ComponentModel
+﻿namespace MyApp.Contracts.ComponentModel
 {
     public interface ISampleSharedService
     {
-        String MyProperty { get; set; }
+        string MyProperty { get; set; }
     }
 }

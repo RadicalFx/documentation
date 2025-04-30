@@ -6,6 +6,6 @@
         public string LastName { get; internal set; }
         public string Superhero { get; internal set; }
 
-        public string FullName { get { return $"{FirstName} {LastName} : {Superhero}"; } }
+        public string FullName => $"{FirstName} {LastName} : {Superhero}";
     }
 }
