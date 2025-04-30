@@ -5,7 +5,7 @@ namespace SamplePlugin.Presentation
     /// <summary>
     /// Interaction logic for SamplePluginItemView.xaml
     /// </summary>
-    public partial class SamplePluginItemView : UserControl
+    public partial class SamplePluginItemView
     {
         public SamplePluginItemView()
         {

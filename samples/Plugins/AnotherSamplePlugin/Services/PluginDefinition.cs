@@ -4,15 +4,8 @@ using System;
 
 namespace AnotherSamplePlugin.Services
 {
-    class PluginDefinition : IPluginDefinition
+    class PluginDefinition(IViewResolver viewResolver) : IPluginDefinition
     {
-        readonly IViewResolver viewResolver;
-
-        public PluginDefinition(IViewResolver viewResolver)
-        {
-            this.viewResolver = viewResolver;
-        }
-
         public string Name => "AnotherSamplePlugin";
 
         public Action Initialize => () => { /* NOP */ };

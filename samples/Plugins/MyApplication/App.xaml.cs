@@ -1,7 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using PluginsInfrastructure;
 using Radical.Linq;
-using Radical.Windows;
 using System.Linq;
 using System.Windows;
 
@@ -10,7 +9,7 @@ namespace MyApplication
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         public App()
         {

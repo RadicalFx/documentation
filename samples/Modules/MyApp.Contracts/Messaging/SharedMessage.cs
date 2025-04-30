@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace MyApp.Contracts.Messaging
+﻿namespace MyApp.Contracts.Messaging
 {
     public class SharedMessage
     {
-        public String Text { get; set; }
+        public string Text { get; set; }
     }
 }
