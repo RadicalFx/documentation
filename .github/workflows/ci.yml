@@ -27,17 +27,17 @@ jobs:
           dotnet-version: 10.0.x
       - name: Build Modules
         run: |
-          'msbuild .\samples\Modules\Modules.sln /t:Restore /p:Configuration=Release'
-          'msbuild .\samples\Modules\Modules.sln /p:Configuration=Release'
+          msbuild .\samples\Modules\Modules.sln /t:Restore /p:Configuration=Release
+          msbuild .\samples\Modules\Modules.sln /p:Configuration=Release
       - name: Build Plugins
         run: |
-          'msbuild .\samples\Plugins\Plugins.sln /t:Restore /p:Configuration=Release'
-          'msbuild .\samples\Plugins\Plugins.sln /p:Configuration=Release'
+          msbuild .\samples\Plugins\Plugins.sln /t:Restore /p:Configuration=Release
+          msbuild .\samples\Plugins\Plugins.sln /p:Configuration=Release
       - name: Build Showcases
         run: |
-          'msbuild .\samples\Showcases\Showcases.sln /t:Restore /p:Configuration=Release'
-          'msbuild .\samples\Showcases\Showcases.sln /p:Configuration=Release'
+          msbuild .\samples\Showcases\Showcases.sln /t:Restore /p:Configuration=Release
+          msbuild .\samples\Showcases\Showcases.sln /p:Configuration=Release
       - name: Build AutocompleteSample
         run: |
-          'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /t:Restore /p:Configuration=Release'
-          'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /p:Configuration=Release'
+          msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /t:Restore /p:Configuration=Release
+          msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /p:Configuration=Release
