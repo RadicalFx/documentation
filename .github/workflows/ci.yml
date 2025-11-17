@@ -1,0 +1,43 @@
+on:
+  push:
+    tags:
+      - '[0-9].[0-9]+.[0-9]'
+      - '[0-9].[0-9]+.[0-9]+-*'
+    branches:
+      - master
+      - release-*
+  pull_request:
+  workflow_dispatch:
+env:
+  DOTNET_NOLOGO: true
+jobs:
+  build:
+    name: Build and test on Windows
+    runs-on: windows-latest
+    steps:
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+        with:
+          fetch-depth: 0
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v5.0.0
+        with:
+          dotnet-version: 10.0.x
+      - name: Build Modules
+        run: |
+          'msbuild .\samples\Modules\Modules.sln /t:Restore /p:Configuration=Release'
+          'msbuild .\samples\Modules\Modules.sln /p:Configuration=Release'
+      - name: Build Plugins
+        run: |
+          'msbuild .\samples\Plugins\Plugins.sln /t:Restore /p:Configuration=Release'
+          'msbuild .\samples\Plugins\Plugins.sln /p:Configuration=Release'
+      - name: Build Showcases
+        run: |
+          'msbuild .\samples\Showcases\Showcases.sln /t:Restore /p:Configuration=Release'
+          'msbuild .\samples\Showcases\Showcases.sln /p:Configuration=Release'
+      - name: Build AutocompleteSample
+        run: |
+          'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /t:Restore /p:Configuration=Release'
+          'msbuild .\samples\AutocompleteSample\AutocompleteSample.sln /p:Configuration=Release'
