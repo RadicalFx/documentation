@@ -49,5 +49,5 @@ We are using the simplest possible approach in order to keep the sample complexi
 
 ### Notes
 
-* In the above sample we are violating the MVVM pattern because we are dealing with a view within the ViewModel, in the chapter related to the [MessageBroker](/messaging/message-broker.md) we’ll see how to avoid this mix.
+* In the above sample we are violating the MVVM pattern because we are dealing with a view within the ViewModel, in the chapter related to the [MessageBroker](../messaging/message-broker.md) we’ll see how to avoid this mix.
 * A view does not require a view model to work properly, the `IViewResolver` can resolve views that don't have view models;
