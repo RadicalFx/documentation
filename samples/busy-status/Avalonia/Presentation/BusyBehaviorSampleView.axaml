@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="using:Radical.Avalonia.Behaviors"
+        xmlns:converters="using:Radical.Avalonia.Converters"
+        xmlns:markup="using:Radical.Avalonia.Markup"
+        xmlns:local="using:BusyStatusSample.Presentation"
+        x:Class="BusyStatusSample.Presentation.BusyBehaviorSampleView"
+        x:DataType="local:BusyBehaviorSampleViewModel"
+        Title="Busy status" Height="340" Width="400">
+    <Grid RowDefinitions="*,*" behaviors:BusyStatusManager.Status="{Binding IsBusy, Converter={converters:BooleanBusyStatusConverter}}">
+        <behaviors:BusyStatusManager.Content>
+            <Grid Background="#E6FFFFFF">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
+                    <ProgressBar IsIndeterminate="True" Width="150" />
+                    <Button IsEnabled="{Binding ThresholdElapsed}" HorizontalAlignment="Center" Content="Waited tooooo long, cancel..." Command="{markup:AutoCommandBinding Path=CancelWork}" />
+                </StackPanel>
+            </Grid>
+        </behaviors:BusyStatusManager.Content>
+        <TextBlock Grid.Row="0" Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+        <Button Grid.Row="1" Content="Click me!" Command="{markup:AutoCommandBinding Path=WorkAsync}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" />
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rg="using:Radical.Avalonia.Regions"
+        x:Class="AsyncRegionsSample.Presentation.AsyncRegionsView"
+        Title="Async regions" Height="340" Width="400">
+    <Grid RowDefinitions="*,*" Margin="40,20">
+        <ContentPresenter rg:RegionService.Region="{rg:ContentPresenterRegion Name=AsyncFoo}" />
+        <ContentPresenter Grid.Row="1" rg:RegionService.Region="{rg:ContentPresenterRegion Name=AsyncOther, AsyncLoadDelay=2000}" />
+    </Grid>
+</Window>

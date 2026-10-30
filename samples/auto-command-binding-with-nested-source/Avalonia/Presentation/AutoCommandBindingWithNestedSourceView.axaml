@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:command="using:Radical.Avalonia.Markup"
+        xmlns:local="using:AutoCommandBindingWithNestedSourceSample.Presentation"
+        x:Class="AutoCommandBindingWithNestedSourceSample.Presentation.AutoCommandBindingWithNestedSourceView"
+        Title="Auto command binding with nested source" Height="200" Width="500">
+    <Window.Resources>
+        <local:NestedSource x:Key="nested" />
+    </Window.Resources>
+    <StackPanel Orientation="Horizontal" Margin="12" Spacing="12" VerticalAlignment="Top">
+        <Button Command="{command:AutoCommandBinding Path=Call, Source={StaticResource nested}}" Content="Execute..." />
+        <TextBlock VerticalAlignment="Center" Text="{Binding CalledOn, Source={StaticResource nested}, DataType=local:NestedSource}" />
+    </StackPanel>
+</Window>

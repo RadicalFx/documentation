@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:AutocompleteSample.Presentation"
+        xmlns:model="using:AutocompleteSample.BindingObjects"
+        x:Class="AutocompleteSample.Presentation.MainView"
+        x:DataType="local:MainViewModel"
+        Title="Autocomplete Sample" Height="450" Width="800">
+    <StackPanel Margin="10" Spacing="10">
+        <TextBlock Text="Type &quot;pe&quot; to see Peter Parker" FontStyle="Italic" />
+        <AutoCompleteBox HorizontalAlignment="Left"
+                         Width="300"
+                         PlaceholderText="enter at least two characters..."
+                         MinimumPrefixLength="2"
+                         MinimumPopulateDelay="0:0:1"
+                         FilterMode="StartsWith"
+                         ItemsSource="{Binding People}"
+                         ValueMemberBinding="{Binding FullName, DataType=model:Person}"
+                         SelectedItem="{Binding Choosen}">
+            <AutoCompleteBox.ItemTemplate>
+                <DataTemplate x:DataType="model:Person">
+                    <StackPanel>
+                        <TextBlock Text="{Binding FirstName}" />
+                        <TextBlock Text="{Binding LastName}" />
+                    </StackPanel>
+                </DataTemplate>
+            </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
+        <ContentControl Content="{Binding Choosen}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate x:DataType="model:Person">
+                    <TextBlock Text="{Binding Superhero, StringFormat='Selected: {0}'}" />
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+        <TextBlock FontWeight="DemiBold" Margin="0,10,0,0" Text="You can search between:" />
+        <ItemsControl ItemsSource="{Binding People}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="model:Person">
+                    <TextBlock Text="{Binding FullName, StringFormat='• {0}'}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</Window>

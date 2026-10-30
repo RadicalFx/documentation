@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:markup="using:Radical.Avalonia.Markup"
+        xmlns:validation="using:Radical.Validation"
+        xmlns:local="using:DataAnnotationsValidationSample.Presentation"
+        x:Class="DataAnnotationsValidationSample.Presentation.RequireValidationSampleView"
+        x:DataType="local:RequireValidationSampleViewModel"
+        Title="DataAnnotations validation" Height="450" Width="530">
+    <Grid RowDefinitions="Auto,*" Margin="12">
+        <StackPanel Spacing="8" Width="300" HorizontalAlignment="Left">
+            <TextBlock Text="These are validated while writing" />
+            <TextBox Text="{markup:EditorBinding Path=Text}" />
+            <TextBox Text="{markup:EditorBinding Path=AnotherText}" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button Content="Click to run full validation" Command="{markup:AutoCommandBinding Path=RunValidation}" />
+                <Button Content="Reset validation" Command="{markup:AutoCommandBinding Path=ResetValidation}" />
+            </StackPanel>
+            <CheckBox Content="Merge errors" IsChecked="{Binding MergeErrors}" />
+        </StackPanel>
+        <ListBox Grid.Row="1" Margin="0,12,0,0" ItemsSource="{Binding ValidationErrors}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="validation:ValidationError">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <TextBlock Foreground="Red">
+                            <Run Text="{Binding PropertyDisplayName}" />
+                            <Run Text="(" /><Run Text="{Binding PropertyName}" /><Run Text=")" />
+                        </TextBlock>
+                        <TextBlock Text="{Binding}" Foreground="Brown" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

@@ -1,0 +1,66 @@
+<Solution>
+  <Folder Name="/async-regions/">
+    <Project Path="async-regions/Avalonia.Components/AsyncRegionsSample.Components.Avalonia.csproj" />
+    <Project Path="async-regions/Avalonia/AsyncRegionsSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/auto-command-binding-with-nested-source/">
+    <Project Path="auto-command-binding-with-nested-source/Avalonia/AutoCommandBindingWithNestedSourceSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/auto-command-binding-with-templates/">
+    <Project Path="auto-command-binding-with-templates/Avalonia/AutoCommandBindingWithTemplatesSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/auto-command-binding/">
+    <Project Path="auto-command-binding/Avalonia/AutoCommandBindingSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/autocomplete/">
+    <Project Path="autocomplete/Avalonia/AutocompleteSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/basic/">
+    <Project Path="basic/Avalonia/BasicSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/busy-status/">
+    <Project Path="busy-status/Avalonia/BusyStatusSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/cue-banner/">
+    <Project Path="cue-banner/Avalonia/CueBannerSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/data-annotations-validation/">
+    <Project Path="data-annotations-validation/Avalonia/DataAnnotationsValidationSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/drag-and-drop/">
+    <Project Path="drag-and-drop/Avalonia/DragAndDropSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/focus/">
+    <Project Path="focus/Avalonia/FocusSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/memento-simple-graph/">
+    <Project Path="memento-simple-graph/Avalonia/MementoSimpleGraphSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/modules/">
+    <Project Path="modules/Avalonia/MyApp.Contracts/MyApp.Contracts.csproj" />
+    <Project Path="modules/Avalonia/MyApp.CustomRegions/MyApp.CustomRegions.csproj" />
+    <Project Path="modules/Avalonia/MyApp.Modules.Registry/MyApp.Modules.Registry.csproj" />
+    <Project Path="modules/Avalonia/MyApp/MyApp.csproj" />
+  </Folder>
+  <Folder Name="/open-child-window/">
+    <Project Path="open-child-window/Avalonia/OpenChildWindowSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/plugins/">
+    <Project Path="plugins/Avalonia/AnotherSamplePlugin/AnotherSamplePlugin.csproj" />
+    <Project Path="plugins/Avalonia/MyApplication/MyApplication.csproj" />
+    <Project Path="plugins/Avalonia/PluginsInfrastructure/PluginsInfrastructure.csproj" />
+    <Project Path="plugins/Avalonia/SamplePlugin/SamplePlugin.csproj" />
+  </Folder>
+  <Folder Name="/splash-screen/">
+    <Project Path="splash-screen/Avalonia/SplashScreenSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/tab-control-region/">
+    <Project Path="tab-control-region/Avalonia/TabControlRegionSample.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/third-party-container/">
+    <Project Path="third-party-container/Avalonia/ThirdPartyContainer.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/view-model-as-resource/">
+    <Project Path="view-model-as-resource/Avalonia/ViewModelAsResourceSample.Avalonia.csproj" />
+  </Folder>
+</Solution>

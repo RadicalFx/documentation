@@ -25,3 +25,5 @@ jobs:
           dotnet-version: 10.0.x
       - name: Build WPF samples
         run: dotnet build .\samples\Samples.Wpf.slnx --configuration Release
+      - name: Build Avalonia samples
+        run: dotnet build .\samples\Samples.Avalonia.slnx --configuration Release
