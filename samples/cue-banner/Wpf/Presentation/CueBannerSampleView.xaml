@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:behaviors="http://schemas.topics.it/wpf/radical/windows/behaviors"
-             xmlns:converters="http://schemas.topics.it/wpf/radical/windows/converters"
-             xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
+             xmlns:behaviors="http://schemas.radicalframework.com/windows/behaviors"
+             xmlns:converters="http://schemas.radicalframework.com/windows/converters"
+             xmlns:markup="http://schemas.radicalframework.com/windows/markup"
              mc:Ignorable="d" Title="Cue banner" Height="340" Width="400">
     <Window.Resources>
         <converters:BooleanToVisibilityConverter FalseValue="Collapsed" x:Key="bvc" />
