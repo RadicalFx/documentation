@@ -1,0 +1,78 @@
+<Solution>
+  <Folder Name="/async-regions/">
+    <Project Path="async-regions/Components/AsyncRegionsSample.Components.Wpf.csproj" />
+    <Project Path="async-regions/Wpf/AsyncRegionsSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/auto-command-binding-with-nested-source/">
+    <Project Path="auto-command-binding-with-nested-source/Wpf/AutoCommandBindingWithNestedSourceSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/auto-command-binding-with-templates/">
+    <Project Path="auto-command-binding-with-templates/Wpf/AutoCommandBindingWithTemplatesSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/auto-command-binding/">
+    <Project Path="auto-command-binding/Wpf/AutoCommandBindingSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/autocomplete/">
+    <Project Path="autocomplete/Wpf/AutocompleteSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/basic/">
+    <Project Path="basic/Wpf/BasicSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/busy-status/">
+    <Project Path="busy-status/Wpf/BusyStatusSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/cue-banner/">
+    <Project Path="cue-banner/Wpf/CueBannerSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/data-annotations-validation/">
+    <Project Path="data-annotations-validation/Wpf/DataAnnotationsValidationSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/drag-and-drop/">
+    <Project Path="drag-and-drop/Wpf/DragAndDropSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/entity-view-custom-property-mapping/">
+    <Project Path="entity-view-custom-property-mapping/Wpf/EntityViewCustomPropertyMappingSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/entity-view-primer/">
+    <Project Path="entity-view-primer/Wpf/EntityViewPrimerSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/focus/">
+    <Project Path="focus/Wpf/FocusSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/grayscale-effect/">
+    <Project Path="grayscale-effect/Wpf/GrayscaleEffectSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/memento-complex-graph/">
+    <Project Path="memento-complex-graph/Wpf/MementoComplexGraphSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/memento-simple-graph/">
+    <Project Path="memento-simple-graph/Wpf/MementoSimpleGraphSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/modules/">
+    <Project Path="modules/Wpf/MyApp.Contracts/MyApp.Contracts.csproj" />
+    <Project Path="modules/Wpf/MyApp.CustomRegions/MyApp.CustomRegions.csproj" />
+    <Project Path="modules/Wpf/MyApp.Modules.Registry/MyApp.Modules.Registry.csproj" />
+    <Project Path="modules/Wpf/MyApp/MyApp.csproj" />
+  </Folder>
+  <Folder Name="/open-child-window/">
+    <Project Path="open-child-window/Wpf/OpenChildWindowSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/plugins/">
+    <Project Path="plugins/Wpf/AnotherSamplePlugin/AnotherSamplePlugin.csproj" />
+    <Project Path="plugins/Wpf/MyApplication/MyApplication.csproj" />
+    <Project Path="plugins/Wpf/PluginsInfrastructure/PluginsInfrastructure.csproj" />
+    <Project Path="plugins/Wpf/SamplePlugin/SamplePlugin.csproj" />
+  </Folder>
+  <Folder Name="/splash-screen/">
+    <Project Path="splash-screen/Wpf/SplashScreenSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/tab-control-region/">
+    <Project Path="tab-control-region/Wpf/TabControlRegionSample.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/third-party-container/">
+    <Project Path="third-party-container/Wpf/ThirdPartyContainer.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/view-model-as-resource/">
+    <Project Path="view-model-as-resource/Wpf/ViewModelAsResourceSample.Wpf.csproj" />
+  </Folder>
+</Solution>
