@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Components\AsyncRegionsSample.Components.Wpf.csproj" />
+    <ProjectReference Include="..\Wpf.Components\AsyncRegionsSample.Components.Wpf.csproj" />
   </ItemGroup>
 
 </Project>

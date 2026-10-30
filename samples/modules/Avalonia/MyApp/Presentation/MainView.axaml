@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rg="using:Radical.Avalonia.Regions"
+        xmlns:crg="using:MyApp.CustomRegions"
+        x:Class="MyApp.Presentation.MainView"
+        Title="MainView" Height="400" Width="600">
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" rg:RegionService.Region="{crg:MenuRegion Name=MainMenuRegion}">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" />
+            </MenuItem>
+        </Menu>
+        <Grid DockPanel.Dock="Right" Width="150" RowDefinitions="Auto,*">
+            <TextBlock Text="Commands" Grid.Row="0" />
+            <StackPanel Orientation="Vertical"
+                        rg:RegionService.Region="{rg:PanelRegion Name=CommandsRegion}"
+                        Grid.Row="1" />
+        </Grid>
+        <ContentPresenter rg:RegionService.Region="{rg:ContentPresenterRegion Name=MainContent}" />
+    </DockPanel>
+</Window>

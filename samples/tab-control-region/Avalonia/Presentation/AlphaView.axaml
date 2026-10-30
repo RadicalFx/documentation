@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:rg="using:Radical.Avalonia.Regions"
+             x:Class="TabControlRegionSample.Presentation.AlphaView"
+             rg:RegionHeaderedElement.Header="Alpha">
+    <Grid>
+        <TextBlock Text="I'm the alpha view." />
+    </Grid>
+</UserControl>

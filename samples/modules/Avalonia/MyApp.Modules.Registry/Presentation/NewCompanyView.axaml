@@ -1,0 +1,7 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MyApp.Modules.Registry.Presentation.NewCompanyView">
+    <Grid>
+        <TextBlock Text="This is the new company view, that has no ViewModel, a View can live without a ViewModel :-)" TextWrapping="Wrap" />
+    </Grid>
+</UserControl>

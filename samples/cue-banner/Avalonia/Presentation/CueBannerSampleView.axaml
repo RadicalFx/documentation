@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="using:Radical.Avalonia.Behaviors"
+        xmlns:local="using:CueBannerSample.Presentation"
+        x:Class="CueBannerSample.Presentation.CueBannerSampleView"
+        x:DataType="local:CueBannerSampleViewModel"
+        Title="Cue banner" Height="300" Width="400">
+    <StackPanel Margin="40,30" Spacing="10" HorizontalAlignment="Left" Width="210">
+        <CheckBox Content="Show TextBox." IsChecked="{Binding IsTextBoxVisible}" />
+        <TextBox IsVisible="{Binding IsTextBoxVisible}"
+                 behaviors:CueBannerService.CueBanner="Hi there..." />
+        <CheckBox Content="Show password TextBox." IsChecked="{Binding IsPasswordBoxVisible}" />
+        <TextBox PasswordChar="*"
+                 IsVisible="{Binding IsPasswordBoxVisible}"
+                 behaviors:CueBannerService.CueBanner="Set your password here..." />
+    </StackPanel>
+</Window>

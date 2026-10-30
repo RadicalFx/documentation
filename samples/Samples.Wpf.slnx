@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/async-regions/">
-    <Project Path="async-regions/Components/AsyncRegionsSample.Components.Wpf.csproj" />
+    <Project Path="async-regions/Wpf.Components/AsyncRegionsSample.Components.Wpf.csproj" />
     <Project Path="async-regions/Wpf/AsyncRegionsSample.Wpf.csproj" />
   </Folder>
   <Folder Name="/auto-command-binding-with-nested-source/">

@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rg="using:Radical.Avalonia.Regions"
+        xmlns:local="using:TabControlRegionSample.Presentation"
+        x:Class="TabControlRegionSample.Presentation.TabControlRegionView"
+        x:DataType="local:TabControlRegionViewModel"
+        Title="Tab control region" Height="340" Width="400">
+    <DockPanel Margin="8">
+        <StackPanel DockPanel.Dock="Top" Spacing="4">
+            <TextBlock Text="Alpha and Beta views are injected with the attribute InjectViewInRegion." TextWrapping="Wrap" />
+            <Button Content="Add New Gamma View" Command="{Binding AddNewGammaViewCommand}" />
+            <Button Content="Activate Gamma View" Command="{Binding ActivateGammaViewCommand}" />
+            <Button Content="Remove Last View" Command="{Binding RemoveLastViewCommand}" />
+        </StackPanel>
+        <TabControl rg:RegionService.Region="{rg:TabControlRegion Name=MainTabRegion}" />
+    </DockPanel>
+</Window>
