@@ -1,0 +1,12 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+version: 1
+site:
+  title: Radical Framework
+  structure:
+    - type: space
+      key: space-documentation
+      title: Documentation
+      path: documentation
+      default: true
+      content:
+        directory: ./
