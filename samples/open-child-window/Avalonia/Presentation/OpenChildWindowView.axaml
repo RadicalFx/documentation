@@ -1,0 +1,12 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:markup="using:Radical.Avalonia.Markup"
+        xmlns:local="using:OpenChildWindowSample.Presentation"
+        x:Class="OpenChildWindowSample.Presentation.OpenChildWindowView"
+        x:DataType="local:OpenChildWindowViewModel"
+        Title="Open child window" Height="200" Width="400">
+    <StackPanel Margin="50,30" Spacing="8">
+        <CheckBox IsChecked="{Binding AsDialog}" Content="Open a dialog" />
+        <Button Content="Open..." Command="{markup:AutoCommandBinding Path=OpenWindow}" />
+    </StackPanel>
+</Window>

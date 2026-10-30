@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="using:Radical.Avalonia.Behaviors"
+        xmlns:local="using:DragAndDropSample.Presentation"
+        x:Class="DragAndDropSample.Presentation.DragAndDropSampleView"
+        x:DataType="local:DragAndDropSampleViewModel"
+        Title="Drag and drop" Height="340" Width="400">
+    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,*,Auto" Margin="8">
+        <TextBlock Text="Left" Margin="4" />
+        <TextBlock Text="Right" Margin="4" Grid.Column="1" />
+        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="4">
+            <ListBox ItemsSource="{Binding LeftPersons}"
+                     behaviors:DragDropManager.OnDropCommand="{Binding DropPerson}"
+                     SelectedItem="{Binding LeftSelectedPerson}">
+                <ListBox.Styles>
+                    <Style Selector="ListBoxItem" x:DataType="local:Person">
+                        <Setter Property="behaviors:DragDropManager.DataObject" Value="{Binding}" />
+                        <Setter Property="behaviors:DragDropManager.DataObjectType" Value="left/person" />
+                    </Style>
+                </ListBox.Styles>
+            </ListBox>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="4">
+            <ListBox ItemsSource="{Binding RightPersons}"
+                     behaviors:DragDropManager.OnDropCommand="{Binding DropPerson}"
+                     SelectedItem="{Binding RightSelectedPerson}">
+                <ListBox.Styles>
+                    <Style Selector="ListBoxItem" x:DataType="local:Person">
+                        <Setter Property="behaviors:DragDropManager.DataObject" Value="{Binding}" />
+                        <Setter Property="behaviors:DragDropManager.DataObjectType" Value="right/person" />
+                    </Style>
+                </ListBox.Styles>
+            </ListBox>
+        </Border>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8" Margin="4">
+            <TextBlock Text="Drag over position:" />
+            <TextBlock Text="{Binding X}" />
+            <TextBlock Text="{Binding Y}" />
+        </StackPanel>
+    </Grid>
+</Window>

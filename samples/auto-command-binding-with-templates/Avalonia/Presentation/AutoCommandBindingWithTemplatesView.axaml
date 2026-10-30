@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:command="using:Radical.Avalonia.Markup"
+        xmlns:local="using:AutoCommandBindingWithTemplatesSample.Presentation"
+        x:Class="AutoCommandBindingWithTemplatesSample.Presentation.AutoCommandBindingWithTemplatesView"
+        x:DataType="local:AutoCommandBindingWithTemplatesViewModel"
+        Title="Auto command binding with templates" Height="340" Width="400">
+    <Grid RowDefinitions="Auto,*" Margin="12">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="InvokedOn: " />
+            <TextBlock Text="{Binding InvokedOn}" />
+        </StackPanel>
+        <TabControl ItemsSource="{Binding Children}" Grid.Row="1" SelectedIndex="0">
+            <TabControl.ItemTemplate>
+                <DataTemplate x:DataType="local:Child">
+                    <TextBlock Text="{Binding Id}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate x:DataType="local:Child">
+                    <StackPanel Orientation="Horizontal" Margin="10,10,0,0" Spacing="10">
+                        <CheckBox Content="Is Active" IsChecked="{Binding IsDoActive}" />
+                        <Button Command="{command:AutoCommandBinding Path=Do}" Content="Do..." VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Status}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</Window>

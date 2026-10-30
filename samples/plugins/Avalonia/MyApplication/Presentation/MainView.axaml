@@ -1,0 +1,9 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rg="using:Radical.Avalonia.Regions"
+        x:Class="MyApplication.Presentation.MainView"
+        Title="MainView" Height="300" Width="300">
+    <Grid>
+        <StackPanel Orientation="Vertical" rg:RegionService.Region="{rg:PanelRegion Name=MainViewRegion}" />
+    </Grid>
+</Window>

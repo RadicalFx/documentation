@@ -1,6 +1,7 @@
 # Summary
 
 * [Home](README.md)
+* [Samples](/samples.md)
 
 ## Avalonia
 

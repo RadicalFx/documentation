@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:command="using:Radical.Avalonia.Markup"
+        xmlns:local="using:AutoCommandBindingSample.Presentation"
+        x:Class="AutoCommandBindingSample.Presentation.AutoCommandBindingView"
+        x:DataType="local:AutoCommandBindingViewModel"
+        Title="Auto command binding" Height="300" Width="600">
+    <StackPanel Margin="12" Spacing="12">
+        <Border BorderBrush="Gray" BorderThickness="1" Padding="8">
+            <StackPanel Spacing="8">
+                <TextBlock Text="Using simple Boolean property (Ctrl+B executes too)" FontWeight="Bold" />
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <CheckBox Content="Is Active" IsChecked="{Binding IsActive}" />
+                    <Button Command="{command:AutoCommandBinding Path=Execute}" Content="Execute..." />
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Executed}" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Gray" BorderThickness="1" Padding="8">
+            <StackPanel Spacing="8">
+                <TextBlock Text="Using items" FontWeight="Bold" />
+                <ItemsControl ItemsSource="{Binding Items}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="local:AutoCommandBindingViewModel+Item">
+                            <StackPanel Orientation="Horizontal">
+                                <HyperlinkButton Command="{command:AutoCommandBinding Path=Execute}" Content="{Binding Name}" />
+                                <TextBlock VerticalAlignment="Center" Text="{Binding ExecutedOn}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Window>

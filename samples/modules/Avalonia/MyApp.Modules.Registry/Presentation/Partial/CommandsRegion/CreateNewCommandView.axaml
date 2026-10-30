@@ -1,0 +1,6 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:markup="using:Radical.Avalonia.Markup"
+             x:Class="MyApp.Modules.Registry.Presentation.Partial.CommandsRegion.CreateNewCommandView">
+    <HyperlinkButton Command="{markup:AutoCommandBinding Path=Create}" Content="Create..." />
+</UserControl>

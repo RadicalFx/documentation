@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SplashScreenSample.Presentation.Partial.SplashScreenContent.SplashView"
+             Background="White"
+             Height="250" Width="400">
+    <Grid Margin="20" RowDefinitions="Auto,*">
+        <Image HorizontalAlignment="Center"
+               Height="100" VerticalAlignment="Center"
+               Source="avares://SplashScreenSample.Avalonia/Resources/logo.png"/>
+        <TextBlock VerticalAlignment="Center"
+                   Grid.Row="1"
+                   HorizontalAlignment="Center" Text="Loading..." FontStyle="Italic" FontSize="30" Foreground="Black" />
+    </Grid>
+</UserControl>

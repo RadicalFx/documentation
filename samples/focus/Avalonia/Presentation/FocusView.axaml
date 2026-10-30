@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="using:Avalonia.Xaml.Interactivity"
+        xmlns:pb="using:Radical.Avalonia.Behaviors"
+        xmlns:markup="using:Radical.Avalonia.Markup"
+        xmlns:local="using:FocusSample.Presentation"
+        x:Class="FocusSample.Presentation.FocusView"
+        x:DataType="local:FocusViewModel"
+        Title="Focus" Height="250" Width="450">
+    <StackPanel Margin="20" Spacing="10" HorizontalAlignment="Left" Width="340">
+        <TextBox Text="TextBox" />
+        <TextBox Text="this text box focus is controlled by the Focus behavior.">
+            <i:Interaction.Behaviors>
+                <pb:Focus ControlledBy="{Binding FocusedElementKey}" UsingKey="Name" />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <Button Command="{markup:AutoCommandBinding Path=MoveFocusToName}" Content="Move focus" />
+    </StackPanel>
+</Window>
