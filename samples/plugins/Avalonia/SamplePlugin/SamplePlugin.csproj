@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="12.1.4" />
-    <PackageReference Include="Radical.Avalonia" Version="1.0.0-alpha.1" />
+    <PackageReference Include="Radical.Avalonia" Version="1.0.0-alpha.2" />
   </ItemGroup>
 
   <ItemGroup>
