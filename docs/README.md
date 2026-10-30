@@ -37,6 +37,10 @@ public partial class App : Application
 
 The best topic to read now is basic [concepts about the ViewModel](mvvm/abstract-view-model.md).
 
+### Avalonia
+
+Radical is also available for [Avalonia](https://avaloniaui.net/), on desktop, mobile and browser, through the [Radical.Avalonia](https://www.nuget.org/packages/Radical.Avalonia) package. Read [Radical for Avalonia](avalonia/README.md) to bootstrap an Avalonia project, and [Migrating from Radical.Windows](avalonia/migrating-from-radical-windows.md) for the differences from WPF.
+
 ## Release management process
 
 Radical follows a set of rules to prepare and publish releases:
