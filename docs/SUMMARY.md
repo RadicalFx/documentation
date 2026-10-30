@@ -2,6 +2,11 @@
 
 * [Home](README.md)
 
+## Avalonia
+
+* [Radical for Avalonia](/avalonia/README.md)
+  * [Migrating from Radical.Windows](/avalonia/migrating-from-radical-windows.md)
+
 ## Presentation
 
 * [AbstractViewModel](/mvvm/abstract-view-model.md)
