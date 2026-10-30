@@ -29,7 +29,7 @@ class MainViewModel : AbstractViewModel
 {
     public void SetFocus() 
     {
-        this.MoveFocusTo(() => this.SampleText);
+        this.MoveFocusTo(nameof(SampleText));
     }
 
     public String SampleText

@@ -5,7 +5,7 @@ namespace FocusSample.Presentation
 	{
 		public void MoveFocusToName() 
 		{
-			this.MoveFocusTo( () => Name );
+			this.MoveFocusTo( nameof( Name ) );
 		}
 
 		public string Name
