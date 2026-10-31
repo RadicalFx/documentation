@@ -120,6 +120,8 @@ _ = broker.BroadcastAsync(this, new CustomerSaved(customer));
 
 With fire-and-forget, nothing observes the subscribers' exceptions: subscribers must handle their own errors.
 
+Keep using `DispatchAsync` where the code used `Dispatch`, and `BroadcastAsync` where it used `Broadcast`: the two differ in more than waiting, as described in [dispatching or broadcasting](../messaging/message-broker.md#dispatching-or-broadcasting).
+
 ## Never block on the broker
 
 Don't wait for the broker's tasks synchronously:
