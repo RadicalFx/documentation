@@ -133,6 +133,26 @@ broker.DispatchAsync(this, message).GetAwaiter().GetResult();
 
 On a UI thread, with subscribers marshalled to the UI thread (`InvocationModel.Safe`), this deadlocks: the UI thread waits for a subscriber that needs the UI thread to run. That's the sync-over-async design flaw the async-only broker removes. Always `await`, all the way up to the command or event handler that started the operation.
 
+## How the old API fails to compile
+
+The synchronous API isn't removed right away. It's marked obsolete with an error first, and removed in the following major, so the compiler finds every place that needs to change.
+
+Code that calls the old API gets error CS0619 with a message pointing to this guide:
+- `Dispatch` and `Broadcast` are obsolete with an error.
+- The `Subscribe` overloads taking an `Action<object, T>` callback are obsolete with an error. The compiler picks the overload from the shape of the lambda: a callback that returns nothing binds to the obsolete overload and fails, while an `async` lambda, or one returning a `Task`, binds to the new overload and compiles.
+
+If code compiled against the old API still reaches the obsolete members at runtime, through reflection for example, they throw a `NotSupportedException`. `Dispatch` can't keep working, because it would have to block on asynchronous subscribers.
+
+Code that implements or overrides the old API doesn't get obsolete errors: the compiler reports them only where a member is used. Instead, the types change so that the old code fails with standard compiler errors, without a custom message:
+
+| Code | Change | Compiler errors |
+|---|---|---|
+| Classes inheriting from `AbstractMessageHandler<T>` | `HandleAsync` is abstract, and `Handle` is no longer virtual | CS0534, the class doesn't implement `HandleAsync`, and CS0506, `Handle` can't be overridden |
+| Classes implementing `IHandleMessage<T>` or `IHandleMessage` directly | `Handle` is replaced by `HandleAsync` | CS0535, the class doesn't implement `HandleAsync` |
+| Classes implementing `IMessageBroker`, such as test fakes | `DispatchAsync` is added, and the obsolete members stay until they're removed | CS0535, the class doesn't implement `DispatchAsync` |
+
+Fix those errors as described in [standalone message handlers](#standalone-message-handlers).
+
 ## Upgrade checklist
 
 - [ ] Every `Subscribe` callback returns a `Task`, and none is `async void`.
