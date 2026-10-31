@@ -54,9 +54,9 @@ class SenderComponent
         this.broker = broker;
     }
 
-    public void Publish()
+    public Task PublishAsync()
     {
-        this.broker.Broadcast(sender: this, message: new SampleMessage());
+        return this.broker.BroadcastAsync(sender: this, message: new SampleMessage());
     }
 }
 ```
@@ -71,19 +71,41 @@ class ReceiverComponent
     public SenderComponent( IMessageBroker broker )
     {
         this.broker = broker;
-        this.broker.Subscribe<SampleMessage>(subscriber: this, (sender, message) => 
+        this.broker.Subscribe<SampleMessage>(subscriber: this, (sender, message) =>
         {
             //handle the message here.
-        } );
-    }
+          ### Dispatching or broadcasting
+
+The broker has two ways to publish a message, and both return a `Task`:
+- `DispatchAsync` invokes the subscribers one at a time, awaiting each before invoking the next, on the publisher's context.
+- `BroadcastAsync` invokes the subscribers in parallel, on thread pool threads. Its task completes once all of them completed.
+
+When the subscribers are independent of each other, don't touch the UI and never fail, the two behave the same way. Otherwise they differ in four ways.
+
+**The thread the subscribers run on.** `DispatchAsync` invokes every subscriber on the publisher's context, ignoring the [invocation model](#invocation-model). Dispatched from the UI thread, a subscriber can update bound properties directly. `BroadcastAsync` starts every subscriber on a thread pool thread: a subscriber that accesses the UI must subscribe with `InvocationModel.Safe`.
+
+**Whether subscribers see each other's changes.** Dispatched subscribers run in sequence, so each one sees what the previous ones did to the message. That makes it possible for the publisher to ask its subscribers something, and read the answer once they all completed:
+
+```csharp
+var message = new CustomerDeleting(customer);
+await broker.DispatchAsync(this, message);
+if (!message.Cancel)
+{
+    await repository.DeleteAsync(customer);
 }
 ```
 
-### Dispatch vs. Broadcast
+Broadcast subscribers run concurrently, so a message they modify is shared across threads without synchronization: broadcast messages should be treated as read-only.
 
-In the sample above the “sender” utilizes the `Broadcast` method, broadcasted messages will be delivered to subscribers asynchronously, and in parallel, thus the subscriber is invoked on a thread that is not the same as the publisher.
+**Failures.** When a dispatched subscriber throws, the remaining subscribers aren't invoked, and the exception reaches the publisher right away. When a broadcast subscriber throws, all the other subscribers still run; awaiting `BroadcastAsync` rethrows the first exception, and the task's `Exception` property contains all of them.
 
-If, for some reason, we need to be have events dispatched in a synchronous manner we can use the `Dispatch` method that guarantees that all the subscribers are invoked on the same thread of the publisher in a serial manner.
+**Time and the publisher's thread.** Dispatching takes as long as all the subscribers together, and any synchronous work a subscriber does before its first `await` runs on the publisher's thread, the UI thread in a UI application. Broadcasting takes as long as the slowest subscriber, and leaves the publisher's thread free.
+
+In short, dispatching is asking: the publisher's collaborators run in sequence, in its context, and can influence the outcome. Broadcasting is notifying: the order doesn't matter, and the subscribers must not depend on each other.
+
+A broadcast can be awaited, to wait for the subscribers and observe their exceptions, or deliberately not awaited, with `_ = broker.BroadcastAsync(...)`. When nothing awaits it, nothing observes the subscribers' exceptions, and the subscribers must handle their own errors. Never block on the broker's tasks with `.Wait()`, `.Result` or `.GetAwaiter().GetResult()`: on a UI thread, with subscribers marshalled to the UI thread, it deadlocks.
+
+ the same thread of the publisher in a serial manner.
 
 #### Invocation Model
 
@@ -95,12 +117,13 @@ If we want to reduce the friction and we do not need to have control on the mars
 broker.Subscribe<SampleMessage>(this, InvocationModel.Safe, (sender, message) =>
 {
     //this delegate is automatically invoked on the main thread.
+    return Task.CompletedTask;
 });
 ```
 
 Using the subscribe overload that accept an `InvocationModel` enumeration we can specify that we, as subscribers, need the subscription to be invoked on the main UI thread.
 
-NOTE: The broadcast operation is still asynchronous and the broker only dispatches on the main thread the given delegate only when required.
+NOTE: The broadcast operation is still asynchronous and the broker only dispatches on the main thread the given delegate only when required. Only the synchronous part of the delegate is marshalled: once it awaits, it resumes on the main thread through its synchronization context. Dispatched messages ignore the invocation model, since their subscribers already run on the publisher's context.
 
 ### Inheritance support
 
