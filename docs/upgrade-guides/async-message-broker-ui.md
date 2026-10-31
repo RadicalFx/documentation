@@ -106,7 +106,7 @@ broker.Broadcast(this, new CloseViewRequest(this));
 await broker.BroadcastAsync(this, new CloseViewRequest(this));
 ```
 
-`ViewModelClosing` is documented as dispatched synchronously so that subscribers can cancel a close. Neither library publishes it today: closing a view is canceled through the `IExpectViewClosingCallback` [callback expectation](../mvvm/callback-expectations.md), which doesn't use the broker and doesn't change.
+`ViewModelClosing` is obsolete and was never published by the infrastructure. Closing a view is canceled through the `IExpectViewClosingCallback` [callback expectation](../mvvm/callback-expectations.md), which doesn't use the broker and doesn't change.
 
 ## UI thread and invocation model
 
