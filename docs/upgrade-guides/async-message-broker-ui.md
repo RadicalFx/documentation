@@ -60,6 +60,10 @@ ICommand command = DelegateCommand.Create()
     .OnExecute(async state => await broker.DispatchAsync(this, new CustomerSaving(customer)));
 ```
 
+The synchronous `OnExecute(Action<object>)` overload stays and isn't deprecated: commands that don't await anything, such as toggling a property, keep using it. The same applies to `AutoCommandBinding`, which keeps binding `void` methods.
+
+The compiler picks the async overload for any lambda returning a `Task`, such as `state => broker.DispatchAsync(...)`. A block lambda that calls an async method without awaiting or returning its task, such as `state => { broker.DispatchAsync(...); }`, still binds to the synchronous overload and the task is discarded. Use `async` and `await` in block lambdas.
+
 ## Application shutdown
 
 `ApplicationShutdownRequested` is the message whose `Cancel` property lets subscribers stop a [user-requested shutdown](../mvvm/application-shutdown.md). The application now awaits its subscribers before reading `Cancel`. Subscribers can therefore await, for example, an asynchronous "save changes?" dialog:
