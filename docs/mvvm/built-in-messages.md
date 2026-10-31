@@ -54,7 +54,7 @@ The following messages are broadcasted or dispatched by the infrastructure when 
 * `ViewModelClosed`:
   * **broadcasted** asynchronously by the infrastructure to notify that a view and an associated ViewModel has been closed.
 * `ViewModelClosing`:
-  * **dispatched synchronously** by the infrastructure to notify that the a view and an associated ViewModel is closing, this event is dispatched synchronously to allow subscribers to easily cancel the close process using a well known approach similar to the one exposed by the .net `CancelEventArgs`.
+  * **obsolete**: the infrastructure never publishes it. It's obsolete with an error as of Radical.Windows 4.0.0, will be removed in 5.0.0, and isn't part of Radical.Avalonia. To cancel closing a view, implement `IExpectViewClosingCallback` on the ViewModel, as described in [callback expectations](callback-expectations.md).
 * `ViewLoaded`:
   * **broadcasted** *asynchronously* by the infrastructure to notify that a view has been loaded.
 * `ViewModelLoaded`:
