@@ -101,4 +101,6 @@
 
 - [Radical Presentation 1.x to Radical 2.x for .NET Core](/upgrade-guides/1.x-to-2.0.0.md)
 - [Radical 2.0.0 to Radical 2.1.0](/upgrade-guides/2.0.0-to-2.1.0.md)
+- [Radical 2.x to Radical 3.0: the async-only message broker](/upgrade-guides/async-message-broker.md)
+  - [In WPF and Avalonia applications](/upgrade-guides/async-message-broker-ui.md)
 - [Radical.Windows 3.x to 4.0.0](/upgrade-guides/3.x-to-4.0.0.md)

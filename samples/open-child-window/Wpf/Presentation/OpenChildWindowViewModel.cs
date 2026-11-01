@@ -1,5 +1,6 @@
 ﻿using Radical.Windows.Presentation;
 using Radical.ComponentModel.Messaging;
+using System.Threading.Tasks;
 
 namespace OpenChildWindowSample.Presentation
 {
@@ -12,9 +13,9 @@ namespace OpenChildWindowSample.Presentation
             this.broker = broker;
         }
 
-	    public void OpenWindow()
+	    public Task OpenWindow()
 	    {
-	        broker.Broadcast(this, new Messaging.OpenChildWindowSampleMessage()
+	        return broker.BroadcastAsync(this, new Messaging.OpenChildWindowSampleMessage()
 	        {
 	            AsDialog = AsDialog
 	        });

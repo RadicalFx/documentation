@@ -1,5 +1,4 @@
-﻿using Radical.Conversions;
-using Radical.Windows.Regions;
+﻿using Radical.Windows.Regions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -24,13 +23,10 @@ namespace MyApp.CustomRegions
 
         protected override void OnRemove( DependencyObject view, RemoveReason reason )
         {
-            view.As<MenuItem>( e =>
+            if ( view is MenuItem e && Element.Items.Contains( e ) )
             {
-                if ( Element.Items.Contains( e ) )
-                {
-                    Element.Items.Remove( e );
-                }
-            } );
+                Element.Items.Remove( e );
+            }
         }
     }
 }

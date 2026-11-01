@@ -6,6 +6,7 @@ using Radical.Windows.ComponentModel;
 using Radical.Windows.Messaging;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyApplication.Messaging.Handlers
 {
@@ -20,10 +21,12 @@ namespace MyApplication.Messaging.Handlers
             this.plugins = plugins.OrderBy(plugin=>plugin.Name);
         }
 
-        public override void Handle(object sender, ViewLoaded message)
+        public override Task HandleAsync(object sender, ViewLoaded message)
         {
             var regionManager = regionService.GetRegionManager(message.View);
             plugins.ForEach(plugin => plugin.OnMainViewLoaded(regionManager));
+
+            return Task.CompletedTask;
         }
 
         protected override bool OnShouldHandle(object sender, ViewLoaded message)

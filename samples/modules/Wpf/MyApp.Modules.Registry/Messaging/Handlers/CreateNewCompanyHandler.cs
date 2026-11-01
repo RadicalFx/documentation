@@ -2,13 +2,14 @@
 using Radical.ComponentModel.Messaging;
 using Radical.Messaging;
 using Radical.Windows.ComponentModel;
+using System.Threading.Tasks;
 
 namespace MyApp.Modules.Registry.Messaging.Handlers
 {
     class CreateNewCompanyHandler(IRegionService regionService, IViewResolver viewResolver)
         : AbstractMessageHandler<CreateNewCompany>, INeedSafeSubscription
     {
-        public override void Handle( object sender, CreateNewCompany message )
+        public override Task HandleAsync( object sender, CreateNewCompany message )
         {
             var manager = regionService.FindRegionManager( ( obj, rm ) => obj is IMainView );
 
@@ -19,6 +20,8 @@ namespace MyApp.Modules.Registry.Messaging.Handlers
 
                 region.Content = view;
             }
+
+            return Task.CompletedTask;
         }
     }
 }

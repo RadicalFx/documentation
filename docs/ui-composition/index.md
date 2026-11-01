@@ -79,35 +79,37 @@ Once a region is defined in the XAML we need to inject some content, we can inje
 Once a View contains a region each time the View is loaded a `ViewLoaded` message is broadcasted to notify that the View has been loaded:
 
 ```csharp
-class MyViewLoadedHandler : MessageHandler<ViewLoaded>, INeedSafeSubscription
+class MyViewLoadedHandler : AbstractMessageHandler<ViewLoaded>, INeedSafeSubscription
 {
     public IViewResolver ViewResolver{ get; set; }
     public IConventionsHandler Conventions{ get; set; }
     public IRegionService RegionService{ get; set; }
 
-    protected override bool OnShouldHandle( ViewLoaded message )
+    protected override bool OnShouldHandle( object sender, ViewLoaded message )
     {
         return message.View is Samples.Presentation.MyView;
     }
 
-    public override void Handle( ViewLoaded message )
+    public override Task HandleAsync( object sender, ViewLoaded message )
     {
         if ( this.RegionService.HoldsRegionManager( message.View ) )
         {
-            var view = this.viewResolver.GetView<MyRegionView>();
+            var view = this.ViewResolver.GetView<MyRegionView>();
 
             var region = this.RegionService.GetRegionManager( message.View )
                 .GetRegion<IContentRegion>( "MyRegion" );
 
             region.Content = view;
         }
+
+        return Task.CompletedTask;
     }
 }
 ```
 
 In the above sample we are defining a message handler to handle the `ViewLoaded` message, overriding the `OnShouldHandle` method to define a rule to handle only the ViewLoaded event related to the View we are interested in.
 
-In the `Handle` method we utilize:
+In the `HandleAsync` method we utilize:
 
 * the `RegionService` to determine is the View has a `RegionManager`;
 * if the View has a region manager

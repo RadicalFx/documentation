@@ -3,6 +3,7 @@ using OpenChildWindowSample.Presentation;
 using Radical.Avalonia.ComponentModel;
 using Radical.ComponentModel.Messaging;
 using Radical.Messaging;
+using System.Threading.Tasks;
 
 namespace OpenChildWindowSample.Messaging.Handlers
 {
@@ -17,7 +18,7 @@ namespace OpenChildWindowSample.Messaging.Handlers
             this.conventions = conventions;
         }
 
-        public override void Handle( object sender, OpenChildWindowSampleMessage message )
+        public override Task HandleAsync( object sender, OpenChildWindowSampleMessage message )
         {
             var view = viewResolver.GetView<ChildView>();
             var owner = conventions.GetViewOfViewModel( sender ) as Window;
@@ -29,6 +30,8 @@ namespace OpenChildWindowSample.Messaging.Handlers
             {
                 view.Show( owner );
             }
+
+            return Task.CompletedTask;
         }
     }
 }
