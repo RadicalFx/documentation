@@ -1,19 +1,17 @@
 # The async-only message broker in WPF and Avalonia applications
 
-> **Proposal.** This guide describes the changes proposed in [RadicalFx/Radical#749](https://github.com/RadicalFx/Radical/issues/749). The API below isn't final, and no released version implements it yet.
-
-Radical.Windows and Radical.Avalonia applications need the changes in [upgrade to the async-only message broker](async-message-broker.md), plus the ones below. Once view models await the broker, their commands, the shutdown process and the built-in messages need to work with tasks too.
+Radical.Windows 4.0.0 and Radical.Avalonia 1.0.0 are built on the async-only message broker of Radical 3.0.0. Their applications need the changes in [upgrade to the async-only message broker](async-message-broker.md), plus the ones below. Once view models await the broker, their commands, the shutdown process and the built-in messages need to work with tasks too.
 
 ## Commands
 
 ### Auto command binding
 
-Today [`AutoCommandBinding`](../markup/auto-command-binding.md) invokes view model methods through a `void` delegate. An `async Task` method compiles, but its task is discarded:
-- exceptions are lost
-- nothing knows the command is still running
-- clicking twice runs it twice
+Before Radical.Windows 4.0.0, [`AutoCommandBinding`](../markup/auto-command-binding.md) invoked view model methods through a `void` delegate. An `async Task` method compiled, but its task was discarded:
+- exceptions were lost
+- nothing knew the command was still running
+- clicking twice ran it twice
 
-The proposal is that `AutoCommandBinding` supports methods returning a `Task`:
+`AutoCommandBinding` now supports methods returning a `Task`:
 - the command awaits the method
 - while it runs, the command can't execute again, so bound controls are disabled
 - exceptions go to the application's unhandled exception handler, configured through `OnUnhandledException`
@@ -48,7 +46,7 @@ The XAML doesn't change: `{markup:AutoCommandBinding Path=Save}` binds the async
 
 ### DelegateCommand
 
-[`DelegateCommand`](../mvvm/delegate-command.md) gets an `OnExecute` overload taking an async delegate, with the same running and exception behavior:
+[`DelegateCommand`](../mvvm/delegate-command.md) has an `OnExecute(Func<object, Task>)` overload taking an async delegate, with the same running and exception behavior:
 
 ```csharp
 // before
@@ -59,6 +57,8 @@ ICommand command = DelegateCommand.Create()
 ICommand command = DelegateCommand.Create()
     .OnExecute(async state => await broker.DispatchAsync(this, new CustomerSaving(customer)));
 ```
+
+Code that needs to wait for an async command, such as a test, awaits its `ExecuteAsync` method instead of calling `Execute`.
 
 The synchronous `OnExecute(Action<object>)` overload stays and isn't deprecated: commands that don't await anything, such as toggling a property, keep using it. The same applies to `AutoCommandBinding`, which keeps binding `void` methods.
 
@@ -84,17 +84,19 @@ broker.Subscribe<ApplicationShutdownRequested>(this, InvocationModel.Safe, async
 
 Starting the shutdown changes as follows:
 
-| Today | Async-only |
+| Before | Now |
 |---|---|
 | `RadicalApplication.Shutdown()` | `await RadicalApplication.ShutdownAsync()` |
 | Broadcasting `ApplicationShutdownRequest` | `await broker.BroadcastAsync(this, new ApplicationShutdownRequest())`, or fire-and-forget |
 | `Application.Current.Shutdown()` (WPF), or the lifetime's `Shutdown()` (Avalonia) | Unchanged. It still can't be canceled, and still raises `ApplicationShutdown` |
 
+In Radical.Windows, `RadicalApplication.Shutdown()` is obsolete with an error, and is removed in 5.0.0. Radical.Avalonia only has `ShutdownAsync()`.
+
 The platform's own end-of-session notifications (`SessionEnding` in WPF) are synchronous and don't go through `ApplicationShutdownRequested`, so they're unaffected.
 
 ## Built-in messages
 
-[Built-in messages](../mvvm/built-in-messages.md) such as `ViewLoaded`, `ViewModelLoaded`, `ViewModelShown` and `ViewModelClosed` are broadcast by the infrastructure from synchronous UI events like `Loaded`, `Activated` and `Closed`. They stay fire-and-forget, as today. Their subscribers follow the [subscriber changes](async-message-broker.md#subscribers).
+[Built-in messages](../mvvm/built-in-messages.md) such as `ViewLoaded`, `ViewModelLoaded`, `ViewModelShown` and `ViewModelClosed` are broadcast by the infrastructure from synchronous UI events like `Loaded`, `Activated` and `Closed`. They're still fire-and-forget. Their subscribers follow the [subscriber changes](async-message-broker.md#subscribers).
 
 Messages the application sends to the infrastructure, such as `CloseViewRequest`, become `BroadcastAsync`:
 

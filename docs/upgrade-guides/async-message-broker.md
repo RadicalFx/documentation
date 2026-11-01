@@ -1,21 +1,19 @@
 # Upgrade to the async-only message broker
 
-> **Proposal.** This guide describes the changes proposed in [RadicalFx/Radical#749](https://github.com/RadicalFx/Radical/issues/749). The API below isn't final, and no released version implements it yet.
+Starting with Radical 3.0.0, the message broker is async-only: subscribers, standalone handlers and publishers all use `Task`-based APIs. This guide applies to every application using the Radical message broker. WPF and Avalonia applications also need the changes in [the async-only message broker in WPF and Avalonia applications](async-message-broker-ui.md).
 
-The message broker becomes async-only: subscribers, standalone handlers and publishers all use `Task`-based APIs. This guide applies to every application using the Radical message broker. WPF and Avalonia applications also need the changes in [the async-only message broker in WPF and Avalonia applications](async-message-broker-ui.md).
+## API changes
 
-## Proposed API
-
-| Today | Async-only |
+| Radical 2.x | Radical 3.0 |
 |---|---|
 | `Subscribe<T>(subscriber, Action<object, T> callback)` | `Subscribe<T>(subscriber, Func<object, T, Task> callback)` |
 | `Subscribe<T>(subscriber, Func<object, T, bool> callbackFilter, Action<object, T> callback)` | `Subscribe<T>(subscriber, Func<object, T, bool> callbackFilter, Func<object, T, Task> callback)` |
 | `Dispatch(sender, message)` | `Task DispatchAsync(sender, message)` |
-| `Broadcast(sender, message)` | `Task BroadcastAsync(sender, message)`, which already exists |
+| `Broadcast(sender, message)` | `Task BroadcastAsync(sender, message)`, which already existed |
 | `IHandleMessage<T>.Handle(object sender, T message)` | `Task HandleAsync(object sender, T message)` |
 | `AbstractMessageHandler<T>.Handle(object sender, T message)` | `Task HandleAsync(object sender, T message)` |
 
-Everything else stays as it is:
+Everything else is unchanged:
 - the overloads with a sender filter, an `InvocationModel` or a message type
 - `callbackFilter`, which remains synchronous: filters should be cheap and side-effect free
 - `Unsubscribe`
@@ -137,7 +135,7 @@ On a UI thread, with subscribers marshalled to the UI thread (`InvocationModel.S
 
 ## How the old API fails to compile
 
-The synchronous API isn't removed right away. It's marked obsolete with an error first, and removed in the following major, so the compiler finds every place that needs to change.
+The synchronous API isn't removed right away: it's obsolete with an error in Radical 3.0.0, and removed in 4.0.0. The compiler therefore finds every place that needs to change.
 
 Code that calls the old API gets error CS0619 with a message pointing to this guide:
 - `Dispatch` and `Broadcast` are obsolete with an error.
@@ -151,7 +149,7 @@ Code that implements or overrides the old API doesn't get obsolete errors: the c
 |---|---|---|
 | Classes inheriting from `AbstractMessageHandler<T>` | `HandleAsync` is abstract, and `Handle` is no longer virtual | CS0534, the class doesn't implement `HandleAsync`, and CS0506, `Handle` can't be overridden |
 | Classes implementing `IHandleMessage<T>` or `IHandleMessage` directly | `Handle` is replaced by `HandleAsync` | CS0535, the class doesn't implement `HandleAsync` |
-| Classes implementing `IMessageBroker`, such as test fakes | `DispatchAsync` is added, and the obsolete members stay until they're removed | CS0535, the class doesn't implement `DispatchAsync` |
+| Classes implementing `IMessageBroker`, such as test fakes | `DispatchAsync` is added, and the obsolete members stay until 4.0.0 | CS0535, the class doesn't implement `DispatchAsync` |
 
 Fix those errors as described in [standalone message handlers](#standalone-message-handlers).
 
