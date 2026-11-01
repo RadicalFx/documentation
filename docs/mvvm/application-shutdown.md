@@ -10,11 +10,11 @@ When the `App.Current.Shutdown()` method is called the bootstrapper raises, via 
 
 * `ApplicationShutdown`: that simply notifies to the application that is shutting down;
 
-**2 way shutdown via `RadicalApplication.Shutdown();`**
+**2 way shutdown via `await RadicalApplication.ShutdownAsync();`**
 
-If we need an option to cancel the application shutdown process we should use the `Shutdown()` method exposed by the `RadicalApplication`. In this way the following events are broadcasted/dispatched by the message broker:
+If we need an option to cancel the application shutdown process we should use the `ShutdownAsync()` method exposed by the `RadicalApplication`. In this way the following events are broadcasted/dispatched by the message broker:
 
-1. `ApplicationShutdownRequested` is dispatched synchronously to the application and has a `Cancel` property that can be set to true to cancel the shutdown process;
+1. `ApplicationShutdownRequested` is dispatched to the application, which awaits its subscribers. It has a `Cancel` property that can be set to true to cancel the shutdown process;
 2. `ApplicationShutdownCanceled` is broadcasted whenever the shutdown process is cancelled;
 3. `ApplicationShutdown` is finally dispatched asynchronously to notify to the application that is shutting down;
 
@@ -31,6 +31,8 @@ public partial class App : Application
 ```
 
 NOTE: the current `RadicalApplication` is not registered in the IoC container. 
+
+NOTE: the synchronous `Shutdown()` method is obsolete with an error as of Radical.Windows 4.0.0, and is removed in 5.0.0. Radical.Avalonia only has `ShutdownAsync()`. See [the upgrade guide](../upgrade-guides/async-message-broker-ui.md#application-shutdown).
 
 **2 way shutdown via `ApplicationShutdownRequest` message**
 

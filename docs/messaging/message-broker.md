@@ -133,6 +133,7 @@ One interesting thing we can do is subscribe to a base class in order to receive
 broker.Subscribe<IMessage>(this, (sender, msg) =>
 {
     //all the messages that inherits from IMessage we'll be handled here.
+    return Task.CompletedTask;
 });
 ```
 

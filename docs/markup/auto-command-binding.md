@@ -25,6 +25,20 @@ The `DoSomething` method can be bound to a `Button` on the View in the following
 
 The `AutoCommandBinding` markup extension will dynamically build a [DelegateCommand](/mvvm/delegate-command.md) that wraps at runtime the method invocation.
 
+Methods can also be asynchronous, returning a `Task`:
+
+```csharp
+class MyViewModel : AbstractViewModel
+{
+   public async Task DoSomething()
+   {
+      await PerformWorkAsync();
+   }
+}
+```
+
+The XAML doesn't change. The command awaits the method: while it runs, the command can't execute again, so the bound control is disabled, and exceptions go to the application's unhandled exception handler. Don't use `async void` methods: the command can't await them.
+
 The `ICommand` interface exposes a `CanExecute(object)` method that the WPF inteface can call to detect if the command is available in the current context and thus decide if the WPF element bound to a command should be enabled or not. Using the same approach as above a ViewModel can expose a `bool` property as following:
 
 ```csharp

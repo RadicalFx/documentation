@@ -38,19 +38,20 @@ class OrderViewModel
     public OrderViewModel( IMessageBroker broker )
     {
         this.broker = broker;
-        this.broker.Subscribe<CustomerSelected>( this, ( s, m ) => 
+        this.broker.Subscribe<CustomerSelected>( this, ( s, m ) =>
         {
             if( m.RequestToken == this.requestToken )
             {
                 //do something with the selection
             }
+            return Task.CompletedTask;
         } );
     }
 
-    void Select()
+    Task Select()
     {
         this.requestToken = new object();
-        this.broker.Broadcast( this, new SelectCustomer() );
+        return this.broker.BroadcastAsync( this, new SelectCustomer() { RequestToken = this.requestToken } );
     }
 }
 ```
@@ -71,7 +72,7 @@ class SelectCustomer
 
 so that we do not have to deal with tokens to identify responses:
 
-```chsarp
+```csharp
 class OrderViewModel
 {
     IMessageBroker broker
@@ -81,16 +82,16 @@ class OrderViewModel
         this.broker = broker;
     }
 
-    void Select()
+    Task Select()
     {
         var msg = new SelectCustomer()
         {
-            Callback = results => 
+            Callback = results =>
             {
                 //do something interesting with the results
             }
         };
-        this.broker.Broadcast( this,  );
+        return this.broker.BroadcastAsync( this, msg );
     }
 }
 ```

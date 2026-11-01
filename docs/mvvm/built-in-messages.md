@@ -44,9 +44,9 @@ The following messages are broadcasted or dispatched by the infrastructure when 
           this.broker = broker;
       }
 
-      public void Sample()
+      public Task Sample()
       {
-          this.broker.Broadcast( this, new CloseViewRequest( this ) );
+          return this.broker.BroadcastAsync( this, new CloseViewRequest( this ) );
       }
   }
   ```
