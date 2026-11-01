@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             xmlns:behaviors="http://schemas.topics.it/wpf/radical/windows/behaviors"
-             xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
+             xmlns:behaviors="http://schemas.radicalframework.com/windows/behaviors"
+             xmlns:markup="http://schemas.radicalframework.com/windows/markup"
              Title="Drag and drop" Height="340" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>

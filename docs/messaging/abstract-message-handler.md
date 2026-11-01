@@ -7,11 +7,14 @@ There are scenarios in which the code that receive the message has nothing to do
 ```csharp
 class MyMessageHandler : AbstractMessageHandler<MyMessage>
 {
-    public override void Handle(object sender, MyMessage message)
+    public override async Task HandleAsync(object sender, MyMessage message)
     {
-        //handle my message here.
+        //handle my message here, awaiting what needs to be awaited.
+        await SomethingAsync(message);
     }
 }
 ```
+
+Handlers with nothing to await return `Task.CompletedTask` instead of being `async`. To handle only some of the messages, override `OnShouldHandle`, which remains synchronous.
 
 When using [message broker and messages](/messaging/message-broker.md) in the context of a MVVM based application Radical [bootstrap conventions](/mvvm/bootstrap-conventions.md), at boot time, will take care of registering in the IoC container all standalone message handlers that match the convention. That, in this case, is when classes are defined in a namespace ending with `*.Messaging.Handlers`.

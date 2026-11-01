@@ -4,6 +4,7 @@ using AsyncRegionsSample.Presentation;
 using Radical.Avalonia.ComponentModel;
 using Radical.Avalonia.Messaging;
 using Radical.Avalonia.Regions;
+using System.Threading.Tasks;
 
 namespace AsyncRegionsSample.Messaging.Handlers
 {
@@ -23,7 +24,7 @@ namespace AsyncRegionsSample.Messaging.Handlers
 			return message.View is AsyncRegionsView;
 		}
 
-		public override void Handle(object sender, ViewLoaded message )
+		public override Task HandleAsync(object sender, ViewLoaded message )
 		{
 			if ( regionService.HoldsRegionManager( message.View ) )
 			{
@@ -35,6 +36,8 @@ namespace AsyncRegionsSample.Messaging.Handlers
 						return foo;
 					} );
 			}
+
+			return Task.CompletedTask;
 		}
 	}
 }
