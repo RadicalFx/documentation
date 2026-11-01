@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace>BasicSample</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Radical.Windows" Version="3.0.0" />
+    <PackageReference Include="Radical.Windows" Version="4.0.0-beta.2" />
   </ItemGroup>
 
 </Project>

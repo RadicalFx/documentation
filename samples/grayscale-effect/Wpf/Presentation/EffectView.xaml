@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	  xmlns:effects="http://schemas.topics.it/wpf/radical/windows/effects"
+	  xmlns:effects="http://schemas.radicalframework.com/windows/effects"
       Title="Grayscale effect" Height="340" Width="400">
     <Window.Resources>
         <effects:GrayscaleEffect x:Key="ge" />

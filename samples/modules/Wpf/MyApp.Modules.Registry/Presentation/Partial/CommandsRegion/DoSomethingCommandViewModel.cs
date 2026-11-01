@@ -1,12 +1,13 @@
 ﻿using Radical.ComponentModel.Messaging;
+using System.Threading.Tasks;
 
 namespace MyApp.Modules.Registry.Presentation.Partial.CommandsRegion
 {
     class DoSomethingCommandViewModel(IMessageBroker broker)
     {
-        public void DoWhatever() 
+        public Task DoWhatever() 
         {
-            broker.Broadcast( this, new Contracts.Messaging.SharedMessage() 
+            return broker.BroadcastAsync( this, new Contracts.Messaging.SharedMessage() 
             {
                 Text = "Hi, there!"
             } );

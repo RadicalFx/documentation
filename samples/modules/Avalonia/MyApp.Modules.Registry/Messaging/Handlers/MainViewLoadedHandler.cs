@@ -4,6 +4,7 @@ using Radical.Avalonia.ComponentModel;
 using Radical.Avalonia.Input;
 using Radical.Avalonia.Messaging;
 using Avalonia.Controls;
+using System.Threading.Tasks;
 
 namespace MyApp.Modules.Registry.Messaging.Handlers
 {
@@ -16,7 +17,7 @@ namespace MyApp.Modules.Registry.Messaging.Handlers
             return viewModel is Contracts.IMainViewModel;
         }
 
-        public override void Handle( object sender, ViewLoaded message )
+        public override Task HandleAsync( object sender, ViewLoaded message )
         {
             if ( regionService.HoldsRegionManager( message.View ) )
             {
@@ -30,14 +31,13 @@ namespace MyApp.Modules.Registry.Messaging.Handlers
                 {
                     Header = "Create...",
                     Command = DelegateCommand.Create()
-                                .OnExecute( _ =>
-                                {
-                                    broker.Broadcast( this, new CreateNewCompany() );
-                                } )
+                                .OnExecute( _ => broker.BroadcastAsync( this, new CreateNewCompany() ) )
                 } );
 
                 manager.GetRegion<IElementsRegion>( "MainMenuRegion" ).Add( registryMenu );
             }
+
+            return Task.CompletedTask;
         }
     }
 }

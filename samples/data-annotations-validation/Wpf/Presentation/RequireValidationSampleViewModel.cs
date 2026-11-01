@@ -1,5 +1,4 @@
 ﻿using Radical.Windows.Presentation;
-using Radical.ComponentModel.Validation;
 using Radical.Windows.ComponentModel;
 using Radical.Windows.Validation;
 using System.ComponentModel;
@@ -8,7 +7,6 @@ using System.ComponentModel.DataAnnotations;
 namespace DataAnnotationsValidationSample.Presentation
 {
     class RequireValidationSampleViewModel : AbstractViewModel,
-        IRequireValidationCallback<RequireValidationSampleViewModel>,
         IRequireValidation
     {
         public RequireValidationSampleViewModel()
@@ -36,6 +34,10 @@ namespace DataAnnotationsValidationSample.Presentation
                         ? ctx.Succeeded()
                         : ctx.Failed("must be equal to 'foo'");
                 }
+            ).AddRule
+            (
+                property: o => o.Sample,
+                rule: ctx => ctx.Failed("This is fully custom, and works even on non-bound properties such as 'Sample'.")
             );
         }
 
@@ -66,16 +68,6 @@ namespace DataAnnotationsValidationSample.Presentation
         {
             get { return this.GetPropertyValue(() => MergeErrors); }
             set { this.SetPropertyValue(() => MergeErrors, value); }
-        }
-
-        public void OnValidate(Radical.Validation.ValidationContext<RequireValidationSampleViewModel> context)
-        {
-            if (context.PropertyName == null)
-            {
-                var displayname = GetPropertyDisplayName(nameof(Sample));
-
-                context.Results.AddError(() => Sample, displayname, new[] { "This is fully custom, and works even on non-bound properties such as 'Sample'." });
-            }
         }
 
         public void RunValidation()
