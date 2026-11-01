@@ -150,6 +150,31 @@ public partial class App : Application
 
 Some of the state of the boot process are also [notified to the application using the message broker](built-in-messages.md).
 
+### Applications without a shell
+
+A shell is optional. An application that doesn't call `UseAsShell`, and uses the `AddRadicalApplication` overload without a shell type, boots without showing any window. That's useful for applications that start hidden, for example in the tray area, and show a window only on request:
+
+```csharp
+public partial class App : Application
+{
+    public App()
+    {
+        this.AddRadicalApplication(configuration =>
+        {
+            configuration.OverrideShutdownMode(ShutdownMode.OnExplicitShutdown);
+            configuration.OnBootCompleted(serviceProvider =>
+            {
+                //no window is visible, set up the tray icon here
+            });
+        });
+    }
+}
+```
+
+The same applies when [hosting the application with the Generic Host](/ioc/third-party.md), using `AddRadicalApplication(configuration => { ... })`.
+
+With WPF's default `ShutdownMode.OnLastWindowClose`, the application shuts down when the last window is closed. A headless application that shows a [splash screen](/how-tos/splash-screen.md) has the splash screen as its only window, so closing it ends the application: use `OverrideShutdownMode(ShutdownMode.OnExplicitShutdown)`, and call `Shutdown()` on the `RadicalApplication` returned by `AddRadicalApplication` when the application should exit.
+
 ### Intercepting unhandled exceptions
 
 if we need to be notified whenever an unhandled exception occurs in our application we can use the provided hook:
