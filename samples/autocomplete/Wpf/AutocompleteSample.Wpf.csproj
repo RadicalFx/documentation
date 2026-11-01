@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoCompleteTextBox" Version="1.7.3" />
-    <PackageReference Include="Radical.Windows" Version="4.0.0-beta.2" />
+    <PackageReference Include="Radical.Windows" Version="4.0.0" />
   </ItemGroup>
 
 </Project>

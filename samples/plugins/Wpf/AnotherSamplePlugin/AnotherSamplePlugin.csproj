@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Radical" Version="3.0.0" />
-    <PackageReference Include="Radical.Windows" Version="4.0.0-beta.2" />
+    <PackageReference Include="Radical.Windows" Version="4.0.0" />
   </ItemGroup>
 
 </Project>
